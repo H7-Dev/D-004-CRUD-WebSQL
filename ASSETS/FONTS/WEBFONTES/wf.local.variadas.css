@@ -1,0 +1,495 @@
+/* Mapeamento dos peso das fontes
+
+* 100 Thin (Hairline)
+* 200 Extra Light (Ultra Light, Ultra Fino)
+* 300 Light (Fino)
+* 400 Normal
+* 500 Medium (Médio)
+* 600 Semi Bold (Demi Bold, Semi Negrito)
+* 700 Bold (Negrito)
+* 800 Extra Bold (Ultra Bold, Super Negrito)
+* 900 Black (Heavy)
+
+*/
+
+ /* #region Lato */
+ @font-face {
+    src: url(./../VARIADAS/Lato/Lato-Thin.ttf);
+    font-family: 'LatoThin';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Lato/Lato-Light.ttf);
+    font-family: 'LatoLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Lato/Lato-Regular.ttf);
+    font-family: 'LatoRegular';
+    font-weight: normal;
+}
+@font-face {
+    src: url(./../VARIADAS/Lato/Lato-Bold.ttf);
+    font-family: 'LatoBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Lato/Lato-Black.ttf);
+    font-family: 'LatoBlack';
+    font-weight: 900;
+}
+/* #endregion Lato */
+/* #region OpenSansCondensed */
+@font-face {
+    src: url(./../VARIADAS/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+    font-family: 'OpenSansCondensedLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+    font-family: 'OpenSansCondensedBold';
+    font-weight: 700;
+}
+
+/* #endregion OpenSansCondensed */
+/* #region OpenSans */
+@font-face {
+    src: url(./../VARIADAS/Open_Sans/OpenSans-Light.ttf);
+    font-family: 'OpenSansLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Open_Sans/OpenSans-Regular.ttf);
+    font-family: 'OpenSansRegular';
+    font-weight: normal;
+}
+@font-face {
+    src: url(./../VARIADAS/Open_Sans/OpenSans-SemiBold.ttf);
+    font-family: 'OpenSansSemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Open_Sans/OpenSans-Bold.ttf);
+    font-family: 'OpenSansBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Open_Sans/OpenSans-ExtraBold.ttf);
+    font-family: 'OpenSansExtraBold';
+    font-weight: 800;
+}
+/* #endregion OpenSans */
+/* #region Roboto */
+
+@font-face {
+    src: url(./../VARIADAS/Roboto/Roboto-Thin.ttf);
+    font-family: 'RobotoThin';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Roboto/Roboto-Light.ttf);
+    font-family: 'RobotoLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Roboto/Roboto-Regular.ttf);
+    font-family: 'RobotoRegular';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Roboto/Roboto-Medium.ttf);
+    font-family: 'RobotoMedium';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Roboto/Roboto-Bold.ttf);
+    font-family: 'RobotoBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Roboto/Roboto-Black.ttf);
+    font-family: 'RobotoBlack';
+    font-weight: 900;
+}
+/* #endregion Roboto-Regular */
+/* #region Oswald */
+
+@font-face {
+    src: url(./../VARIADAS/Oswald/static/Oswald-Light.ttf);
+    font-family: 'OswaldLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Oswald/static/Oswald-Regular.ttf);
+    font-family: 'OswaldRegular';
+    font-weight: normal;
+}
+@font-face {
+    src: url(./../VARIADAS/Oswald/static/Oswald-Medium.ttf);
+    font-family: 'OswaldMedium';
+    font-weight: 500;
+}
+@font-face {
+    src: url(./../VARIADAS/Oswald/static/Oswald-SemiBold.ttf);
+    font-family: 'OswaldSemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Oswald/static/Oswald-Bold.ttf);
+    font-family: 'OswaldBold';
+    font-weight: 700;
+}
+
+/* #endregion Oswald-Regular */
+/* #region JosefinSans */
+
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-Thin.ttf);
+    font-family: 'Josefin Sans Thin';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-ThinItalic.ttf);
+    font-family: 'Josefin Sans Thin Italic';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-ExtraLight.ttf);
+    font-family: 'Josefin Sans Extra Light';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-ExtraLightItalic.ttf);
+    font-family: 'Josefin Sans Extra Light Italic';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-Light.ttf);
+    font-family: 'JosefinSansLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-LightItalic.ttf);
+    font-family: 'Josefin Sans Light Italic';
+    font-weight: 300;
+}
+
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-Regular.ttf);
+    font-family: 'JosefinSansRegular';
+    font-weight: normal;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-Italic.ttf);
+    font-family: 'Josefin Sans Italic';
+    font-weight: normal;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-Medium.ttf);
+    font-family: 'Josefin Sans Medium';
+    font-weight: 500;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-MediumItalic.ttf);
+    font-family: 'Josefin Sans Medium Italic';
+    font-weight: 500;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-SemiBold.ttf);
+    font-family: 'Josefin Sans SemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-SemiBoldItalic.ttf);
+    font-family: 'Josefin Sans SemiBold Italic';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-Bold.ttf);
+    font-family: 'JosefinSansBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Sans/static/JosefinSans-BoldItalic.ttf);
+    font-family: 'Josefin Sans Bold Italic';
+    font-weight: 700;
+}
+
+/* #endregion JosefinSans */
+/* #region JosefinSlab-Regular */
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-Regular.ttf);
+    font-family: 'Josefin Slab Regular';
+    font-weight: normal;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-Thin.ttf);
+    font-family: 'Josefin Slab Thin';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-ThinItalic.ttf);
+    font-family: 'Josefin Slab Thin Italic';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-Light.ttf);
+    font-family: 'Josefin Slab Light';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-LightItalic.ttf);
+    font-family: 'Josefin Slab Light Italic';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-Regular.ttf);
+    font-family: 'Josefin Slab Regular';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-Italic.ttf);
+    font-family: 'Josefin Slab Regular Italic';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-SemiBold.ttf);
+    font-family: 'Josefin Slab SemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-SemiBoldItalic.ttf);
+    font-family: 'Josefin Slab SemiBold Italic';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-Bold.ttf);
+    font-family: 'JosefinSlabBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Josefin_Slab/JosefinSlab-BoldItalic.ttf);
+    font-family: 'JosefinSlabBoldItalic';
+    font-weight: 700;
+}
+/* #endregion JosefinSlab-Regular */
+/* #region Dosis */
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-ExtraLight.ttf);
+    font-family: 'DosisExtraLight';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-Light.ttf);
+    font-family: 'DosisLight';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-Regular.ttf);
+    font-family: 'DosisRegular';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-Medium.ttf);
+    font-family: 'DosisMedium';
+    font-weight: 500;
+}
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-SemiBold.ttf);
+    font-family: 'DosisSemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-Bold.ttf);
+    font-family: 'DosisBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Dosis/Dosis-ExtraBold.ttf);
+    font-family: 'Dosis Extra Bold';
+    font-weight: 800;
+}
+
+/* #endregion Dosis */
+/* #region Rajdhani */
+@font-face {
+    src: url(./../VARIADAS/Rajdhani/Rajdhani-Light.ttf);
+    font-family: 'Rajdhani Light';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Rajdhani/Rajdhani-Regular.ttf);
+    font-family: 'Rajdhani Regular';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Rajdhani/Rajdhani-Medium.ttf);
+    font-family: 'Rajdhani Medium';
+    font-weight: 500;
+}
+@font-face {
+    src: url(./../VARIADAS/Rajdhani/Rajdhani-SemiBold.ttf);
+    font-family: 'Rajdhani SemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Rajdhani/Rajdhani-Bold.ttf);
+    font-family: 'RajdhaniBold';
+    font-weight: 700;
+}
+/* #endregion Rajdhani */
+/* #region SourceSansPro */
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf);
+    font-family: 'Source Sans Pro Extra Light';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf);
+    font-family: 'Source Sans Pro Extra Light Italic';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-Light.ttf);
+    font-family: 'Source Sans Pro Light';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-LightItalic.ttf);
+    font-family: 'Source Sans Pro Light Italic';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-Regular.ttf);
+    font-family: 'Source Sans Pro Regular';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-Italic.ttf);
+    font-family: 'Source Sans Pro Regular Italic';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-SemiBold.ttf);
+    font-family: 'Source Sans Pro SemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-SemiBoldItalic.ttf);
+    font-family: 'Source Sans Pro SemiBold Italic';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-Bold.ttf);
+    font-family: 'Source Sans Pro Bold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf);
+    font-family: 'Source Sans Pro Bold Italic';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Source_Sans_Pro/SourceSansPro-Black.ttf);
+    font-family: 'Source Sans Pro Black';
+    font-weight: 900;
+}
+
+/* #endregion SourceSansPro */
+/* #region  Montserrat */
+
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-Thin.ttf);
+    font-family: 'Montserrat Thin';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-ThinItalic.ttf);
+    font-family: 'Montserrat Thin Italic';
+    font-weight: 100;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-ExtraLight.ttf);
+    font-family: 'Montserrat Extra Light';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-ExtraLightItalic.ttf);
+    font-family: 'Montserrat Extra Light Italic';
+    font-weight: 200;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-Light.ttf);
+    font-family: 'Montserrat Light';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-LightItalic.ttf);
+    font-family: 'Montserrat Light Italic';
+    font-weight: 300;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-Regular.ttf);
+    font-family: 'MontserratRegular';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-Italic.ttf);
+    font-family: 'MontserratItalic';
+    font-weight: 400;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-SemiBold.ttf);
+    font-family: 'MontserratSemiBold';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-SemiBoldItalic.ttf);
+    font-family: 'MontserratSemiBoldItalic';
+    font-weight: 600;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-Bold.ttf);
+    font-family: 'MontserratBold';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-BoldItalic.ttf);
+    font-family: 'Montserrat Bold Italic';
+    font-weight: 700;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-ExtraBold.ttf);
+    font-family: 'Montserrat Extra Bold';
+    font-weight: 800;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-ExtraBoldItalic.ttf);
+    font-family: 'Montserrat Extra Bold Italic';
+    font-weight: 800;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-Black.ttf);
+    font-family: 'Montserrat Black';
+    font-weight: 900;
+}
+@font-face {
+    src: url(./../VARIADAS/Montserrat/Montserrat-BlackItalic.ttf);
+    font-family: 'Montserrat Black Italic';
+    font-weight: 900;
+}
+/* #endregion  Montserrat */
+/* #region Lobster-Regular */
+@font-face {
+    src: url(./../VARIADAS/Lobster/Lobster-Regular.ttf);
+    font-family: 'Lobster Regular';
+    font-weight: normal;
+}
+/* #endregion Lobster-Regular */
+/* #region Lobster-Regular */
+@font-face {
+    src: url(./../3_Cursiva/Redressed/Redressed-Regular.ttf);
+    font-family: 'Redressed-Regular';
+    font-weight: normal;
+}
+/* #endregion Lobster-Re(gular */
