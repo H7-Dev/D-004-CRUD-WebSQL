@@ -1209,13 +1209,16 @@ div.crud {
             padding: 6px 10px;
             width: fit-content;
             display: grid;
+            grid-auto-flow: column;
             gap: 8px;
-            grid-template-rows: 1fr;
-            grid-template-columns: 1fr 1fr;
+            // grid-template-rows: 1fr;
+            // grid-template-columns: 1fr 1fr 1fr;
             border-radius: 8px;
 
             >button.btnAddBar,
-            >button.btnSelc {
+            >button.btnSelc,
+            >button.btnDel,
+            >button.btnUpdate {
                 background-color: #0000;
                 padding: 4px 7px;
                 height: fit-content;
@@ -1248,7 +1251,24 @@ div.crud {
                     fill: crimson;
                     fill: #003c8c;
                 }
+            }
+            >button.btnDel{
+                display: none !important;
+                >svg {
+                    height: 14pt;
+                    fill: crimson;
+                    // fill: #003c8c;
+                }
+            }
+            >button.btnUpdate{
+                display: none !important;
+                >svg {
+                    height: 14pt;
+                    fill: crimson;
+                    // fill: #003c8c;
+                    fill: goldenrod;
 
+                }
             }
         }
 

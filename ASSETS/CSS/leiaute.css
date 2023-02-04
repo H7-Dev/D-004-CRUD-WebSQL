@@ -1021,13 +1021,14 @@ div.crud > footer > div.actions {
   padding: 6px 10px;
   width: fit-content;
   display: grid;
+  grid-auto-flow: column;
   gap: 8px;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
   border-radius: 8px;
 }
 div.crud > footer > div.actions > button.btnAddBar,
-div.crud > footer > div.actions > button.btnSelc {
+div.crud > footer > div.actions > button.btnSelc,
+div.crud > footer > div.actions > button.btnDel,
+div.crud > footer > div.actions > button.btnUpdate {
   background-color: rgba(0, 0, 0, 0);
   padding: 4px 7px;
   height: fit-content;
@@ -1041,23 +1042,46 @@ div.crud > footer > div.actions > button.btnSelc {
   align-self: center;
 }
 div.crud > footer > div.actions > button.btnAddBar:hover,
-div.crud > footer > div.actions > button.btnSelc:hover {
+div.crud > footer > div.actions > button.btnSelc:hover,
+div.crud > footer > div.actions > button.btnDel:hover,
+div.crud > footer > div.actions > button.btnUpdate:hover {
   background-color: #fafafa;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
 }
 div.crud > footer > div.actions > button.btnAddBar:active,
-div.crud > footer > div.actions > button.btnSelc:active {
+div.crud > footer > div.actions > button.btnSelc:active,
+div.crud > footer > div.actions > button.btnDel:active,
+div.crud > footer > div.actions > button.btnUpdate:active {
   background-color: #fafafa;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
 }
 div.crud > footer > div.actions > button.btnAddBar:focus,
-div.crud > footer > div.actions > button.btnSelc:focus {
+div.crud > footer > div.actions > button.btnSelc:focus,
+div.crud > footer > div.actions > button.btnDel:focus,
+div.crud > footer > div.actions > button.btnUpdate:focus {
   background-color: #fafafa;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
 }
 div.crud > footer > div.actions > button.btnAddBar > svg,
-div.crud > footer > div.actions > button.btnSelc > svg {
+div.crud > footer > div.actions > button.btnSelc > svg,
+div.crud > footer > div.actions > button.btnDel > svg,
+div.crud > footer > div.actions > button.btnUpdate > svg {
   height: 14pt;
   fill: crimson;
   fill: #003c8c;
+}
+div.crud > footer > div.actions > button.btnDel {
+  display: none !important;
+}
+div.crud > footer > div.actions > button.btnDel > svg {
+  height: 14pt;
+  fill: crimson;
+}
+div.crud > footer > div.actions > button.btnUpdate {
+  display: none !important;
+}
+div.crud > footer > div.actions > button.btnUpdate > svg {
+  height: 14pt;
+  fill: crimson;
+  fill: goldenrod;
 }/*# sourceMappingURL=leiaute.css.map */
