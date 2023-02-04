@@ -1,17 +1,35 @@
 var TableToggler = function(options) {
-    console.log('teste')
     options = options || {};
     var btnSelc = document.querySelector(options.btnSelc || ".btnSelc");
     var elementsToToggle = [];
-    console.log(elementsToToggle);
     options.elementsToToggle.forEach(function(element) {
       var elements = document.querySelectorAll(element);
       elementsToToggle = elementsToToggle.concat([].slice.call(elements));
     });
+    var activeClass = options.activeClass || "active";
+    var disabledClass = options.disabledClass || "disabled";
+    var animeClass = options.animeClass || "anime";
+    var delay = options.delay || 1100;
 
     var toggleDisplay = function(elements) {
       for (var i = 0; i < elements.length; i++) {
-        elements[i].style.display = elements[i].style.display === "none" || !elements[i].style.display ? "table-cell" : "none";
+        if (elements[i] && elements[i].classList) {
+          if (elements[i].classList.contains(disabledClass)) {
+            elements[i].classList.remove(disabledClass);
+            elements[i].classList.add(activeClass);
+            elements[i].classList.add(animeClass);
+          } else {
+            (function(index) {
+              setTimeout(function() {
+                if (elements[index] && elements[index].classList) {
+                  elements[index].classList.remove(activeClass);
+                  elements[index].classList.remove(animeClass);
+                  elements[index].classList.add(disabledClass);
+                }
+              }, delay);
+            })(i);
+          }
+        }
       }
     };
 

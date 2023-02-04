@@ -17,7 +17,9 @@
 
 var tableToggler = new TableToggler({
     // btnSelc: ".customBtn",
-    elementsToToggle: ["td.action", "th.actions"]
+    elementsToToggle: ["td.action", ".thActions"],
+    // activeClass: ".ativado",
+    // activeClass: ".desativado",
 });
 
 tableToggler.toggle();
