@@ -1,15 +1,26 @@
+.active {
+    display: block !important;
+    display: revert !important;
+}
 
-.active {display: block !important;display: revert !important;}
-.disabled {display: none !important;}
+.disabled {
+    display: none !important;
+}
 
-.ativado {display: block !important;display: revert !important;}
-.desativo {display: none !important;}
+.ativado {
+    display: grid !important;
+}
+
+.desativo {
+    display: none !important;
+}
 
 .saltar {
     opacity: 0;
     animation: saltarDentro 1s ease-out forwards;
 
     @keyframes saltarDentro {
+
         // nome em inglês bounceIn
         0% {
             transform: scale(0.3);
@@ -31,7 +42,6 @@
         }
     }
 }
-
 .saltarOut {
     -webkit-animation-name: saltarOut;
     animation-name: saltarOut;
@@ -41,42 +51,98 @@
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-}
-@-webkit-keyframes saltarOut {
-    20% {
-        -webkit-transform: scale3d(.9, .9, .9);
-        transform: scale3d(.9, .9, .9);
+
+    @-webkit-keyframes saltarOut {
+        20% {
+            -webkit-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9);
+        }
+
+        50%,
+        55% {
+            opacity: 1;
+            -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        100% {
+            opacity: 0;
+            -webkit-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+        }
     }
 
-    50%,
-    55% {
-        opacity: 1;
-        -webkit-transform: scale3d(1.1, 1.1, 1.1);
-        transform: scale3d(1.1, 1.1, 1.1);
+    @keyframes saltarOut {
+        20% {
+            -webkit-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9);
+        }
+
+        50%,
+        55% {
+            opacity: 1;
+            -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        100% {
+            opacity: 0;
+            -webkit-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+        }
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
     }
 
     100% {
-        opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3);
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
 }
-@keyframes saltarOut {
-    20% {
-        -webkit-transform: scale3d(.9, .9, .9);
-        transform: scale3d(.9, .9, .9);
-    }
 
-    50%,
-    55% {
-        opacity: 1;
-        -webkit-transform: scale3d(1.1, 1.1, 1.1);
-        transform: scale3d(1.1, 1.1, 1.1);
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
     }
 
     100% {
-        opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3);
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
 }
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+    }
+    @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+    }
