@@ -1129,19 +1129,26 @@ div.form div.wrapper > div.main > div.dockLeft {
   display: grid;
   gap: 12px;
   align-content: center;
+  justify-items: center;
 }
-div.form div.wrapper > div.main > div.dockLeft span.titulo {
-  color: #F26B6B;
-  font-size: 1.1rem;
+div.form div.wrapper > div.main > div.dockLeft > button.btnSeclIgm {
+  background-color: #FFF;
+  background-size: cover;
+  background-position: center;
+  padding: 4PX;
+  height: 175px;
+  width: 175px;
   display: grid;
-  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #d1d0d0;
+  border-radius: 50%;
+  outline: 1px solid rgba(0, 0, 0, 0);
 }
-div.form div.wrapper > div.main > div.dockLeft > p {
-  color: #003C8C;
-  font-size: 1rem;
-  font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
-  letter-spacing: normal;
-  font-weight: normal;
+div.form div.wrapper > div.main > div.dockLeft > button.btnSeclIgm > span {
+  margin: 50% auto;
+  width: 100%;
+  position: absolute;
 }
 div.form div.wrapper > div.footer {
   background-color: #F8F8F8;

@@ -1337,20 +1337,32 @@ div.form {
                 display: grid;
                 gap: 12px;
                 align-content: center;
+                justify-items: center;
 
-                span.titulo {
-                    color: #F26B6B;
-                    font-size: 1.1rem;
-                    // font-family: DosisMedium, "Segoe UI", sans-serif;
+
+                >button.btnSeclIgm {
+                    background-color: #FFF;
+                    background-size: cover;
+                    background-position: center;
+                    padding: 4PX;
+                    height: 175px;
+                    width: 175px;
                     display: grid;
-                    align-items: flex-end;
-                }
-                >p {
-                    color: #003C8C;
-                    font-size: 1rem;
-                    font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
-                    letter-spacing: normal;
-                    font-weight: normal;
+
+                    overflow: hidden;
+                    position: relative;
+
+
+                    border: 1px solid #d1d0d0;
+                    border-radius: 50%;
+                    outline: 1px solid #0000;
+
+                    >span {
+                        // background-color: red;
+                        margin: 50% auto;
+                        width: 100%;
+                        position: absolute;
+                    }
                 }
             }
         }
