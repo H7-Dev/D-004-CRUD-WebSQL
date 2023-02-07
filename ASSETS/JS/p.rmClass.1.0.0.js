@@ -1,8 +1,6 @@
-var addClasses = function (options) {
+var removeClasses = function (options) {
     options = options || {};
-
     var btnSelc = document.querySelector(options.btnSelc || ".btnSelc");
-    console.log(btnSelc);
 
     var elementsToToggle = [];
     options.elementsToToggle.forEach(function (element) {
@@ -10,38 +8,36 @@ var addClasses = function (options) {
         elementsToToggle = elementsToToggle.concat([].slice.call(elements));
     });
 
-    var activeClass = options.activeClass || "active";
     var animeClass = options.animeClass || "anime";
+    var removeClass = options.removeClass || "active";
     var delay = options.delay || 900;
 
-    var adicionarClass = function (elements) {
+    var removerClasses = function (elements) {
         for (var i = 0; i < elements.length; i++) {
             if (elements[i] && elements[i].classList) {
-                if (!elements[i].classList.contains(activeClass)) {
-                    elements[i].classList.add(activeClass);
+                if (elements[i].classList.contains(removeClass)) {
                     elements[i].classList.add(animeClass);
+                    (function(i) {
+                        setTimeout(function() {
+                            elements[i].classList.remove(removeClass);
+                            elements[i].classList.remove(animeClass);
+                        }, delay);
+                    })(i);
                 }
             }
         }
-        setTimeout(function() {
-            for (var i = 0; i < elements.length; i++) {
-                if (elements[i] && elements[i].classList) {
-                    elements[i].classList.remove(animeClass);
-                }
-            }
-        }, delay);
     };
     if (btnSelc) {
         btnSelc.addEventListener("click", function () {
-            adicionarClass(elementsToToggle);
+            removerClasses(elementsToToggle);
         });
     }
 };
 
-var btnAdd = new addClasses({
-    btnSelc: ".btnAddRegistro",
+var btnVoltar = new removeClasses({
+    btnSelc: ".btnVoltar",
     elementsToToggle: [".form"],
-    activeClass: "ativado",
-    animeClass: "zoomIn",
-    // delay: 3000,
+    animeClass: "saltarOut",
+    removeClass: "ativado",
+    // delay: 5000,
 });

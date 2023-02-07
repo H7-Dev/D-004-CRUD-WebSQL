@@ -18,36 +18,4 @@ var tableToggler = new altClasses({
 tableToggler.toggle()
 
 
-// var btnAdd = new altClasses({
-//     btnSelc: ".btnAddRegistro",
-//     elementsToToggle: [".form"],
-//     activeClass: "ativado",
-//     disabledClass: "desativo",
-//     animeClass: "fadeInDown",
-//     animeOutClass: "fadeOut",
-//     delay: 700,
-// })
-
 // btnAdd.toggle()
-
-// var btnVoltar = new altClasses({
-//     btnSelc: ".btnVoltar",
-//     elementsToToggle: [".form"],
-//     activeClass: "ativado",
-//     disabledClass: "desativo",
-//     animeClass: "fadeInDown",
-//     animeOutClass: "fadeOut",
-//     delay: 1700,
-// })
-
-// btnAdd.toggle()
-
-
-//
-var btnAdd = new addClasses({
-    btnSelc: ".btnAddRegistro",
-    elementsToToggle: [".form"],
-    activeClass: "ativado",
-    animeClass: "zoomIn",
-})
-
