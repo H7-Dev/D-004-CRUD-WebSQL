@@ -1,9 +1,11 @@
-const questions = ["Qual é o seu nome?", "Qual é a sua idade?", "Onde você mora?"];
+const questions = ["Qual é o seu nome?", "Qual é a sua data de nascimento?", "Onde você mora?"];
+const answerTypes = ["simple", "date", "simple"];
 const answers = [];
 const isRequired = [true, false, false];
 let i = 0;
 
 const resUser = document.getElementById("resUser");
+const resUserDate = document.getElementById("resUserDate");
 const btnEnviar = document.getElementById("btnEnviar");
 const box = document.getElementById("box");
 const btnIniciarChat = document.getElementById("btnIniciarChat");
@@ -19,16 +21,31 @@ btnIniciarChat.addEventListener("click", function () {
     box.appendChild(displayResp);
 
     btnIniciarChat.style.display = "none";
+
+    if (answerTypes[i] === "simple") {
+        resUser.style.display = "block";
+        resUserDate.style.display = "none";
+    } else {
+        resUser.style.display = "none";
+        resUserDate.style.display = "block";
+    }
 });
 btnEnviar.addEventListener("click", function () {
-    if (resUser.value === "" && isRequired[i]) {
-        console.log(isRequired[i]);
+    let answer;
+    if (answerTypes[i] === "simple") {
+        answer = resUser.value;
+    } else {
+        answer = resUserDate.value;
+    }
+
+    if (answer === "" && isRequired[i]) {
         alert("Essa resposta é obrigatória!");
         return;
     }
-    answers.push(resUser.value);
-    displayResp.textContent = "Resposta " + (i + 1) + ": " + resUser.value;
+    answers.push(answer);
+    displayResp.textContent = "Resposta " + (i + 1) + ": " + answer;
     resUser.value = "";
+    resUserDate.value = "";
     i++;
 
     let typingIndicator = document.createElement("div");
@@ -46,6 +63,13 @@ btnEnviar.addEventListener("click", function () {
     });
 
     if (i < questions.length) {
+        let questionType;
+        if (questions[i].toLowerCase().includes("data")) {
+            questionType = "date";
+        } else {
+            questionType = "simple";
+        }
+
         setTimeout(() => {
             box.removeChild(typingIndicator);
 
@@ -57,6 +81,9 @@ btnEnviar.addEventListener("click", function () {
             displayResp = document.createElement("p");
             displayResp.classList.add("displayResp");
             box.appendChild(displayResp);
+
+            document.getElementById("resUser").style.display = questionType === "simple" ? "block" : "none";
+            document.getElementById("resUserDate").style.display = questionType === "date" ? "block" : "none";
 
             box.scroll({
                 top: box.scrollHeight,
