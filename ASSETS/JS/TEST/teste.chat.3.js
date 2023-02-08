@@ -31,7 +31,7 @@ btnIniciarChat.addEventListener("click", function () {
     const currentQuestion = questions[i];
 
     const pergunta =
-    `<span class="perguntas">${currentQuestion.text}</span>-`;
+    `<span class="perguntas">${currentQuestion.text}</span>`;
     box.innerHTML += pergunta;
 
     displayResp = document.createElement("p");
@@ -45,9 +45,7 @@ btnIniciarChat.addEventListener("click", function () {
     const output = `<p class="displayResp">${result.result}</p>`;
     box.insertAdjacentHTML("beforeend", output);
 
-
     btnIniciarChat.style.display = "none";
-
     if (currentQuestion.type === "simple") {
         resUser.style.display = "block";
         resUserDate.style.display = "none";
@@ -119,11 +117,8 @@ btnEnviar.addEventListener("click", function () {
         for (let i = 0; i < typingIndicators.length; i++) {
             box.removeChild(typingIndicators[i]);
         }
-
-        let msgFinal = document.createElement("div");
-        msgFinal.classList.add("msgFinal");
-        msgFinal.textContent = "Fim das perguntas";
-        box.appendChild(msgFinal);
+        const msgFinal =`<div class="${className}">${msgFinal}</div>`;
+        box.innerHTML += msgFinal;
 
         box.scroll({
             top: box.scrollHeight,
