@@ -35,9 +35,12 @@ btnIniciarChat.addEventListener("click", function () {
     box.innerHTML += pergunta;
     // box.appendChild(pergunta);
 
-    displayResp = document.createElement("p");
-    displayResp.classList.add("displayResp");
-    box.appendChild(displayResp);
+    // displayResp = document.createElement("p");
+    // displayResp.classList.add("displayResp");
+    // box.appendChild(displayResp);
+
+     displayResp = `<p class="displayResp"></p>`;
+    box.insertAdjacentHTML("beforeend", displayResp);
 
     btnIniciarChat.style.display = "none";
 
@@ -65,7 +68,10 @@ btnEnviar.addEventListener("click", function () {
         return;
     }
     answers.push(answer);
-    displayResp.textContent = "Resposta " + (i + 1) + ": " + answer;
+    // console.log("Resposta " + (i + 1) + ": " + answer;)
+
+     displayResp = `<p class="displayResp">Resposta: ${(i + 1)+answer}</p>`;
+    box.insertAdjacentHTML("beforeend", displayResp);
     resUser.value = "";
     resUserDate.value = "";
     i++;
@@ -95,9 +101,10 @@ btnEnviar.addEventListener("click", function () {
             pergunta.textContent = questions[i].text;
             box.appendChild(pergunta);
 
-            displayResp = document.createElement("p");
-            displayResp.classList.add("displayResp");
-            box.appendChild(displayResp);
+
+
+             displayResp = `<p class="displayResp"></p>`;
+            box.insertAdjacentHTML("beforeend", displayResp);
 
             document.getElementById("resUser").style.display = questionType === "simple" ? "block" : "none";
             document.getElementById("resUserDate").style.display = questionType === "date" ? "block" : "none";
