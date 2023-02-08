@@ -33,19 +33,14 @@ btnIniciarChat.addEventListener("click", function () {
     const pergunta =
     `<span class="perguntas">${currentQuestion.text}</span>`;
     box.innerHTML += pergunta;
+    // box.appendChild(pergunta);
 
     displayResp = document.createElement("p");
     displayResp.classList.add("displayResp");
     box.appendChild(displayResp);
 
-
-    // const messages = document.querySelector('#messages');
-    // REVIEW #B-001
-    // !IMPORTANT  Appending a template string
-    const output = `<p class="displayResp">${result.result}</p>`;
-    box.insertAdjacentHTML("beforeend", output);
-
     btnIniciarChat.style.display = "none";
+
     if (currentQuestion.type === "simple") {
         resUser.style.display = "block";
         resUserDate.style.display = "none";
@@ -117,8 +112,11 @@ btnEnviar.addEventListener("click", function () {
         for (let i = 0; i < typingIndicators.length; i++) {
             box.removeChild(typingIndicators[i]);
         }
-        const msgFinal =`<div class="${className}">${msgFinal}</div>`;
-        box.innerHTML += msgFinal;
+
+        let msgFinal = document.createElement("div");
+        msgFinal.classList.add("msgFinal");
+        msgFinal.textContent = "Fim das perguntas";
+        box.appendChild(msgFinal);
 
         box.scroll({
             top: box.scrollHeight,
