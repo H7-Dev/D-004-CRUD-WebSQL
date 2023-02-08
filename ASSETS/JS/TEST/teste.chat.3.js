@@ -1,7 +1,24 @@
-const questions = ["Qual é o seu nome?", "Qual é a sua data de nascimento?", "Onde você mora?"];
-const answerTypes = ["simple", "date", "simple"];
-const answers = [];
-const isRequired = [true, false, false];
+console.clear()
+console.log('teste.chat.3.js')
+
+const questions = [{
+        text: "Qual é o seu nome?",
+        type: "simple",
+        isRequired: true
+    },
+    {
+        text: "Qual é a sua data de nascimento?",
+        type: "date",
+        isRequired: false
+    },
+    {
+        text: "Onde você mora?",
+        type: "simple",
+        isRequired: false
+    }
+];
+console.log('✍️ Objeto de perguntas e suas propriedade (text, type e isRequired)');
+console.log(questions)
 let i = 0;
 
 const resUser = document.getElementById("resUser");
@@ -11,10 +28,13 @@ const box = document.getElementById("box");
 const btnIniciarChat = document.getElementById("btnIniciarChat");
 
 btnIniciarChat.addEventListener("click", function () {
-    pergunta = document.createElement("span");
-    pergunta.classList.add("perguntas");
-    pergunta.textContent = questions[i];
-    box.appendChild(pergunta);
+    const currentQuestion = questions[i];
+
+    const pergunta =
+    `
+        <span class="perguntas">${currentQuestion.text}</span>
+    `;
+    box.innerHTML += pergunta;
 
     displayResp = document.createElement("p");
     displayResp.classList.add("displayResp");
@@ -22,23 +42,26 @@ btnIniciarChat.addEventListener("click", function () {
 
     btnIniciarChat.style.display = "none";
 
-    if (answerTypes[i] === "simple") {
+    if (currentQuestion.type === "simple") {
         resUser.style.display = "block";
         resUserDate.style.display = "none";
     } else {
         resUser.style.display = "none";
         resUserDate.style.display = "block";
     }
-});
+})
+
+const answers = [];
+
 btnEnviar.addEventListener("click", function () {
     let answer;
-    if (answerTypes[i] === "simple") {
+    if (questions[i].type === "simple") {
         answer = resUser.value;
     } else {
         answer = resUserDate.value;
     }
 
-    if (answer === "" && isRequired[i]) {
+    if (answer === "" && questions[i].isRequired) {
         alert("Essa resposta é obrigatória!");
         return;
     }
@@ -63,19 +86,14 @@ btnEnviar.addEventListener("click", function () {
     });
 
     if (i < questions.length) {
-        let questionType;
-        if (questions[i].toLowerCase().includes("data")) {
-            questionType = "date";
-        } else {
-            questionType = "simple";
-        }
+        let questionType = questions[i].type;
 
         setTimeout(() => {
             box.removeChild(typingIndicator);
 
             pergunta = document.createElement("span");
             pergunta.classList.add("perguntas");
-            pergunta.textContent = questions[i];
+            pergunta.textContent = questions[i].text;
             box.appendChild(pergunta);
 
             displayResp = document.createElement("p");

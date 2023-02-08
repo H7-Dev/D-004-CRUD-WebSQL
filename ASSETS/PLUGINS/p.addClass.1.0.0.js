@@ -2,7 +2,6 @@ var addClasses = function (options) {
     options = options || {};
 
     var btnSelc = document.querySelector(options.btnSelc || ".btnSelc");
-    console.log(btnSelc);
 
     var elementsToToggle = [];
     options.elementsToToggle.forEach(function (element) {

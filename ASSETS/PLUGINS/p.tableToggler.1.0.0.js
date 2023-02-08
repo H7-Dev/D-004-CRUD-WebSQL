@@ -4,7 +4,7 @@ var altClasses = function(options) {
 
     // Seleção do botão padrão ou do botão personalizado na página HTML
     var btnSelc = document.querySelector(options.btnSelc || ".btnSelc");
-    console.log(btnSelc);
+    // console.log(btnSelc);
 
     // Armazenamento dos elementos na página HTML a serem alternados
     var elementsToToggle = [];

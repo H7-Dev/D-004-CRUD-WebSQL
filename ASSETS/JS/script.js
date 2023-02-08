@@ -13,9 +13,4 @@ var tableToggler = new altClasses({
     animeOutClass: "saltarOut",             // * Define a classe para ser adicionada aos elementos durante a animação de desativação
     delay: 700,                             // * Define o tempo de delay antes da animação de desativação ser concluída
 })
-
-// * Chama o método toggle na instância tableToggler
 tableToggler.toggle()
-
-
-// btnAdd.toggle()
