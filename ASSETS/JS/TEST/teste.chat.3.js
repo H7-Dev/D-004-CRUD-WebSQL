@@ -39,8 +39,11 @@ btnIniciarChat.addEventListener("click", function () {
     // displayResp.classList.add("displayResp");
     // box.appendChild(displayResp);
 
-     displayResp = `<p class="displayResp"></p>`;
-    box.insertAdjacentHTML("beforeend", displayResp);
+
+    // displayResp =
+    // `<p class="displayResp"></p>`;
+    // box.innerHTML += displayResp;
+
 
     btnIniciarChat.style.display = "none";
 
@@ -70,8 +73,14 @@ btnEnviar.addEventListener("click", function () {
     answers.push(answer);
     // console.log("Resposta " + (i + 1) + ": " + answer;)
 
-     displayResp = `<p class="displayResp">Resposta: ${(i + 1)+answer}</p>`;
-    box.insertAdjacentHTML("beforeend", displayResp);
+    //  displayResp = `<p class="displayResp">Resposta: ${(i + 1)+answer}</p>`;
+    // box.insertAdjacentHTML("beforeend", displayResp);
+
+
+    displayResp =
+    `<p class="displayResp">Resposta: ${(i + 1)+ ' ' +answer}</p>`;
+    box.innerHTML += displayResp;
+
     resUser.value = "";
     resUserDate.value = "";
     i++;
@@ -103,8 +112,9 @@ btnEnviar.addEventListener("click", function () {
 
 
 
-             displayResp = `<p class="displayResp"></p>`;
-            box.insertAdjacentHTML("beforeend", displayResp);
+    //         displayResp =
+    // `<p class="displayResp"></p>`;
+    // box.innerHTML += displayResp;
 
             document.getElementById("resUser").style.display = questionType === "simple" ? "block" : "none";
             document.getElementById("resUserDate").style.display = questionType === "date" ? "block" : "none";
