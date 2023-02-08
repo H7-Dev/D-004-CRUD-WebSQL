@@ -31,14 +31,20 @@ btnIniciarChat.addEventListener("click", function () {
     const currentQuestion = questions[i];
 
     const pergunta =
-    `
-        <span class="perguntas">${currentQuestion.text}</span>
-    `;
+    `<span class="perguntas">${currentQuestion.text}</span>-`;
     box.innerHTML += pergunta;
 
     displayResp = document.createElement("p");
     displayResp.classList.add("displayResp");
     box.appendChild(displayResp);
+
+
+    // const messages = document.querySelector('#messages');
+    // REVIEW #B-001
+    // !IMPORTANT  Appending a template string
+    const output = `<p class="displayResp">${result.result}</p>`;
+    box.insertAdjacentHTML("beforeend", output);
+
 
     btnIniciarChat.style.display = "none";
 
