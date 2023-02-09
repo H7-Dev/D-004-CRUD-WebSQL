@@ -21,6 +21,9 @@ console.log('✍️ Objeto de perguntas e suas propriedade (text, type e isRequi
 console.log(questions)
 let i = 0;
 
+console.log('✍️ defini i = 0 (server para obter o indice 0 de um array qualquer)\n neste caso, questions');
+console.log(i)
+
 const resUser = document.getElementById("resUser");
 const resUserDate = document.getElementById("resUserDate");
 const btnEnviar = document.getElementById("btnEnviar");
@@ -29,23 +32,14 @@ const btnIniciarChat = document.getElementById("btnIniciarChat");
 
 btnIniciarChat.addEventListener("click", function () {
     const currentQuestion = questions[i];
+    console.log('✍️ currentQuestion');
+    console.log(currentQuestion)
 
     const pergunta =
     `<span class="perguntas">${currentQuestion.text}</span>`;
     box.innerHTML += pergunta;
-    // box.appendChild(pergunta);
 
-    // displayResp = document.createElement("p");
-    // displayResp.classList.add("displayResp");
-    // box.appendChild(displayResp);
-
-
-    // displayResp =
-    // `<p class="displayResp"></p>`;
-    // box.innerHTML += displayResp;
-
-
-    btnIniciarChat.style.display = "none";
+    // btnIniciarChat.style.display = "none";
 
     if (currentQuestion.type === "simple") {
         resUser.style.display = "block";
@@ -85,6 +79,7 @@ btnEnviar.addEventListener("click", function () {
     resUserDate.value = "";
     i++;
 
+    //
     let typingIndicator = document.createElement("div");
     typingIndicator.classList.add("typingIndicator");
 
@@ -92,8 +87,9 @@ btnEnviar.addEventListener("click", function () {
         let dot = document.createElement("span");
         typingIndicator.appendChild(dot);
     }
-
     box.appendChild(typingIndicator);
+    //
+
     box.scroll({
         top: box.scrollHeight,
         behavior: "smooth"
