@@ -1,4 +1,4 @@
-
+console.clear()
 console.log('teste.chat.4.js')
 
 const questions = [{
@@ -6,9 +6,9 @@ const questions = [{
         type: "simple",
         isRequired: true,
         input: function () {
-            const x = `
+            var x = `
             <label class="dynInputTypes" for="dynInputTypes">
-                <input class="dynInputTypes" id="resUser" type="text" placeholder="✔️ Digite a resposta (tipo texto) " >
+                <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
             </label>
             `
             return x
@@ -17,26 +17,17 @@ const questions = [{
     {
         text: "Qual é a sua data de nascimento?",
         type: "date",
-        isRequired: true,
-        input: function () {
-            const x = `
-            <label class="dynInputTypes" for="dynInputTypes">
-                <input class="dynInputTypes" id="resUserDate" type="date">
-            </label>
-            `
-            return x
-        }
+        isRequired: false
     },
     {
         text: "Onde você mora?",
         type: "simple",
         isRequired: false,
         input: function () {
-            var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
-            const x = `
-            <select>
-                ${paísesArmazenados.map(país => `<option value="${país}">${país}</option>`).join("")}
-            </select>
+            var x = `
+            <label class="dynInputTypes" for="dynInputTypes">
+                <input class="dynInputTypes" id="resUser" type="text" placeholder="❓ dyn in (tipo texto) " >
+            </label>
             `
             return x
         }
@@ -44,44 +35,57 @@ const questions = [{
 ];
 let i = 0;
 
+console.log('❓ ');
+console.log(questions[i].type);
+console.log(questions[i].input());
 
 const btnEnviar = document.getElementById("btnEnviar");
 const box = document.getElementById("box");
 const dockmsg = document.getElementById("dockmsg");
 const btnIniciarChat = document.getElementById("btnIniciarChat");
 
-btnIniciarChat.addEventListener("click", function () {
-    const firstQuestion = questions[i];
-    console.log(firstQuestion)
-
-    const pergunta =
-        `<span class="perguntas">${firstQuestion.text}</span>`;
-    box.innerHTML += pergunta;
-
-    console.log('');
-    console.log(firstQuestion.text)
-    // btnIniciarChat.style.display = "none";
 
 
-    if (firstQuestion.type === "simple") {
-        dockmsg.innerHTML = '';
-        const inTypeText = questions[i].input()
-        dockmsg.innerHTML += inTypeText;
-        console.log(questions[i].input())
-    }
-    if (firstQuestion.type === "date") {
-        dockmsg.innerHTML = '';
-        const inTypeDate =
-            `
-        <label class="dynInputTypes">
-            <input class="dynInputTypes" id="resUserDate" type="date">
-        </label>
-        `;
-        dockmsg.innerHTML += inTypeDate;
-    }
 
+
+// Adiciona o evento de clique ao botão btnIniciarChat
+// btnIniciarChat.addEventListener("click", handleClickEvent);
+btnIniciarChat.addEventListener("click", function() {
+    handleClickEvent(questions[i])
 })
 
+
+// Função para lidar com o evento de clique
+function handleClickEvent(_questions) {
+    // Recupera a primeira pergunta da matriz "questions"
+    const firstQuestion = _questions
+
+    // Adiciona a pergunta recuperada à caixa (box)
+    const pergunta = `<span class="perguntas">${firstQuestion.text}</span>`;
+    box.innerHTML += pergunta;
+
+    // Verifica o tipo da primeira pergunta
+    if (firstQuestion.type === "simple") {
+      // Limpa o conteúdo da div "dockmsg"
+      dockmsg.innerHTML = '';
+
+      // Adiciona um elemento de entrada de texto
+      const inTypeText = questions[i].input();
+      dockmsg.innerHTML += inTypeText;
+    }
+    if (firstQuestion.type === "date") {
+      // Limpa o conteúdo da div "dockmsg"
+      dockmsg.innerHTML = '';
+
+      // Adiciona um elemento de entrada de data
+      const inTypeDate = `
+        <label class="dynInputTypes">
+          <input class="dynInputTypes" id="resUserDate" type="date">
+        </label>
+      `;
+      dockmsg.innerHTML += inTypeDate;
+    }
+  }
 const answers = [];
 
 
@@ -130,6 +134,7 @@ btnEnviar.addEventListener("click", function () {
         console.log(i < questions.length)
 
         setTimeout(() => {
+
             // * espera dois segundos para remover o typingIndicator
             var children = document.querySelectorAll(".typingIndicator");
             children.forEach(function (child) {
@@ -141,6 +146,8 @@ btnEnviar.addEventListener("click", function () {
             pergunta = `<span class="perguntas">${questions[i].text}</span>`;
             box.innerHTML += pergunta;
 
+            console.log('❓ ');
+            console.log(questions[i].type);
             if (questions[i].type === "simple") {
                 dockmsg.innerHTML = '';
                 const inTypeText = questions[i].input()
@@ -160,7 +167,7 @@ btnEnviar.addEventListener("click", function () {
                 top: box.scrollHeight,
                 behavior: "smooth"
             })
-        }, 2000)
+        }, 500)
     } else {
         console.log(i < questions.length)
         const typingIndicators = document.querySelectorAll(".typingIndicator");
