@@ -29,14 +29,15 @@ const questions = [{
     },
     {
         text: "Onde você mora?",
-        type: "simple",
+        type: "select",
         isRequired: false,
         input: function () {
+            var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
             var x = `
-            <label class="dynInputTypes" for="dynInputTypes">
-                <input class="dynInputTypes" id="resUser" type="text" placeholder="✔️ dyn in (tipo texto) " >
-            </label>
-            `
+              <select id="resUserSelect">
+                ${paísesArmazenados.map(país => `<option value="${país}">${país}</option>`).join("")}
+              </select>
+            `;
             return x
         }
     }
@@ -52,38 +53,26 @@ const box = document.getElementById("box");
 const dockmsg = document.getElementById("dockmsg");
 const btnIniciarChat = document.getElementById("btnIniciarChat");
 
-
-
-
-
-// Adiciona o evento de clique ao botão btnIniciarChat
-// btnIniciarChat.addEventListener("click", handleClickEvent);
-btnIniciarChat.addEventListener("click", function() {
-    handleClickEvent(questions[i])
-})
+btnIniciarChat.addEventListener("click", handleClickEvent(questions[i]));
 
 
 // Função para lidar com o evento de clique
 function handleClickEvent(_questions) {
-    // Recupera a primeira pergunta da matriz "questions"
     const firstQuestion = _questions
-
-    // Adiciona a pergunta recuperada à caixa (box)
     const pergunta = `<span class="perguntas">${firstQuestion.text}</span>`;
     box.innerHTML += pergunta;
 
-    // Verifica o tipo da primeira pergunta
     if (firstQuestion.type === "simple") {
-      dockmsg.innerHTML = '';
-      const inTypeText = questions[i].input();
-      dockmsg.innerHTML += inTypeText;
+        dockmsg.innerHTML = '';
+        const inTypeText = questions[i].input();
+        dockmsg.innerHTML += inTypeText;
     }
     if (firstQuestion.type === "date") {
-      dockmsg.innerHTML = '';
-      const inTypeDate = questions[i].input();
-      dockmsg.innerHTML += inTypeDate;
+        dockmsg.innerHTML = '';
+        const inTypeDate = questions[i].input();
+        dockmsg.innerHTML += inTypeDate;
     }
-  }
+}
 const answers = [];
 
 
@@ -98,6 +87,10 @@ btnEnviar.addEventListener("click", function () {
     if (questions[i].type === "date") {
         console.log(false);
         answer = resUserDate.value;
+    }
+    if (questions[i].type === "select") {
+        console.log(false);
+        answer = resUserSelect.value;
     }
 
     if (answer === "" && questions[i].isRequired) {
@@ -155,6 +148,11 @@ btnEnviar.addEventListener("click", function () {
                 dockmsg.innerHTML = '';
                 const inTypeDate = questions[i].input();
                 dockmsg.innerHTML += inTypeDate;
+            }
+            if (questions[i].type === "select") {
+                dockmsg.innerHTML = '';
+                const inTypeSelect = questions[i].input();
+                dockmsg.innerHTML += inTypeSelect;
             }
             box.scroll({
                 top: box.scrollHeight,
