@@ -17,7 +17,15 @@ const questions = [{
     {
         text: "Qual é a sua data de nascimento?",
         type: "date",
-        isRequired: false
+        isRequired: false,
+        input: function () {
+            var x = `
+            <label class="dynInputTypes">
+                <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
+            </label>
+            `
+            return x
+        }
     },
     {
         text: "Onde você mora?",
@@ -26,7 +34,7 @@ const questions = [{
         input: function () {
             var x = `
             <label class="dynInputTypes" for="dynInputTypes">
-                <input class="dynInputTypes" id="resUser" type="text" placeholder="❓ dyn in (tipo texto) " >
+                <input class="dynInputTypes" id="resUser" type="text" placeholder="✔️ dyn in (tipo texto) " >
             </label>
             `
             return x
@@ -66,23 +74,13 @@ function handleClickEvent(_questions) {
 
     // Verifica o tipo da primeira pergunta
     if (firstQuestion.type === "simple") {
-      // Limpa o conteúdo da div "dockmsg"
       dockmsg.innerHTML = '';
-
-      // Adiciona um elemento de entrada de texto
       const inTypeText = questions[i].input();
       dockmsg.innerHTML += inTypeText;
     }
     if (firstQuestion.type === "date") {
-      // Limpa o conteúdo da div "dockmsg"
       dockmsg.innerHTML = '';
-
-      // Adiciona um elemento de entrada de data
-      const inTypeDate = `
-        <label class="dynInputTypes">
-          <input class="dynInputTypes" id="resUserDate" type="date">
-        </label>
-      `;
+      const inTypeDate = questions[i].input();
       dockmsg.innerHTML += inTypeDate;
     }
   }
@@ -155,12 +153,7 @@ btnEnviar.addEventListener("click", function () {
             }
             if (questions[i].type === "date") {
                 dockmsg.innerHTML = '';
-                const inTypeDate =
-                    `
-                    <label class="dynInputTypes">
-                        <input class="dynInputTypes" id="resUserDate" type="date" placeholder="Digite a resposta (tipo data) " >
-                    </label>
-                    `;
+                const inTypeDate = questions[i].input();
                 dockmsg.innerHTML += inTypeDate;
             }
             box.scroll({
