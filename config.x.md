@@ -2,7 +2,7 @@
 # Doc configuração x
 * 🏁 Padrão Estrutural de Processo*
 * 🏁 Ou Bakcup [edit commit message]*
-* ❕ 🚧⛔ 
+* ❕ 🚧⛔
 * ⛔ Pare*
 * ❌ Não / Negativo*
 * ❓  Interrogação*
