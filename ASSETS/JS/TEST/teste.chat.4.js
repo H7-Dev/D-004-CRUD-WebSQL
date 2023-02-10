@@ -44,16 +44,12 @@ const questions = [{
 ];
 let i = 0;
 
-console.log('❓ ');
-console.log(questions[i].type);
-console.log(questions[i].input());
 
 const btnEnviar = document.getElementById("btnEnviar");
 const box = document.getElementById("box");
 const dockmsg = document.getElementById("dockmsg");
 const btnIniciarChat = document.getElementById("btnIniciarChat");
 
-btnIniciarChat.addEventListener("click", handleClickEvent(questions[i]));
 
 
 // Função para lidar com o evento de clique
@@ -76,7 +72,8 @@ function handleClickEvent(_questions) {
 const answers = [];
 
 
-btnEnviar.addEventListener("click", function () {
+function enviar(params) {
+
     let answer;
     const resUser = document.getElementById("resUser");
     const resUserDate = document.getElementById("resUserDate");
@@ -176,4 +173,10 @@ btnEnviar.addEventListener("click", function () {
             behavior: "smooth"
         })
     }
-})
+}
+btnIniciarChat.addEventListener("click", handleClickEvent(questions[i]));
+btnEnviar.addEventListener("click", enviar);
+
+// btnEnviar.addEventListener("click", function () {
+//     enviar()
+// })
