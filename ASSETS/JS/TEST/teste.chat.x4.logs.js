@@ -24,9 +24,10 @@ let i = 0;
 console.log('✍️ variável "i" = 0 (server para obter o indice 0 de um array qualquer) neste caso, questions');
 console.log(i)
 
+const resUser = document.getElementById("resUser");
+const resUserDate = document.getElementById("resUserDate");
 const btnEnviar = document.getElementById("btnEnviar");
 const box = document.getElementById("box");
-const dockmsg = document.getElementById("dockmsg");
 const btnIniciarChat = document.getElementById("btnIniciarChat");
 
 btnIniciarChat.addEventListener("click", function () {
@@ -35,7 +36,7 @@ btnIniciarChat.addEventListener("click", function () {
     console.log(firstQuestion)
 
     const pergunta =
-        `<span class="perguntas">${firstQuestion.text}</span>`;
+    `<span class="perguntas">${firstQuestion.text}</span>`;
     box.innerHTML += pergunta;
 
     console.log('');
@@ -43,46 +44,36 @@ btnIniciarChat.addEventListener("click", function () {
     console.log(firstQuestion.text)
     // btnIniciarChat.style.display = "none";
 
-
     if (firstQuestion.type === "simple") {
-        dockmsg.innerHTML = '';
-        const inTypeText =
-            `
-        <label class="dynInputTypes" for="dynInputTypes">
-            <input class="dynInputTypes" id="resUser" type="text" placeholder="Digite a resposta (tipo texto) " >
-        </label>
-        `;
-        dockmsg.innerHTML += inTypeText;
+        resUser.style.display = "block";
+        resUserDate.style.display = "none";
+    } else {
+        resUser.style.display = "none";
+        resUserDate.style.display = "block";
     }
-    if (firstQuestion.type === "date") {
-        dockmsg.innerHTML = '';
-        const inTypeDate =
-            `
-        <label class="dynInputTypes">
-            <input class="dynInputTypes" id="resUserDate" type="date">
-        </label>
-        `;
-        dockmsg.innerHTML += inTypeDate;
-    }
-
 })
 
 const answers = [];
 
+console.log('✍️ "answers" é um array vazio que será preenchido com as respostas, isto é, a medida que as perguntas são respondidas');
+console.log(answers)
+
 
 btnEnviar.addEventListener("click", function () {
     let answer;
-    const resUser = document.getElementById("resUser");
-    const resUserDate = document.getElementById("resUserDate");
+
+    console.log('✍️ "answer" é um variável indefinado no se estado inicial, porém recebe a resposta quando as condições são satisfeitas.');
+    console.log(answer)
+
+    console.log('❓ primeira condição: "questions[i].type" é igual a "simple"?');
     if (questions[i].type === "simple") {
         console.log(true);
         answer = resUser.value;
-    }
-    if (questions[i].type === "date") {
+    } else {
         console.log(false);
         answer = resUserDate.value;
     }
-
+    console.log('❓ segunda condição: "answer" é igual vazio e se é obrigatório?');
     if (answer === "" && questions[i].isRequired) {
         console.log(true)
         console.log(answer)
@@ -90,16 +81,44 @@ btnEnviar.addEventListener("click", function () {
         alert("Essa resposta é obrigatória!");
         return;
     }
+    console.log(answer)
+    console.log('❕ condições satisfeitas a variável answer recebe a resposta, no caso, a resposta é: \n'+answer);
+
+
+    console.log('');
+    console.log('✍️ O "push" é usado para inserir a resposta no array "answers" ');
+    console.log(answer)
     answers.push(answer);
     console.log("Resposta " + (i + 1) + ": " + answer)
 
+    //  displayResp = `<p class="displayResp">Resposta: ${(i + 1)+answer}</p>`;
+    // box.insertAdjacentHTML("beforeend", displayResp);
+
+    console.log('❕ condições satisfeitas a variável answer recebe a resposta, no caso, a resposta é: \n'+answer);
     displayResp =
-        `<p class="displayResp">Resposta: ${(i + 1)+ ' ' +answer}</p>`;
+    `<p class="displayResp">Resposta: ${(i + 1)+ ' ' +answer}</p>`;
     box.innerHTML += displayResp;
+
+    resUser.value = "";
+    resUserDate.value = "";
     i++;
 
+    console.log('✍️ O "i++"');
+    console.log(i);
+
+    // let typingIndicator = document.createElement("div");
+    // typingIndicator.classList.add("typingIndicator");
+
+    // for (let i = 0; i < 3; i++) {
+    //     let dot = document.createElement("span");
+    //     typingIndicator.appendChild(dot);
+    // }
+
+    // box.appendChild(typingIndicator)
+
+
     typingIndicator =
-        `<div class="typingIndicator">
+    `<div class="typingIndicator">
         <span></span>
         <span></span>
         <span></span>
@@ -111,41 +130,23 @@ btnEnviar.addEventListener("click", function () {
         behavior: "smooth"
     });
 
+    console.log('❓ "i" é menor do questions.length?');
     if (i < questions.length) {
         console.log(i < questions.length)
 
         setTimeout(() => {
             // * espera dois segundos para remover o typingIndicator
             var children = document.querySelectorAll(".typingIndicator");
-            children.forEach(function (child) {
-                child.parentNode.removeChild(child)
-            })
+            children.forEach(function(child) {child.parentNode.removeChild(child)})
 
 
             // * cria o elemento span com a pergunta
             pergunta = `<span class="perguntas">${questions[i].text}</span>`;
             box.innerHTML += pergunta;
 
-            if (questions[i].type === "simple") {
-                dockmsg.innerHTML = '';
-                const inTypeText =
-                    `
-                    <label class="dynInputTypes" for="dynInputTypes">
-                        <input class="dynInputTypes" id="resUser" type="text" placeholder="Digite a resposta (tipo texto) " >
-                    </label>
-                    `;
-                dockmsg.innerHTML += inTypeText;
-            }
-            if (questions[i].type === "date") {
-                dockmsg.innerHTML = '';
-                const inTypeDate =
-                    `
-                    <label class="dynInputTypes">
-                        <input class="dynInputTypes" id="resUserDate" type="date" placeholder="Digite a resposta (tipo data) " >
-                    </label>
-                    `;
-                dockmsg.innerHTML += inTypeDate;
-            }
+            document.getElementById("resUser").style.display = questions[i].type === "simple" ? "block" : "none";
+            document.getElementById("resUserDate").style.display = questions[i].type === "date" ? "block" : "none";
+
             box.scroll({
                 top: box.scrollHeight,
                 behavior: "smooth"
@@ -166,6 +167,6 @@ btnEnviar.addEventListener("click", function () {
         box.scroll({
             top: box.scrollHeight,
             behavior: "smooth"
-        })
+        });
     }
 })
