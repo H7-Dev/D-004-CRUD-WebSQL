@@ -4,7 +4,7 @@ console.log('teste.chat.5.js')
 const form = {
     questions: [{
             text: "Qual é o seu nome?",
-            type: "date",
+            type: "simple",
             isRequired: true,
             input: function () {
                 var x = `
@@ -14,6 +14,7 @@ const form = {
               `;
                 return x;
             },
+            inputName: "nome"
         },
         {
             text: "Qual é a sua data de nascimento?",
@@ -27,6 +28,7 @@ const form = {
               `;
                 return x;
             },
+            inputName: "data"
         },
         {
             text: "Onde você mora?",
@@ -35,7 +37,7 @@ const form = {
             input: function () {
                 var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
                 var x = `
-                <select id="resUserSelect">
+                <select class="minimal" id="resUserSelect">
                   ${paísesArmazenados
                     .map(
                       (país) => `<option value="${país}">${país}</option>`
@@ -45,6 +47,7 @@ const form = {
               `;
                 return x;
             },
+            inputName: "pais"
         },
     ],
     selc: {
@@ -52,20 +55,21 @@ const form = {
         dockmsgX: document.querySelector("#dockmsg"),
         btnEnviarX: document.querySelector("#btnEnviar"),
         btnIniciarChatX: document.querySelector("#btnIniciarChat"),
+        dockLeft: document.querySelector(".dockLeft"),
     },
 };
 const answers = [];
 let i = 0;
 function iniciarChat() {
     const firstQuestion = form.questions[i]
-    const pergunta = `<span class="perguntas">${firstQuestion.text}</span>`;
+    const pergunta = `<span class="perguntas bubble">${firstQuestion.text}</span>`;
     form.selc.box.innerHTML += pergunta;
 
-    console.log();
     if (firstQuestion.type === "simple") {
         dockmsg.innerHTML = '';
         const inTypeText = form.questions[i].input();
         dockmsg.innerHTML += inTypeText;
+
     }
     if (firstQuestion.type === "date") {
         dockmsg.innerHTML = '';
@@ -80,14 +84,26 @@ function enviar(params) {
     if (form.questions[i].type === "simple") {
         console.log(true);
         answer = resUser.value;
+
+        // * inputlog
+        const inputlog = `<input type="hidden" id="in_${form.questions[i].inputName}" value="${resUser.value}">`
+        form.selc.dockLeft.innerHTML += inputlog;
     }
     if (form.questions[i].type === "date") {
         console.log(false);
         answer = resUserDate.value;
+
+        // * inputlog
+        const inputlog = `<input type="hidden" id="in_${form.questions[i].inputName}" value="${resUserDate.value}">`
+        form.selc.dockLeft.innerHTML += inputlog;
     }
     if (form.questions[i].type === "select") {
         console.log(false);
         answer = resUserSelect.value;
+
+        // * inputlog
+        const inputlog = `<input type="hidden" id="in_${form.questions[i].inputName}" value="${resUserSelect.value}">`
+        form.selc.dockLeft.innerHTML += inputlog;
     }
 
     if (answer === "" && form.questions[i].isRequired) {
@@ -128,7 +144,7 @@ function enviar(params) {
                 child.parentNode.removeChild(child)
             })
 
-            pergunta = `<span class="perguntas">${form.questions[i].text}</span>`;
+            pergunta = `<span class="perguntas bubble">${form.questions[i].text}</span>`;
             form.selc.box.innerHTML += pergunta;
 
             if (form.questions[i].type === "simple") {

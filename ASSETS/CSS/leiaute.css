@@ -1154,17 +1154,17 @@ div.form div.wrapper > div.main > div.dockLeft > button.btnSeclIgm > span {
 div.form div.wrapper > div.main > div.chat {
   display: grid;
   grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr auto;
   height: 50vh;
 }
 div.form div.wrapper > div.main > div.chat > div.box {
   background-color: #f8f8f8;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: grid;
   overflow: auto;
+  align-items: end;
 }
 div.form div.wrapper > div.main > div.chat div.dockmsg {
-  background-color: lightcyan;
+  background-color: rgba(0, 0, 0, 0);
 }
 div.form div.wrapper > div.main > div.chat > button#btnEnviar {
   margin: 5px 5px;
@@ -1227,12 +1227,10 @@ div.form div.wrapper > div.footer > button.btnVoltar > span {
 }
 
 .perguntas {
-  background: #fff;
   margin: 15px 5px;
   width: fit-content;
   padding: 5px 10px;
-  border-radius: 15px;
-  text-align: center;
+  text-align: left;
 }
 
 .displayResp {
@@ -1242,7 +1240,7 @@ div.form div.wrapper > div.footer > button.btnVoltar > span {
   padding: 5px 10px;
   border-radius: 15px;
   text-align: center;
-  align-self: flex-end;
+  justify-self: end;
 }
 
 .msgFinal {
@@ -1330,4 +1328,112 @@ div.form div.wrapper > div.footer > button.btnVoltar > span {
   font-weight: normal;
   background-color: #fff;
   max-width: 80%;
+}
+
+label.dynInputTypes {
+  background-color: #F0F0F0;
+  background-color: rgba(0, 0, 0, 0.0117647059);
+  padding: 4px 6px;
+  height: fit-content;
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0);
+}
+label.dynInputTypes:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+label.dynInputTypes:active {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 61, 140, 0.04);
+}
+label.dynInputTypes:focus-within {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 61, 140, 0.05);
+}
+label.dynInputTypes > input {
+  font-size: 0.8rem;
+  font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
+  color: #003c8c;
+  background-color: transparent;
+  padding: 0.2rem 0.1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+label.dynInputTypes > input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size: 0.8rem;
+  font-family: "Open Sans Regular", "Segoe UI", sans-serif;
+  color: #b9babe;
+  color: #003c8c;
+  opacity: 1;
+  /* Firefox */
+}
+
+> label.dynInputTypes > button {
+  color: tomato;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+> label.dynInputTypes > button > svg {
+  fill: #003c8c;
+  height: 12pt;
+}
+
+select.minimal {
+  background-color: #F0F0F0;
+  background-color: rgba(0, 0, 0, 0.0117647059);
+  padding: 10px 5px;
+  height: fit-content;
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0);
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+select.minimal.minimal:focus {
+  background-image: linear-gradient(45deg, green 50%, transparent 50%), linear-gradient(135deg, transparent 50%, green 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+select.minimal:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.bubble {
+  position: relative;
+  background: linear-gradient(0deg, rgb(235, 235, 235) 5%, #f4f4f4 100%);
+  left: 15px;
+}
+
+.bubble:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  z-index: 1;
+  border-style: solid;
+  border-width: 0 10px 10px 0;
+  border-color: transparent rgb(202, 202, 202) transparent transparent;
+  top: 50%;
+  left: -10px;
+  margin-top: -10px;
 }/*# sourceMappingURL=leiaute.css.map */
