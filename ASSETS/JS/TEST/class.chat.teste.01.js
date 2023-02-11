@@ -53,11 +53,11 @@ const form = {
         btnEnviarX: document.querySelector("#btnEnviar"),
         btnIniciarChatX: document.querySelector("#btnIniciarChat"),
     },
-
-
+    answers : [],
+    i : 0
 };
-const answers = [];
-let i = 0;
+i = form.i
+
 function iniciarChat() {
     const firstQuestion = form.questions[i]
     const pergunta = `<span class="perguntas">${firstQuestion.text}</span>`;
@@ -99,7 +99,7 @@ function enviar(params) {
         alert("Essa resposta é obrigatória!");
         return;
     }
-    answers.push(answer);
+    form.answers.push(answer);
     console.log("Resposta " + (i + 1) + ": " + answer)
 
     displayResp =
