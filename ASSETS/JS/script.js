@@ -25,5 +25,4 @@ localStorage.setItem("países", JSON.stringify(países));
 
 // Recuperar a lista de países do localStorage
 var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
-console.log('✍️ ')
-console.log(paísesArmazenados)
+// console.log(paísesArmazenados)

@@ -4,7 +4,7 @@ console.log('teste.chat.5.js')
 const form = {
     questions: [{
             text: "Qual é o seu nome?",
-            type: "simple",
+            type: "date",
             isRequired: true,
             input: function () {
                 var x = `
@@ -53,8 +53,6 @@ const form = {
         btnEnviarX: document.querySelector("#btnEnviar"),
         btnIniciarChatX: document.querySelector("#btnIniciarChat"),
     },
-
-
 };
 const answers = [];
 let i = 0;

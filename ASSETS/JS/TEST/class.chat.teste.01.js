@@ -1,175 +1,124 @@
-console.clear()
-console.log('teste.chat.5.js')
-
-const form = {
-    questions: [{
-            text: "Qual é o seu nome?",
-            type: "simple",
-            isRequired: true,
-            input: function () {
-                var x = `
-              <label class="dynInputTypes" for="dynInputTypes">
-                  <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
-              </label>
-              `;
-                return x;
+class Chatbot {
+    constructor() {
+        this.questions = [{
+                text: "Qual é o seu nome?",
+                type: "simple",
+                isRequired: true,
+                input: function () {
+                    var x = `
+                  <label class="dynInputTypes" for="dynInputTypes">
+                      <input class="dynInputTypes" id="resUser" type="text" placeholder="dyn in (tipo texto) " >
+                  </label>
+                  `;
+                    return x;
+                },
             },
-        },
-        {
-            text: "Qual é a sua data de nascimento?",
-            type: "date",
-            isRequired: false,
-            input: function () {
-                var x = `
-              <label class="dynInputTypes">
-                  <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
-              </label>
-              `;
-                return x;
+            {
+                text: "Qual é a sua data de nascimento?",
+                type: "date",
+                isRequired: false,
+                input: function () {
+                    var x = `
+                  <label class="dynInputTypes">
+                      <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
+                  </label>
+                  `;
+                    return x;
+                },
             },
-        },
-        {
-            text: "Onde você mora?",
-            type: "select",
-            isRequired: false,
-            input: function () {
-                var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
-                var x = `
-                <select id="resUserSelect">
-                  ${paísesArmazenados
-                    .map(
-                      (país) => `<option value="${país}">${país}</option>`
-                    )
-                    .join("")}
-                </select>
-              `;
-                return x;
+            {
+                text: "Onde você mora?",
+                type: "select",
+                isRequired: false,
+                input: function () {
+                    var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
+                    var x = `
+                    <select id="resUserSelect">
+                      ${paísesArmazenados
+                        .map(
+                          (país) => `<option value="${país}">${país}</option>`
+                        )
+                        .join("")}
+                    </select>
+                  `;
+                    return x;
+                },
             },
-        },
-    ],
-    selc: {
-        box: document.querySelector("#box"),
-        dockmsgX: document.querySelector("#dockmsg"),
-        btnEnviarX: document.querySelector("#btnEnviar"),
-        btnIniciarChatX: document.querySelector("#btnIniciarChat"),
-    },
-    answers : [],
-    i : 0
-};
-i = form.i
-
-function iniciarChat() {
-    const firstQuestion = form.questions[i]
-    const pergunta = `<span class="perguntas">${firstQuestion.text}</span>`;
-    form.selc.box.innerHTML += pergunta;
-
-    console.log();
-    if (firstQuestion.type === "simple") {
-        dockmsg.innerHTML = '';
-        const inTypeText = form.questions[i].input();
-        dockmsg.innerHTML += inTypeText;
-    }
-    if (firstQuestion.type === "date") {
-        dockmsg.innerHTML = '';
-        const inTypeDate = form.questions[i].input();
-        dockmsg.innerHTML += inTypeDate;
-    }
-}
-
-function enviar(params) {
-
-    let answer;
-    if (form.questions[i].type === "simple") {
-        console.log(true);
-        answer = resUser.value;
-    }
-    if (form.questions[i].type === "date") {
-        console.log(false);
-        answer = resUserDate.value;
-    }
-    if (form.questions[i].type === "select") {
-        console.log(false);
-        answer = resUserSelect.value;
+        ]
+        this.selc = [{
+            box: document.querySelector("#box"),
+            dockmsgX: document.querySelector("#dockmsg"),
+            btnEnviarX: document.querySelector("#btnEnviar"),
+            btnIniciarChatX: document.querySelector("#btnIniciarChat"),
+        }]
+        this.answers = [];
+        this.i = 0;
     }
 
-    if (answer === "" && form.questions[i].isRequired) {
-        console.log(true)
-        console.log(answer)
-        console.log(form.questions[i].isRequired)
-        alert("Essa resposta é obrigatória!");
-        return;
-    }
-    form.answers.push(answer);
-    console.log("Resposta " + (i + 1) + ": " + answer)
+    iniciarChat() {
+        alert("ok")
+        const firstQuestion = this.questions[this.i];
+        const pergunta = `<span class="perguntas">${firstQuestion.text}</span>`;
+        this.selc.box.innerHTML += pergunta;
 
-    displayResp =
-        `<p class="displayResp">Resposta: ${(i + 1)+ ' ' +answer}</p>`;
-    form.selc.box.innerHTML += displayResp;
-    i++;
-
-    typingIndicator =
-        `<div class="typingIndicator">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    `;
-    form.selc.box.innerHTML += typingIndicator;
-    form.selc.box.scroll({
-        top: form.selc.box.scrollHeight,
-        behavior: "smooth"
-    });
-
-    if (i < form.questions.length) {
-        console.log(i < form.questions.length)
-
-        setTimeout(() => {
-
-            var children = document.querySelectorAll(".typingIndicator");
-            children.forEach(function (child) {
-                child.parentNode.removeChild(child)
-            })
-
-            pergunta = `<span class="perguntas">${form.questions[i].text}</span>`;
-            form.selc.box.innerHTML += pergunta;
-
-            if (form.questions[i].type === "simple") {
-                dockmsg.innerHTML = '';
-                const inTypeText = form.questions[i].input()
-                dockmsg.innerHTML += inTypeText;
-            }
-            if (form.questions[i].type === "date") {
-                dockmsg.innerHTML = '';
-                const inTypeDate = form.questions[i].input();
-                dockmsg.innerHTML += inTypeDate;
-            }
-            if (form.questions[i].type === "select") {
-                dockmsg.innerHTML = '';
-                const inTypeSelect = form.questions[i].input();
-                dockmsg.innerHTML += inTypeSelect;
-            }
-            form.selc.box.scroll({
-                top: form.selc.box.scrollHeight,
-                behavior: "smooth"
-            })
-        }, 500)
-    } else {
-        console.log(i < form.questions.length)
-        const typingIndicators = document.querySelectorAll(".typingIndicator");
-        for (let i = 0; i < typingIndicators.length; i++) {
-            form.selc.box.removeChild(typingIndicators[i]);
+        if (firstQuestion.type === "simple") {
+            this.selc.dockmsgX.innerHTML = '';
+            const inTypeText = this.questions[this.i].input();
+            this.selc.dockmsgX.innerHTML += inTypeText;
         }
-
-        let msgFinal = document.createElement("div");
-        msgFinal.classList.add("msgFinal");
-        msgFinal.textContent = "Fim das perguntas";
-        form.selc.box.appendChild(msgFinal);
-
-        form.selc.box.scroll({
-            top: form.selc.box.scrollHeight,
-            behavior: "smooth"
-        })
+        if (firstQuestion.type === "date") {
+            this.selc.dockmsgX.innerHTML = '';
+            const inTypeDate = this.questions[this.i].input();
+            this.selc.dockmsgX.innerHTML += inTypeDate;
+        }
     }
 }
-form.selc.btnIniciarChatX.addEventListener("click", iniciarChat)
-form.selc.btnEnviarX.addEventListener("click", enviar);
+
+const button = document.querySelector("#btnIniciarChat");
+button.addEventListener("click", function () {
+    console.log('✍️ class nova')
+    const form = new Chatbot();
+    form.iniciarChat();
+})
+
+
+
+// // const button = document.querySelector("button");
+// // button.addEventListener("click", function() {
+// const novoChat = new Chatbot();
+// console.log('✍️ class nova')
+// const customQuestions = [{
+//         text: "What's your name?",
+//         type: "date",
+//         isRequired: true,
+//         input: function () {
+//             var x = `
+//       <label class="dynInputTypes" for="dynInputTypes">
+//         <input class="dynInputTypes" id="resUser" type="text" placeholder="Enter your name">
+//       </label>
+//     `;
+//             return x;
+//         },
+//     },
+//     {
+//         text: "What's your favorite color?",
+//         type: "select",
+//         isRequired: false,
+//         input: function () {
+//             var colors = ["red", "green", "blue"];
+//             var x = `
+//       <select id="resUserSelect">
+//         ${colors
+//           .map(
+//             (color) => `<option value="${color}">${color}</option>`
+//           )
+//           .join("")}
+//       </select>
+//     `;
+//             return x;
+//         },
+//     },
+// ]
+
+// const form = new Chatbot(customQuestions)
+// customQuestions
