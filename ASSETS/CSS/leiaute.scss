@@ -1517,6 +1517,7 @@ div.form {
         }
     }
 }
+
 .perguntas {
     background: #fff;
     margin: 15px 5px;
@@ -1526,6 +1527,7 @@ div.form {
     text-align: left;
 
 }
+
 .displayResp {
     background: #D7FBD1;
     margin: 15px 5px;
@@ -1537,6 +1539,7 @@ div.form {
     // align-self: flex-end;
     justify-self: end;
 }
+
 .msgFinal {
     background: #fff;
     margin: 15px 5px;
@@ -1545,6 +1548,7 @@ div.form {
     border-radius: 15px;
     text-align: center;
 }
+
 .typingIndicator {
     $ti-color-bg: #E6E7ED;
     background-color: $ti-color-bg;
@@ -1579,16 +1583,19 @@ div.form {
     }
 
 }
+
 @keyframes blink {
     50% {
         opacity: 1;
     }
 }
+
 @keyframes bulge {
     50% {
         transform: scale(1.05);
     }
 }
+
 .msgInical {
     background-color: #0000;
     padding: 10px 15px;
@@ -1628,6 +1635,7 @@ div.form {
         }
     }
 }
+
 label.dynInputTypes {
     background-color: #F0F0F0;
     background-color: #0000000d;
@@ -1684,6 +1692,7 @@ label.dynInputTypes {
         }
     }
 }
+
 >label.dynInputTypes {
 
 
@@ -1701,6 +1710,7 @@ label.dynInputTypes {
 
 
 }
+
 select.minimal {
 
     background-color: #F0F0F0;
@@ -1759,12 +1769,13 @@ select.minimal {
 }
 
 div.selcImg {
-    background-color: silver;
+    background-color: #f0f0f0;
     height: 500px;
-    width: 350px;
+    width: 550px;
     position: absolute;
     z-index: 1000;
 
+    display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-rows: .1fr 1fr .1fr;
     align-items: center;
@@ -1795,6 +1806,56 @@ div.selcImg {
             text-overflow: ellipsis;
             overflow: hidden;
         }
+    }
+
+    >div.main {
+        .image-selector {
+            .input-file {
+                display: none;
+            }
+            label {
+                background-color: lightgray;
+                border: 1px solid gray;
+                border-radius: 5px;
+                cursor: pointer;
+                display: inline-block;
+                padding: 10px 20px;
+                position: relative;
+                text-align: center;
+
+                &:before {
+                    content: "";
+                    background-image: url("data:image/png;base64,iVBORw0KG...");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 50% 50%;
+                    display: block;
+                    height: 50px;
+                    width: 50px;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 10px;
+                }
+            }
+
+            .input-file-text {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .image-preview {
+                height: 200px;
+                overflow: hidden;
+                margin-top: 10px;
+
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
     }
 }
 

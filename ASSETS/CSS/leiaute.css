@@ -1465,11 +1465,12 @@ select.minimal:-moz-focusring {
 }
 
 div.selcImg {
-  background-color: silver;
+  background-color: #f0f0f0;
   height: 500px;
-  width: 350px;
+  width: 550px;
   position: absolute;
   z-index: 1000;
+  display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-rows: 0.1fr 1fr 0.1fr;
   align-items: center;
@@ -1498,6 +1499,46 @@ div.selcImg > div.header > span.titulo {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+div.selcImg > div.main .image-selector .input-file {
+  display: none;
+}
+div.selcImg > div.main .image-selector label {
+  background-color: lightgray;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+}
+div.selcImg > div.main .image-selector label:before {
+  content: "";
+  background-image: url("data:image/png;base64,iVBORw0KG...");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50% 50%;
+  display: block;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+}
+div.selcImg > div.main .image-selector .input-file-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+div.selcImg > div.main .image-selector .image-preview {
+  height: 200px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+div.selcImg > div.main .image-selector .image-preview img {
+  height: 100%;
+  width: auto;
 }
 
 .activeMove {
