@@ -1770,7 +1770,8 @@ select.minimal {
 
 div.selcImg {
     background-color: #f0f0f0;
-    height: 500px;
+    padding: 10px 15px;
+    // height: 500px;
     width: 550px;
     position: absolute;
     z-index: 1000;
@@ -1809,33 +1810,69 @@ div.selcImg {
     }
 
     >div.main {
+        background-color: #0000;
+
         .image-selector {
+            display: grid;
+            gap: 5px;
+            grid-template-columns: 1fr;
+
             .input-file {
                 display: none;
             }
             label {
-                background-color: lightgray;
-                border: 1px solid gray;
-                border-radius: 5px;
-                cursor: pointer;
-                display: inline-block;
-                padding: 10px 20px;
-                position: relative;
-                text-align: center;
+                background-color: #F0F0F0;
+                background-color: #00000003;
+                padding: 4px 6px;
+                height: fit-content;
+                width: 100%;
+                display: grid;
+                gap: 4px;
+                grid-template-columns: auto 1fr auto;
+                border-bottom: 1px solid #0000;
+                border-radius: 8px;
+                border: 1px solid rgb(0 0 0 / 2%);
+                box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.0);
 
-                &:before {
-                    content: "";
-                    background-image: url("data:image/png;base64,iVBORw0KG...");
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: 50% 50%;
-                    display: block;
-                    height: 50px;
-                    width: 50px;
-                    position: absolute;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    top: 10px;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.03);
+                    border: 1px solid rgb(0 0 0 / 3%);
+                }
+
+                &:active {
+                    background-color: rgba(0, 0, 0, 0.03);
+                    border: 1px solid rgba(0 61 140 / 4%);
+
+                }
+
+                &:focus-within {
+                    background-color: rgba(0, 0, 0, 0.03);
+                    border: 1px solid rgb(0 61 140 / 5%);
+                }
+
+
+                // &:before {
+                //     content: "";
+                //     background-image: url("data:image/png;base64,iVBORw0KG...");
+                //     background-repeat: no-repeat;
+                //     background-position: center;
+                //     background-size: 50% 50%;
+                //     display: block;
+                //     height: 50px;
+                //     width: 50px;
+                //     position: absolute;
+                //     left: 50%;
+                //     transform: translateX(-50%);
+                //     top: 10px;
+                // }
+                >span {
+                    width: 100%;
+                    color: #003d8c;
+                    font-size: 0.9rem;
+                    font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
             }
 
@@ -1847,15 +1884,96 @@ div.selcImg {
             .image-preview {
                 height: 200px;
                 overflow: hidden;
-                margin-top: 10px;
+                display: flex;
 
                 img {
                     height: 100%;
                     width: auto;
                 }
             }
+            div.infos {
+                // background-color: gainsboro;
+                display: grid;
+                gap: 5px;
+                grid-template-columns: min-content 1fr;
+                overflow: hidden;
+                >span {
+                    width: 100%;
+                    color: #003d8c;
+                    font-size: 0.9rem;
+                    font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
         }
 
+    }
+    >div.footer {
+        // background-color: lightcyan;
+        padding: 10px ;
+        display: grid;
+        gap: 0 8px;
+        grid-template-columns: 1fr auto auto;
+
+        >button.btnAction, button.btnCancelar {
+            background-color: #f8f8f8;
+            padding: 5px 20px;
+            height: fit-content;
+            // min-width: 150px;
+            display: grid;
+            align-self: center;
+            gap: 0 5px;
+            // grid-template-columns: auto 1fr;
+            align-items: center;
+            outline: 0;
+            border-radius: 4px;
+            border: 1px solid #0000;
+            box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+
+            &:hover {
+                background-color: #f0f0f0;
+                border: 1px solid rgba(0, 61, 140, 0.15);
+            }
+
+            &:active {
+                background-color: #f4f4f4;
+                box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                border: 1px solid rgba(0, 61, 140, 0.25);
+
+            }
+
+            &:focus {
+                background-color: #f4f4f4;
+                box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                border: 1px solid rgba(0, 61, 140, 0.25);
+
+
+            }
+
+            >span {
+                width: 100%;
+                color: #003d8c;
+                font-size: 0.9rem;
+                font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        >button.btnCancelar {
+
+            >span {
+                width: 100%;
+                color: #BF5A4E;
+                font-size: 0.9rem;
+                font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
     }
 }
 

@@ -1466,7 +1466,7 @@ select.minimal:-moz-focusring {
 
 div.selcImg {
   background-color: #f0f0f0;
-  height: 500px;
+  padding: 10px 15px;
   width: 550px;
   position: absolute;
   z-index: 1000;
@@ -1500,32 +1500,51 @@ div.selcImg > div.header > span.titulo {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+div.selcImg > div.main {
+  background-color: rgba(0, 0, 0, 0);
+}
+div.selcImg > div.main .image-selector {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr;
+}
 div.selcImg > div.main .image-selector .input-file {
   display: none;
 }
 div.selcImg > div.main .image-selector label {
-  background-color: lightgray;
-  border: 1px solid gray;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 20px;
-  position: relative;
-  text-align: center;
+  background-color: #F0F0F0;
+  background-color: rgba(0, 0, 0, 0.0117647059);
+  padding: 4px 6px;
+  height: fit-content;
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: auto 1fr auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0);
 }
-div.selcImg > div.main .image-selector label:before {
-  content: "";
-  background-image: url("data:image/png;base64,iVBORw0KG...");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50% 50%;
-  display: block;
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 10px;
+div.selcImg > div.main .image-selector label:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+div.selcImg > div.main .image-selector label:active {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 61, 140, 0.04);
+}
+div.selcImg > div.main .image-selector label:focus-within {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 61, 140, 0.05);
+}
+div.selcImg > div.main .image-selector label > span {
+  width: 100%;
+  color: #003d8c;
+  font-size: 0.9rem;
+  font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 div.selcImg > div.main .image-selector .input-file-text {
   display: inline-block;
@@ -1534,11 +1553,77 @@ div.selcImg > div.main .image-selector .input-file-text {
 div.selcImg > div.main .image-selector .image-preview {
   height: 200px;
   overflow: hidden;
-  margin-top: 10px;
+  display: flex;
 }
 div.selcImg > div.main .image-selector .image-preview img {
   height: 100%;
   width: auto;
+}
+div.selcImg > div.main .image-selector div.infos {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: min-content 1fr;
+  overflow: hidden;
+}
+div.selcImg > div.main .image-selector div.infos > span {
+  width: 100%;
+  color: #003d8c;
+  font-size: 0.9rem;
+  font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+div.selcImg > div.footer {
+  padding: 10px;
+  display: grid;
+  gap: 0 8px;
+  grid-template-columns: 1fr auto auto;
+}
+div.selcImg > div.footer > button.btnAction, div.selcImg > div.footer button.btnCancelar {
+  background-color: #f8f8f8;
+  padding: 5px 20px;
+  height: fit-content;
+  display: grid;
+  align-self: center;
+  gap: 0 5px;
+  align-items: center;
+  outline: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+}
+div.selcImg > div.footer > button.btnAction:hover, div.selcImg > div.footer button.btnCancelar:hover {
+  background-color: #f0f0f0;
+  border: 1px solid rgba(0, 61, 140, 0.15);
+}
+div.selcImg > div.footer > button.btnAction:active, div.selcImg > div.footer button.btnCancelar:active {
+  background-color: #f4f4f4;
+  box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+  border: 1px solid rgba(0, 61, 140, 0.25);
+}
+div.selcImg > div.footer > button.btnAction:focus, div.selcImg > div.footer button.btnCancelar:focus {
+  background-color: #f4f4f4;
+  box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+  border: 1px solid rgba(0, 61, 140, 0.25);
+}
+div.selcImg > div.footer > button.btnAction > span, div.selcImg > div.footer button.btnCancelar > span {
+  width: 100%;
+  color: #003d8c;
+  font-size: 0.9rem;
+  font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+div.selcImg > div.footer > button.btnCancelar > span {
+  width: 100%;
+  color: #BF5A4E;
+  font-size: 0.9rem;
+  font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .activeMove {

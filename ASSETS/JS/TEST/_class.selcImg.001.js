@@ -1,64 +1,63 @@
 class ImageSelector {
-    constructor(inputFileSelector, previewSelector, unit = 'bytes', maxSize = 0, nomeSelector, sizeSelector, typeSelector) {
+    constructor(inputFileSelector, previewSelector, maxSizeInMB, inNameSelector, inSizeSelector, inTypeSelector) {
+      this.inputFileElement = document.querySelector(inputFileSelector);
+      this.previewElement = document.querySelector(previewSelector);
+      this.maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+      this.fileName = '';
+      this.fileSizeInBytes = 0;
+      this.fileType = '';
+      this.nameElement = document.querySelector(inNameSelector);
+      this.sizeElement = document.querySelector(inSizeSelector);
+      this.typeElement = document.querySelector(inTypeSelector);
 
-
-
-      this.inputFile = document.querySelector(inputFileSelector);
-      this.preview = document.querySelector(previewSelector);
-      this.unit = unit;
-      this.maxSize = maxSize;
-      this.inputFile.addEventListener('change', this.handleInputFileChange.bind(this));
-      this.nomeElement = document.querySelector(nomeSelector);
-       this.sizeElement = document.querySelector(sizeSelector);
-       this.typeElement = document.querySelector(typeSelector);
+      this.inputFileElement.addEventListener('change', this.handleInputFileChange.bind(this));
     }
 
     handleInputFileChange() {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        this.file = this.inputFile.files[0];
-        this.fileSizeInSelectedUnit = this.convertToSelectedUnit(this.file.size);
+      const file = this.inputFileElement.files[0];
 
-        if (this.fileSizeInSelectedUnit > this.maxSize) {
-          alert(`O tamanho máximo permitido é de ${this.maxSize} ${this.unit}. Por favor, selecione outra imagem.`);
-          return;
-        }
-
-        this.preview.src = e.target.result;
-        this.fileName = this.file.name;
-        this.fileSize = this.file.size;
-        this.fileType = this.file.type;
-
-        document.querySelector('#file-info').innerHTML = `
-          Nome: ${this.fileName} <br>
-          Tamanho: ${this.humanizeSize(this.fileSizeInSelectedUnit)} ${this.unit} <br>
-          Tipo: ${this.fileType}
-        `;
-        this.nomeElement.value = this.fileName;
-        this.sizeElement.value = `${this.humanizeSize(this.fileSizeInSelectedUnit)} ${this.unit}`;
-        this.typeElement.value = this.fileType;
-      };
-      reader.readAsDataURL(this.inputFile.files[0]);
-    }
-
-    convertToSelectedUnit(sizeInBytes) {
-      switch (this.unit) {
-        case 'bytes':
-          return sizeInBytes;
-        case 'kilobytes':
-          return sizeInBytes / 1024;
-        case 'megabytes':
-          return sizeInBytes / (1024 * 1024);
-        case 'gigabytes':
-          return sizeInBytes / (1024 * 1024 * 1024);
-        default:
-          return sizeInBytes;
+      if (!file) {
+        return;
       }
+
+      this.fileName = file.name;
+      this.fileSizeInBytes = file.size;
+      this.fileType = file.type;
+
+      if (this.fileSizeInBytes > this.maxSizeInBytes) {
+        alert(`Tamanho da imagem excedeu o limite de ${(this.maxSizeInBytes / (1024 * 1024)).toFixed(2)} MB. Selecione uma imagem menor.`);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        this.previewElement.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+
+      this.nameElement.innerHTML  = this.fileName;
+      const { size, unit } = this.autoSizeUnit(this.fileSizeInBytes);
+      this.sizeElement.innerHTML = `${size.toFixed(2)} ${unit}`;
+      this.typeElement.innerHTML = this.fileType;
     }
 
-    humanizeSize(size) {
-      return new Intl.NumberFormat().format(size);
+    autoSizeUnit(sizeInBytes) {
+      let size = sizeInBytes;
+      let unit = 'bytes';
+      if (size >= 1000) {
+        size = size / 1000;
+        unit = 'kilobytes';
+      }
+      if (size >= 1000) {
+        size = size / 1000;
+        unit = 'megabytes';
+      }
+      if (size >= 1000) {
+        size = size / 1000;
+        unit = 'gigabytes';
+      }
+      return { size, unit };
     }
   }
 
-  const imageSelector = new ImageSelector('.input-file', '#preview', 'megabytes', 5, '#in_nome', '#in_size', '#in_type');
+  const imageSelector = new ImageSelector('.input-file', '#preview', 12, '.in_nome', '.in_size', '.in_type');
