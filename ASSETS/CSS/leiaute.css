@@ -1462,4 +1462,46 @@ select.minimal.minimal:focus {
 select.minimal:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+div.selcImg {
+  background-color: silver;
+  height: 500px;
+  width: 350px;
+  position: absolute;
+  z-index: 1000;
+  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 0.1fr 1fr 0.1fr;
+  align-items: center;
+  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.09);
+}
+div.selcImg > div.header {
+  padding: 15px 5px;
+  height: fit-content;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+div.selcImg > div.header > span.titulo {
+  width: 100%;
+  color: #003d8c;
+  color: crimson;
+  font-size: 1.2rem;
+  font-family: "OswaldMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  letter-spacing: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.activeMove {
+  background-color: yellow;
+  cursor: move;
+  user-select: none;
 }/*# sourceMappingURL=leiaute.css.map */
