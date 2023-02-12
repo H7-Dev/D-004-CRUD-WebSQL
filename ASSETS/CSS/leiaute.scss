@@ -1776,7 +1776,7 @@ div.selcImg {
     position: absolute;
     z-index: 1000;
 
-    display: grid;
+    display: none;
     grid-template-rows: auto 1fr auto;
     grid-template-rows: .1fr 1fr .1fr;
     align-items: center;

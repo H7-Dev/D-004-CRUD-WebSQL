@@ -11,6 +11,10 @@
   display: grid !important;
 }
 
+.ativadoX {
+  display: grid;
+}
+
 .desativo {
   display: none !important;
 }

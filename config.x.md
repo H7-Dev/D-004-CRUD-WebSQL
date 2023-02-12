@@ -4,6 +4,7 @@
 * 🏁 Ou Bakcup [edit commit message]*
 * ❕ 🚧⛔
 * ⛔ Pare*
+* ⚠️ *
 * ❌ Não / Negativo*
 * ❓  Interrogação*
 * 👍 Aprovados*

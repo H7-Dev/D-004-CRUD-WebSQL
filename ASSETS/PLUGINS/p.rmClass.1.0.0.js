@@ -27,11 +27,7 @@ var removeClasses = function (options) {
             }
         }
     };
-    if (btnSelc) {
-        btnSelc.addEventListener("click", function () {
-            removerClasses(elementsToToggle);
-        });
-    }
+    removerClasses(elementsToToggle);
 };
 
 var btnVoltar = new removeClasses({
@@ -40,4 +36,4 @@ var btnVoltar = new removeClasses({
     animeClass: "saltarOut",
     removeClass: "ativado",
     // delay: 5000,
-});
+})

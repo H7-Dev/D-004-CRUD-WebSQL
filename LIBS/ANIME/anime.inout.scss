@@ -10,6 +10,10 @@
 .ativado {
     display: grid !important;
 }
+.ativadoX {
+    display: grid ;
+}
+
 
 .desativo {
     display: none !important;
@@ -174,4 +178,4 @@
         50% {
         opacity: 1;
         }
-        } 
+        }
