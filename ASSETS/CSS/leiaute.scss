@@ -1366,6 +1366,24 @@ div.form {
                         position: absolute;
                     }
                 }
+                .audio-recorder {
+                    width: 400px;
+                    margin: 20px auto;
+                    text-align: center;
+
+                    .controls {
+                      margin-top: 20px;
+                      button {
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        margin-right: 20px;
+                        &[disabled] {
+                          opacity: 0.5;
+                          cursor: not-allowed;
+                        }
+                      }
+                    }
+                  }
             }
 
             >div.chat {
@@ -1820,6 +1838,7 @@ div.selcImg {
             .input-file {
                 display: none;
             }
+
             label {
                 background-color: #F0F0F0;
                 background-color: #00000003;
@@ -1885,18 +1904,21 @@ div.selcImg {
                 height: 200px;
                 overflow: hidden;
                 display: flex;
+                justify-content: center;
 
                 img {
                     height: 100%;
                     width: auto;
                 }
             }
+
             div.infos {
                 // background-color: gainsboro;
                 display: grid;
                 gap: 5px;
                 grid-template-columns: min-content 1fr;
                 overflow: hidden;
+
                 >span {
                     width: 100%;
                     color: #003d8c;
@@ -1910,14 +1932,16 @@ div.selcImg {
         }
 
     }
+
     >div.footer {
         // background-color: lightcyan;
-        padding: 10px ;
+        padding: 10px;
         display: grid;
         gap: 0 8px;
         grid-template-columns: 1fr auto auto;
 
-        >button.btnAction, button.btnCancelar {
+        >button.btnAction,
+        button.btnCancelar {
             background-color: #f8f8f8;
             padding: 5px 20px;
             height: fit-content;
@@ -1962,6 +1986,7 @@ div.selcImg {
                 overflow: hidden;
             }
         }
+
         >button.btnCancelar {
 
             >span {

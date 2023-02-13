@@ -1151,6 +1151,23 @@ div.form div.wrapper > div.main > div.dockLeft > button.btnSeclIgm > span {
   width: 100%;
   position: absolute;
 }
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder {
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder .controls {
+  margin-top: 20px;
+}
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder .controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 20px;
+}
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder .controls button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 div.form div.wrapper > div.main > div.chat {
   display: grid;
   grid-template-rows: 1fr auto;
@@ -1554,6 +1571,7 @@ div.selcImg > div.main .image-selector .image-preview {
   height: 200px;
   overflow: hidden;
   display: flex;
+  justify-content: center;
 }
 div.selcImg > div.main .image-selector .image-preview img {
   height: 100%;
@@ -1580,7 +1598,8 @@ div.selcImg > div.footer {
   gap: 0 8px;
   grid-template-columns: 1fr auto auto;
 }
-div.selcImg > div.footer > button.btnAction, div.selcImg > div.footer button.btnCancelar {
+div.selcImg > div.footer > button.btnAction,
+div.selcImg > div.footer button.btnCancelar {
   background-color: #f8f8f8;
   padding: 5px 20px;
   height: fit-content;
@@ -1593,21 +1612,25 @@ div.selcImg > div.footer > button.btnAction, div.selcImg > div.footer button.btn
   border: 1px solid rgba(0, 0, 0, 0);
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
 }
-div.selcImg > div.footer > button.btnAction:hover, div.selcImg > div.footer button.btnCancelar:hover {
+div.selcImg > div.footer > button.btnAction:hover,
+div.selcImg > div.footer button.btnCancelar:hover {
   background-color: #f0f0f0;
   border: 1px solid rgba(0, 61, 140, 0.15);
 }
-div.selcImg > div.footer > button.btnAction:active, div.selcImg > div.footer button.btnCancelar:active {
+div.selcImg > div.footer > button.btnAction:active,
+div.selcImg > div.footer button.btnCancelar:active {
   background-color: #f4f4f4;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
   border: 1px solid rgba(0, 61, 140, 0.25);
 }
-div.selcImg > div.footer > button.btnAction:focus, div.selcImg > div.footer button.btnCancelar:focus {
+div.selcImg > div.footer > button.btnAction:focus,
+div.selcImg > div.footer button.btnCancelar:focus {
   background-color: #f4f4f4;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
   border: 1px solid rgba(0, 61, 140, 0.25);
 }
-div.selcImg > div.footer > button.btnAction > span, div.selcImg > div.footer button.btnCancelar > span {
+div.selcImg > div.footer > button.btnAction > span,
+div.selcImg > div.footer button.btnCancelar > span {
   width: 100%;
   color: #003d8c;
   font-size: 0.9rem;

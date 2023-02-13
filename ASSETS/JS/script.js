@@ -57,21 +57,13 @@ btnSeclIgm.addEventListener('click', (e) => {
     addClasses.add();
 })
 
+
+
+
 let useImg = document.querySelector('#useImg');
 useImg.addEventListener('click', (e) => {
     console.log('x2');
     console.log(e.target)
-
-    // const options = {
-    //     elementsToToggle: [".selcImg"],
-    //     animeClass: "saltarOut",
-    //     removeClass: "ativado",
-    //     delay: 500
-    //   };
-
-    //   const removeClassesInstance = new RemoveClasses(options);
-    //   removeClassesInstance.init();
-
 
     var imgSrc = document.getElementById("preview").getAttribute("src");
     if (imgSrc) {
@@ -102,6 +94,21 @@ useImg.addEventListener('click', (e) => {
         console.error("O valor do atributo src está vazio");
     }
 })
+
+let btnCancelar = document.querySelector('body > div.selcImg > div.footer > button.btnCancelar');
+btnCancelar.addEventListener('click', (e) => {
+    console.log('x');
+    console.log(e.target)
+    const options = {
+        elementsToToggle: [".selcImg"],
+        animeClass: "saltarOut",
+        removeClass: "ativado",
+        delay: 500
+    };
+    const removeClassesInstance = new RemoveClasses(options);
+    removeClassesInstance.init();
+})
+
 
 
 // document.getElementById("useImg").addEventListener("click", function () {
