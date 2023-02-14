@@ -1,26 +1,17 @@
+
 // * seleciona o primeiro elemento com uma classe "btnSelc" no documento HTML atual e o armazena em uma variável chamada "a".
+const a = document.querySelector('.btnSelc');
 
-window.addEventListener('load', function () {
-
-    const  alternarEl = new altClasses({
-        elementsToToggle: [
-            "td.action",
-            ".thActions",
-            ".btnDel",
-            ".btnUpdate"
-        ],
-        animeClass: "saltar",
-        animeOutClass: "saltarOut",
-        delay: 700,
-    })
-    const  a = document.querySelector('.btnSelc')
-    a.addEventListener('click', function() {
-        alternarEl.toggle()
-    })
+a.addEventListener('click', (e) => {
+    const toggleClasses = new altClass({
+        elementsToToggle: [".thActions", ".action"],
+        activeClass: "active",
+        animeClass: "zoomIn",
+        delay: 500,
+    });
+    toggleClasses.alternaClass(document.querySelectorAll(".thActions, .action"));
 });
 
-
-// * call class (exemplo de uso)
 
 
 // *
