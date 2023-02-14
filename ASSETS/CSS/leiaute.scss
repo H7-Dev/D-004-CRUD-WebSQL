@@ -1282,6 +1282,7 @@ div.crud {
     }
 
 }
+
 div.form {
     background-color: rgba(41, 41, 41, 0);
     padding: 10px;
@@ -1336,7 +1337,7 @@ div.form {
                 // background-color: #F8F8F8;
                 padding: 10PX;
                 display: grid;
-                gap: 12px;
+                gap: 35px;
                 align-content: center;
                 justify-items: center;
 
@@ -1365,6 +1366,49 @@ div.form {
                         position: absolute;
                     }
                 }
+
+                >button.btnShowGravador {
+                    background-color: #fff;
+                    padding: 5px 10px;
+                    height: fit-content;
+                    // min-width: 150px;
+                    display: grid;
+                    align-self: center;
+                    gap: 0 5px;
+                    // grid-template-columns: auto 1fr;
+                    align-items: center;
+                    outline: 0;
+                    border-radius: 4px;
+                    border: 1px solid #0000;
+                    box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+
+                    &:hover {
+                        background-color: #f8f8f8;
+                        border: 1px solid rgba(0, 61, 140, 0.180);
+                    }
+
+                    &:active {
+                        background-color: #f5f5f5;
+                        box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                    }
+
+                    &:focus {
+                        background-color: #f8f8f8;
+                        box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                        border: 1px solid rgba(0, 61, 140, 0.280);
+                    }
+
+                    >span {
+                        width: 100%;
+                        color: #003d8c;
+                        font-size: 0.9rem;
+                        font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+
                 .audio-recorder {
                     display: flex;
                     align-items: center;
@@ -1374,47 +1418,52 @@ div.form {
                     border-radius: 50%;
                     background-color: #ddd;
                     position: relative;
-                    .record-button {
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      height: 50px;
-                      width: 50px;
-                      border-radius: 50%;
-                      background-color: #fff;
-                      position: absolute;
-                      top: 25px;
-                      left: 25px;
-                      cursor: pointer;
-                      i {
-                        font-size: 20px;
-                        color: #333;
-                      }
-                    }
-                    .recording-state {
-                      display: none;
-                      height: 100px;
-                      width: 100px;
-                      border-radius: 50%;
-                      background-color: #ff6347;
-                      position: absolute;
-                      top: 0;
-                      left: 0;
-                      animation: recording 1s infinite;
-                    }
-                  }
 
-                  @keyframes recording {
+                    .record-button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        position: absolute;
+                        top: 25px;
+                        left: 25px;
+                        cursor: pointer;
+
+                        i {
+                            font-size: 20px;
+                            color: #333;
+                        }
+                    }
+
+                    .recording-state {
+                        display: none;
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 50%;
+                        background-color: #ff6347;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        animation: recording 1s infinite;
+                    }
+                }
+
+                @keyframes recording {
                     0% {
-                      transform: scale(1);
+                        transform: scale(1);
                     }
+
                     20% {
-                      transform: scale(1.05);
+                        transform: scale(1.05);
                     }
+
                     40% {
-                      transform: scale(1);
+                        transform: scale(1);
                     }
-                  }
+                }
             }
 
             >div.chat {
@@ -2038,6 +2087,7 @@ div.selcImg {
     cursor: move;
     user-select: none;
 }
+
 .activeMoveX {
     background-color: rebeccapurple !important;
     cursor: move;
@@ -2046,3 +2096,192 @@ div.selcImg {
 
 
 
+div.gravadorAudio {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    // height: 500px;
+    width: 550px;
+    position: absolute;
+    z-index: 1000;
+
+    display: none;
+    grid-template-rows: auto 1fr auto;
+    grid-template-rows: .1fr 5fr .1fr;
+    align-items: center;
+
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.09);
+
+    >div.header {
+        padding: 15px 5px;
+        height: fit-content;
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+
+        >span.titulo {
+            width: 100%;
+            color: #003d8c;
+            color: crimson;
+            font-size: 1.2rem;
+            font-family: "OswaldMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+            letter-spacing: normal;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    >div.main {
+        background-color: #0000;
+
+        >div.dockRec {
+            background-color: gainsboro;
+            display: grid;
+
+            >div.main {
+                display: grid;
+
+                #record-button {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    width: 64px;
+                    height: 64px;
+                    border: 5px solid #000;
+                    border-radius: 50%;
+
+
+                    &.gravando {
+                        &:before {
+                            content: '';
+                            position: relative;
+                            display: block;
+                            width: 300%;
+                            height: 300%;
+                            box-sizing: border-box;
+                            margin-left: -100%;
+                            margin-top: -100%;
+                            border-radius: 50%;
+                            background-color: #01a4e9;
+                            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+                        }
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            background-color: red;
+                            border-radius: 50%;
+                            box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+                            animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
+                        }
+                    }
+                }
+
+                @keyframes pulse-ring {
+                    0% {
+                        transform: scale(.63);
+                    }
+
+                    80%,
+                    100% {
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes pulse-dot {
+                    0% {
+                        transform: scale(.8);
+                    }
+
+                    50% {
+                        transform: scale(1);
+                    }
+
+                    100% {
+                        transform: scale(.8);
+                    }
+                }
+            }
+        }
+    }
+
+    >div.footer {
+        // background-color: lightcyan;
+        padding: 10px;
+        display: grid;
+        gap: 0 8px;
+        grid-template-columns: 1fr auto auto;
+
+        >button.btnAction,
+        button.btnCancelar {
+            background-color: #f8f8f8;
+            padding: 5px 20px;
+            height: fit-content;
+            // min-width: 150px;
+            display: grid;
+            align-self: center;
+            gap: 0 5px;
+            // grid-template-columns: auto 1fr;
+            align-items: center;
+            outline: 0;
+            border-radius: 4px;
+            border: 1px solid #0000;
+            box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+
+            &:hover {
+                background-color: #f0f0f0;
+                border: 1px solid rgba(0, 61, 140, 0.15);
+            }
+
+            &:active {
+                background-color: #f4f4f4;
+                box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                border: 1px solid rgba(0, 61, 140, 0.25);
+
+            }
+
+            &:focus {
+                background-color: #f4f4f4;
+                box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                border: 1px solid rgba(0, 61, 140, 0.25);
+
+
+            }
+
+            >span {
+                width: 100%;
+                color: #003d8c;
+                font-size: 0.9rem;
+                font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        >button.btnCancelar {
+
+            >span {
+                width: 100%;
+                color: #BF5A4E;
+                font-size: 0.9rem;
+                font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+    }
+}

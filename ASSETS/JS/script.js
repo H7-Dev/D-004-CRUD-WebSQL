@@ -72,6 +72,26 @@ btnSelcImg.forEach(function (button) {
     })
 })
 
+
+
+let btnShowGravador = document.querySelectorAll('.btnShowGravador')
+btnShowGravador.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear()
+        console.log('=> ⚡-click btnShowGravador <=');
+        console.log(this);
+
+        const addClasses = new AddClasses({
+            elementsToToggle: [".gravadorAudio"],
+            activeClass: "ativado",
+            animeClass: "zoomIn",
+            delay: 500,
+        });
+        addClasses.add();
+    })
+})
+
+
 let btnVotlarSelcImg = document.querySelectorAll('body > div.selcImg > div.footer > button.btnCancelar')
 btnVotlarSelcImg.forEach(function (button) {
     button.addEventListener('click', function (event) {
