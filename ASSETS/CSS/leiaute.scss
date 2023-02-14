@@ -2151,14 +2151,14 @@ div.gravadorAudio {
                 justify-items: center;
                 align-items: center;
 
-                #record-button {
+                >.btnIniStopRec {
                     position: relative;
                     width: 64px;
                     height: 64px;
                     border: 5px solid gainsboro;
                     border-radius: 50%;
                     box-shadow: inset 0px 0px 4px 0px rgb(0 0 0 / 29%), 0px 0px 4px 0px rgb(0 0 0 / 29%);
-                    
+
                     >svg {
                         height: 28px;
                         fill: gainsboro;
@@ -2214,6 +2214,7 @@ div.gravadorAudio {
                     0% {
                         transform: translate(-50%, -50%) scale(.63);
                     }
+
                     80%,
                     100% {
                         opacity: 0;

@@ -1776,7 +1776,7 @@ div.gravadorAudio > div.main > div.dockRec > div.main {
   justify-items: center;
   align-items: center;
 }
-div.gravadorAudio > div.main > div.dockRec > div.main #record-button {
+div.gravadorAudio > div.main > div.dockRec > div.main > .btnIniStopRec {
   position: relative;
   width: 64px;
   height: 64px;
@@ -1784,17 +1784,17 @@ div.gravadorAudio > div.main > div.dockRec > div.main #record-button {
   border-radius: 50%;
   box-shadow: inset 0px 0px 4px 0px rgba(0, 0, 0, 0.29), 0px 0px 4px 0px rgba(0, 0, 0, 0.29);
 }
-div.gravadorAudio > div.main > div.dockRec > div.main #record-button > svg {
+div.gravadorAudio > div.main > div.dockRec > div.main > .btnIniStopRec > svg {
   height: 28px;
   fill: gainsboro;
 }
-div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando > svg {
+div.gravadorAudio > div.main > div.dockRec > div.main > .btnIniStopRec.gravando > svg {
   height: 28px;
   z-index: 2;
   position: relative;
   fill: black;
 }
-div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando:before {
+div.gravadorAudio > div.main > div.dockRec > div.main > .btnIniStopRec.gravando:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -1811,7 +1811,7 @@ div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando:be
   background-color: gainsboro;
   animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
-div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando:after {
+div.gravadorAudio > div.main > div.dockRec > div.main > .btnIniStopRec.gravando:after {
   content: "";
   position: absolute;
   z-index: 1;
