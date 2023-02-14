@@ -1087,7 +1087,7 @@ div.crud > footer > div.actions > button.btnUpdate > svg {
 }
 
 div.form {
-  background-color: rgba(41, 41, 41, 0.21);
+  background-color: rgba(41, 41, 41, 0);
   padding: 10px;
   height: 100%;
   width: 100%;
@@ -1682,7 +1682,13 @@ div.selcImg > div.footer > button.btnCancelar > span {
 }
 
 .activeMove {
-  background-color: yellow;
+  background-color: yellow !important;
+  cursor: move;
+  user-select: none;
+}
+
+.activeMoveX {
+  background-color: rebeccapurple !important;
   cursor: move;
   user-select: none;
 }/*# sourceMappingURL=leiaute.css.map */
