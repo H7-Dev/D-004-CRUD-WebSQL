@@ -17,49 +17,95 @@ btnSelcRowsTable.forEach(function (button) {
 });
 
 
+let btnIniChat = document.querySelectorAll('.btnAddRegistro')
+btnIniChat.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear()
+        console.log('=> ⚡-click btnIniChat <=');
+        console.log(this);
 
-
-// *
-let element = document.querySelector('.btnAddRegistro');
-element.addEventListener('click', (e) => {
-    console.log('x');
-    console.log(e.target)
-
-    const addClasses = new AddClasses({
-        elementsToToggle: [".form"],
-        activeClass: "ativado",
-        animeClass: "zoomIn",
-        delay: 500,
-    });
-    addClasses.add();
+        const addClasses = new AddClasses({
+            elementsToToggle: [".form"],
+            activeClass: "ativado",
+            animeClass: "zoomIn",
+            delay: 500,
+        });
+        addClasses.add();
+    })
 })
 
-let btnSeclIgm = document.querySelector('.btnSeclIgm');
-btnSeclIgm.addEventListener('click', (e) => {
-    console.log('x');
-    console.log(e.target)
+let btnVoltar = document.querySelectorAll('.btnVoltar')
+btnVoltar.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear()
+        console.log('=> ⚡-click btnVoltar <=');
+        console.log(this);
 
-    const addClasses = new AddClasses({
-        elementsToToggle: [".selcImg"],
-        activeClass: "ativado",
-        animeClass: "zoomIn",
-        delay: 500,
-    });
-    addClasses.add();
+        const options = {
+            elementsToToggle: [".form"],
+            animeClass: "saltarOut",
+            removeClass: "ativado",
+            delay: 500
+        };
+        const removeClassesInstance = new RemoveClasses(options);
+        removeClassesInstance.init();
+    })
+})
+
+
+
+
+let btnSelcImg = document.querySelectorAll('#btnSeclIgm')
+btnSelcImg.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear()
+        console.log('=> ⚡-click btnSelcImg <=');
+        console.log(this);
+
+        const addClasses = new AddClasses({
+            elementsToToggle: [".selcImg"],
+            activeClass: "ativado",
+            animeClass: "zoomIn",
+            delay: 500,
+        });
+        addClasses.add();
+    })
+})
+
+let btnVotlarSelcImg = document.querySelectorAll('body > div.selcImg > div.footer > button.btnCancelar')
+btnVotlarSelcImg.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear()
+        console.log('=> ⚡-click btnVotlarSelcImg <=');
+        console.log(this);
+
+        const options = {
+            elementsToToggle: [".selcImg"],
+            animeClass: "saltarOut",
+            removeClass: "ativado",
+            delay: 500
+        };
+        const removeClassesInstance = new RemoveClasses(options);
+        removeClassesInstance.init();
+    })
+})
+
+/* Exemplor de uso  da class ImageSelector*/
+const imageSelector = new ImageSelector({
+    inputFileSelector: '#fileInput',
+    previewSelector: '#preview',
+    maxSizeInMB: 10,
+    inNameSelector: '.in_nome',
+    inSizeSelector: '.in_size',
+    inTypeSelector: '.in_type',
 })
 
 
 let useImg = document.querySelector('#useImg');
 useImg.addEventListener('click', (e) => {
-    console.log('x2');
-    console.log(e.target)
 
     var imgSrc = document.getElementById("preview").getAttribute("src");
     if (imgSrc) {
-        // document.querySelector(".btnSeclIgm").style.backgroundImage = "url('" + imgSrc + "')";
-
-        // Para configurar a imagem como background-image de um elemento com classe '.background-element':
-        // Para configurar a imagem como background-image de um elemento com classe '.background-element':
         imageSelector.setBackgroundImage('.btnSeclIgm')
             .then(() => {
                 imageSelector.clear();
@@ -84,19 +130,6 @@ useImg.addEventListener('click', (e) => {
     }
 })
 
-let btnCancelar = document.querySelector('body > div.selcImg > div.footer > button.btnCancelar');
-btnCancelar.addEventListener('click', (e) => {
-    console.log('x');
-    console.log(e.target)
-    const options = {
-        elementsToToggle: [".selcImg"],
-        animeClass: "saltarOut",
-        removeClass: "ativado",
-        delay: 500
-    };
-    const removeClassesInstance = new RemoveClasses(options);
-    removeClassesInstance.init();
-})
 
 
 

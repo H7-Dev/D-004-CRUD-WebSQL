@@ -1,5 +1,5 @@
 class ImageSelector {
-    constructor(inputFileSelector, previewSelector, maxSizeInMB, inNameSelector, inSizeSelector, inTypeSelector) {
+    constructor({inputFileSelector, previewSelector, maxSizeInMB, inNameSelector, inSizeSelector, inTypeSelector}) {
         this.inputFileElement = document.querySelector(inputFileSelector);
         this.previewElement = document.querySelector(previewSelector);
         this.maxSizeInBytes = maxSizeInMB * 1024 * 1024;
@@ -59,9 +59,9 @@ class ImageSelector {
     }
     clear() {
         this.previewElement.src = '';
-        this.nameInput.value = '';
-        this.sizeInput.value = '';
-        this.typeInput.value = '';
+        this.nameInput.html = '';
+        this.sizeInput.html = '';
+        this.typeInput.html = '';
     }
     setBackgroundImage(elementSelector) {
         return new Promise((resolve, reject) => {
@@ -78,4 +78,12 @@ class ImageSelector {
         });
     }
 }
-const imageSelector = new ImageSelector('.input-file', '#preview', 10, '.in_nome', '.in_size', '.in_type');
+/* Exemplor de uso */
+// const imageSelector = new ImageSelector({
+//     inputFileSelector: '#fileInput',
+//     previewSelector: '#preview',
+//     maxSizeInMB: 10,
+//     inNameSelector: '.in_nome',
+//     inSizeSelector: '.in_size',
+//     inTypeSelector: '.in_type',
+// });
