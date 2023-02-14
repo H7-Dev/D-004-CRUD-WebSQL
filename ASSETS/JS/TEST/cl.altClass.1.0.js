@@ -7,7 +7,8 @@ class altClass {
         });
 
         this.activeClass = options.activeClass || "active";
-        this.animeClass = options.animeClass || "anime";
+        this.inClass = options.inClass || "zoomIn";
+        this.outClass = options.outClass || "animeOut";
         this.delay = options.delay || 900;
     }
 
@@ -15,18 +16,35 @@ class altClass {
         for (let i = 0; i < elements.length; i++) {
             if (elements[i] && elements[i].classList) {
                 if (elements[i].classList.contains(this.activeClass)) {
-                    elements[i].classList.remove(this.activeClass);
+                    elements[i].classList.add(this.outClass);
+                    setTimeout(() => {
+                        elements[i].classList.remove(this.activeClass);
+                        elements[i].classList.remove(this.outClass);
+                    }, this.delay);
                 } else {
                     elements[i].classList.add(this.activeClass);
-                    elements[i].classList.add(this.animeClass);
+                    elements[i].classList.add(this.inClass);
                     setTimeout(() => {
-                        elements[i].classList.remove(this.animeClass);
+                        elements[i].classList.remove(this.inClass);
                     }, this.delay);
                 }
             }
         }
     }
 }
+
+const a = document.querySelector('.btnSelc');
+
+a.addEventListener('click', (e) => {
+    const toggleClasses = new altClass({
+        elementsToToggle: [".thActions", ".action"],
+        activeClass: "active",
+        inClass: "zoomIn",
+        outClass: "saltarOut",
+        delay: 900,
+    });
+    toggleClasses.alternaClass(document.querySelectorAll(".thActions, .action"));
+});
 
 
 
