@@ -13,7 +13,6 @@ class AudioRecorder {
 
         this.btnIniStopRec.addEventListener("click", () => this.toggleRecord());
     }
-
     toggleRecord() {
         if (this.recording) {
             this.stopRecording();
@@ -22,7 +21,6 @@ class AudioRecorder {
         }
         this.recording = !this.recording;
     }
-
     startRecording() {
         console.log('AudioRecorder | startRecording')
         navigator.mediaDevices.getUserMedia({
@@ -100,4 +98,4 @@ const recorder = new AudioRecorder({
     timeSpan: document.getElementById("time"),
     totalTimeSpan: document.getElementById("totalTime"),
     sizeSpan: document.getElementById("sizeAudio")
-});
+})
