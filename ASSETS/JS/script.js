@@ -1,31 +1,27 @@
-// Criação de uma nova instância da classe altClasses
-var tableToggler = new altClasses({
-    // btnSelc: ".btnSelc",                     // * Seleciona um botão personalizado na página HTML
-    elementsToToggle: [
-        "td.action",
-        ".thActions",
-        ".btnDel",
-        ".btnUpdate"
-    ], // * Seleciona elementos na página HTML para alternar sua exibição
-    // activeClass: "customAtivado",        // * Define a classe para ser adicionada aos elementos quando estiverem ativados
-    // disabledClass: "customDesativado",   //  * Define a classe para ser adicionada aos elementos quando estiverem desativados
-    animeClass: "saltar", // * Define a classe para ser adicionada aos elementos durante a animação de ativação
-    animeOutClass: "saltarOut", // * Define a classe para ser adicionada aos elementos durante a animação de desativação
-    delay: 700, // * Define o tempo de delay antes da animação de desativação ser concluída
-})
-tableToggler.toggle()
+// * seleciona o primeiro elemento com uma classe "btnSelc" no documento HTML atual e o armazena em uma variável chamada "a".
+
+window.addEventListener('load', function () {
+
+    const  alternarEl = new altClasses({
+        elementsToToggle: [
+            "td.action",
+            ".thActions",
+            ".btnDel",
+            ".btnUpdate"
+        ],
+        animeClass: "saltar",
+        animeOutClass: "saltarOut",
+        delay: 700,
+    })
+    const  a = document.querySelector('.btnSelc')
+    a.addEventListener('click', function() {
+        alternarEl.toggle()
+    })
+});
 
 
-var países = ["Brasil", "Argentina", "Chile", "Colômbia", "Equador", "Guiana", "Paraguai", "Peru", "Uruguai", "Venezuela",
-    "Canadá", "Estados Unidos", "México", "Costa Rica", "Panamá", "Jamaica", "Haiti", "República Dominicana", "Cuba", "Puerto Rico"
-];
+// * call class (exemplo de uso)
 
-// Armazenar a lista de países no localStorage
-localStorage.setItem("países", JSON.stringify(países));
-
-// Recuperar a lista de países do localStorage
-var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
-// console.log(paísesArmazenados)
 
 // *
 let element = document.querySelector('.btnAddRegistro');
@@ -41,7 +37,6 @@ element.addEventListener('click', (e) => {
     });
     addClasses.add();
 })
-// *
 
 let btnSeclIgm = document.querySelector('.btnSeclIgm');
 btnSeclIgm.addEventListener('click', (e) => {
@@ -56,8 +51,6 @@ btnSeclIgm.addEventListener('click', (e) => {
     });
     addClasses.add();
 })
-
-
 
 
 let useImg = document.querySelector('#useImg');
@@ -111,19 +104,14 @@ btnCancelar.addEventListener('click', (e) => {
 
 
 
-// document.getElementById("useImg").addEventListener("click", function () {
-//     var imgSrc = document.getElementById("preview").getAttribute("src");
-//     if (imgSrc) {
-//         document.querySelector(".btnSeclIgm").style.backgroundImage = "url('" + imgSrc + "')";
 
-//     const remover = new RemoveClasses({
-//         elementsToToggle: [".selcImg"],
-//         animeClass: "saltarOut",
-//         removeClass: "ativadoX",
-//         delay: 500
-//       });
-//       remover.init();
-//     } else {
-//         console.error("O valor do atributo src está vazio");
-//     }
-// })
+
+
+
+
+// * Não faz parte do projeto (excluir ao final)
+var países = ["Brasil", "Argentina", "Chile", "Colômbia", "Equador", "Guiana", "Paraguai", "Peru", "Uruguai", "Venezuela",
+    "Canadá", "Estados Unidos", "México", "Costa Rica", "Panamá", "Jamaica", "Haiti", "República Dominicana", "Cuba", "Puerto Rico"
+];
+// Armazenar a lista de países no localStorage
+localStorage.setItem("países", JSON.stringify(países))

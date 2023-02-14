@@ -1367,21 +1367,53 @@ div.form {
                     }
                 }
                 .audio-recorder {
-                    width: 400px;
-                    margin: 20px auto;
-                    text-align: center;
-
-                    .controls {
-                      margin-top: 20px;
-                      button {
-                        padding: 10px 20px;
-                        font-size: 16px;
-                        margin-right: 20px;
-                        &[disabled] {
-                          opacity: 0.5;
-                          cursor: not-allowed;
-                        }
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50%;
+                    background-color: #ddd;
+                    position: relative;
+                    .record-button {
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      height: 50px;
+                      width: 50px;
+                      border-radius: 50%;
+                      background-color: #fff;
+                      position: absolute;
+                      top: 25px;
+                      left: 25px;
+                      cursor: pointer;
+                      i {
+                        font-size: 20px;
+                        color: #333;
                       }
+                    }
+                    .recording-state {
+                      display: none;
+                      height: 100px;
+                      width: 100px;
+                      border-radius: 50%;
+                      background-color: #ff6347;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      animation: recording 1s infinite;
+                    }
+                  }
+
+                  @keyframes recording {
+                    0% {
+                      transform: scale(1);
+                    }
+                    20% {
+                      transform: scale(1.05);
+                    }
+                    40% {
+                      transform: scale(1);
                     }
                   }
             }

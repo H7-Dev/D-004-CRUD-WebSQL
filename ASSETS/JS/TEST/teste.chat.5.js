@@ -60,6 +60,7 @@ const form = {
 };
 const answers = [];
 let i = 0;
+
 function iniciarChat() {
     const firstQuestion = form.questions[i]
     const pergunta = `<span class="perguntas bubble">${firstQuestion.text}<div class="bubble-arrow"></div></span>`;

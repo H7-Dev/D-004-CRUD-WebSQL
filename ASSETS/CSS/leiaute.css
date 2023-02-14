@@ -1152,21 +1152,53 @@ div.form div.wrapper > div.main > div.dockLeft > button.btnSeclIgm > span {
   position: absolute;
 }
 div.form div.wrapper > div.main > div.dockLeft .audio-recorder {
-  width: 400px;
-  margin: 20px auto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #ddd;
+  position: relative;
 }
-div.form div.wrapper > div.main > div.dockLeft .audio-recorder .controls {
-  margin-top: 20px;
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder .record-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
 }
-div.form div.wrapper > div.main > div.dockLeft .audio-recorder .controls button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-right: 20px;
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder .record-button i {
+  font-size: 20px;
+  color: #333;
 }
-div.form div.wrapper > div.main > div.dockLeft .audio-recorder .controls button[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
+div.form div.wrapper > div.main > div.dockLeft .audio-recorder .recording-state {
+  display: none;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #ff6347;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: recording 1s infinite;
+}
+@keyframes recording {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.05);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 div.form div.wrapper > div.main > div.chat {
   display: grid;
