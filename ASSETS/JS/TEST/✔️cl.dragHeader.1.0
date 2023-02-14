@@ -1,8 +1,9 @@
 class Draggable {
-    constructor({wrapperSelector, headerSelector}) {
+    constructor({wrapperSelector, headerSelector, customClass = "activeMove"}) {
         this.wrapper = document.querySelector(wrapperSelector);
         this.header = this.wrapper.querySelector(headerSelector);
         this.active = false;
+        this.customClass = customClass;
 
         this.onDrag = this.onDrag.bind(this);
         this.init();
@@ -14,13 +15,13 @@ class Draggable {
     }
     handleMouseDown() {
         this.active = true;
-        this.header.classList.add("activeMove");
+        this.header.classList.add(this.customClass);
         this.header.addEventListener("mousemove", this.onDrag);
     }
 
     handleMouseUp() {
         this.active = false;
-        this.header.classList.remove("activeMove");
+        this.header.classList.remove(this.customClass);
         this.header.removeEventListener("mousemove", this.onDrag);
     }
 
@@ -36,10 +37,11 @@ class Draggable {
     }
 
     handleDoubleClick() {
-        this.wrapper.style.left = "0px";
-        this.wrapper.style.top = "0px";
+        this.wrapper.style.left = "";
+        this.wrapper.style.top = "";
     }
 }
+
 
 
 const draggable = new Draggable({
@@ -48,7 +50,8 @@ const draggable = new Draggable({
 })
 const draggableX = new Draggable({
     wrapperSelector: "body > div.selcImg",
-    headerSelector: "body > div.selcImg > div.header"
+    headerSelector: "body > div.selcImg > div.header",
+    customClass: "activeMoveX"
 })
 
 
