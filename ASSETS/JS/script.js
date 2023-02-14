@@ -1,16 +1,22 @@
+// * ✔️ Mostrar/ocultar from  altClass
+let btnSelcRowsTable = document.querySelectorAll('.btnSelc')
+btnSelcRowsTable.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear();
+        console.log('=> ⚡-click btnSelc <=');
+        console.log(this);
+        const toggleClasses = new altClass({
+            elementsToToggle: [".thActions", ".action"],
+            activeClass: "active",
+            inClass: "zoomIn",
+            outClass: "saltarOut",
+            delay: 900,
+        });
+        toggleClasses.toggle();
+    });
+});
 
-// * seleciona o primeiro elemento com uma classe "btnSelc" no documento HTML atual e o armazena em uma variável chamada "a".
-// const a = document.querySelector('.btnSelc');
 
-// a.addEventListener('click', (e) => {
-//     const toggleClasses = new altClass({
-//         elementsToToggle: [".thActions", ".action"],
-//         activeClass: "active",
-//         animeClass: "zoomIn",
-//         delay: 500,
-//     });
-//     toggleClasses.alternaClass(document.querySelectorAll(".thActions, .action"));
-// });
 
 
 // *

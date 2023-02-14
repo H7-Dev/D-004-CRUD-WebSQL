@@ -12,20 +12,24 @@ class altClass {
         this.delay = options.delay || 900;
     }
 
-    alternaClass(elements) {
+    toggle() {
+        this.alternaClass(document.querySelectorAll(".thActions, .action"));
+    }
+
+    alternaClass(elements, inClass = this.inClass, outClass = this.outClass) {
         for (let i = 0; i < elements.length; i++) {
             if (elements[i] && elements[i].classList) {
                 if (elements[i].classList.contains(this.activeClass)) {
-                    elements[i].classList.add(this.outClass);
+                    elements[i].classList.add(outClass);
                     setTimeout(() => {
                         elements[i].classList.remove(this.activeClass);
-                        elements[i].classList.remove(this.outClass);
+                        elements[i].classList.remove(outClass);
                     }, this.delay);
                 } else {
                     elements[i].classList.add(this.activeClass);
-                    elements[i].classList.add(this.inClass);
+                    elements[i].classList.add(inClass);
                     setTimeout(() => {
-                        elements[i].classList.remove(this.inClass);
+                        elements[i].classList.remove(inClass);
                     }, this.delay);
                 }
             }
@@ -33,23 +37,26 @@ class altClass {
     }
 }
 
-const a = document.querySelector('.btnSelc');
-
-a.addEventListener('click', (e) => {
-    const toggleClasses = new altClass({
-        elementsToToggle: [".thActions", ".action"],
-        activeClass: "active",
-        inClass: "zoomIn",
-        outClass: "saltarOut",
-        delay: 900,
-    });
-    toggleClasses.alternaClass(document.querySelectorAll(".thActions, .action"));
-});
+/* Exemplor de uso da class */
 
 
+// const a = document.querySelector('.btnSelc');
+// const toggleClasses = new altClass({
+//     elementsToToggle: [".thActions", ".action"],
+//     activeClass: "active",
+//     inClass: "zoomIn",
+//     outClass: "saltarOut",
+//     delay: 900,
+// });
 
-/* Exemplo de uso */
-// const element = document.getElementById('my-element');
-// const classToggler = new ClassToggler(element);
+// a.addEventListener('click', (e) => {
+//     toggleClasses.toggle();
+// });
 
-// classToggler.toggleClass('my-class'); // adiciona a classe "my-class" se ela não existir no elemento ou remove-a se ela já existir
+
+// $(document).on('click', 'div.bars', function (e) {
+//     console.clear()
+//     console.log('=> ⚡-click btnBars <=')
+//     let $th = $(this)
+//     console.log($th)
+// })
