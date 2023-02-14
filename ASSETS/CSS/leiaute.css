@@ -1768,51 +1768,67 @@ div.gravadorAudio > div.main {
   background-color: rgba(0, 0, 0, 0);
 }
 div.gravadorAudio > div.main > div.dockRec {
-  background-color: gainsboro;
   display: grid;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main {
   display: grid;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main #record-button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  position: relative;
   width: 64px;
   height: 64px;
-  border: 5px solid #000;
+  border: 5px solid gainsboro;
   border-radius: 50%;
+  box-shadow: inset 0px 0px 4px 0px rgba(0, 0, 0, 0.29), 0px 0px 4px 0px rgba(0, 0, 0, 0.29);
+}
+div.gravadorAudio > div.main > div.dockRec > div.main #record-button > svg {
+  height: 28px;
+  fill: gainsboro;
+}
+div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando > svg {
+  height: 28px;
+  z-index: 2;
+  position: relative;
+  fill: black;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando:before {
   content: "";
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 5;
   display: block;
-  width: 300%;
-  height: 300%;
+  width: 130px;
+  height: 130px;
   box-sizing: border-box;
-  margin-left: -100%;
-  margin-top: -100%;
   border-radius: 50%;
   background-color: #01a4e9;
+  background-color: gainsboro;
   animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando:after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 45px;
+  height: 45px;
   background-color: red;
   border-radius: 50%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-  animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+  animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 1) -0.4s infinite;
 }
 @keyframes pulse-ring {
   0% {
-    transform: scale(0.63);
+    transform: translate(-50%, -50%) scale(0.63);
   }
   80%, 100% {
     opacity: 0;
@@ -1820,13 +1836,13 @@ div.gravadorAudio > div.main > div.dockRec > div.main #record-button.gravando:af
 }
 @keyframes pulse-dot {
   0% {
-    transform: scale(0.8);
+    transform: translate(-50%, -50%) scale(0.9);
   }
   50% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
-    transform: scale(0.8);
+    transform: translate(-50%, -50%) scale(0.9);
   }
 }
 div.gravadorAudio > div.footer {
