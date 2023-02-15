@@ -2234,6 +2234,20 @@ div.gravadorAudio {
                         transform: translate(-50%, -50%) scale(.9);
                     }
                 }
+
+                >div.player {
+                    background-color: gainsboro;
+                    padding: 5px;
+                    width: 100%;
+                    display: grid;
+                    gap: 15px;
+                    grid-auto-flow: column;
+                    justify-content: center;
+
+                    >audio {
+                        display: none;
+                    }
+                }
             }
         }
     }

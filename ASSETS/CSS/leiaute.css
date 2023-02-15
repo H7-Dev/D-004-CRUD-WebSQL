@@ -1845,6 +1845,18 @@ div.gravadorAudio > div.main > div.dockRec > div.main > .btnIniStopRec.gravando:
     transform: translate(-50%, -50%) scale(0.9);
   }
 }
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player {
+  background-color: gainsboro;
+  padding: 5px;
+  width: 100%;
+  display: grid;
+  gap: 15px;
+  grid-auto-flow: column;
+  justify-content: center;
+}
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player > audio {
+  display: none;
+}
 div.gravadorAudio > div.footer {
   padding: 10px;
   display: grid;
