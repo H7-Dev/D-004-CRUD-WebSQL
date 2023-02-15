@@ -2236,11 +2236,11 @@ div.gravadorAudio {
                 }
 
                 >div.player {
-                    background-color: gainsboro;
+                    // background-color: gainsboro;
                     padding: 5px;
                     width: 100%;
                     display: grid;
-                    gap: 15px;
+                    gap: 35px;
                     grid-auto-flow: column;
                     justify-content: center;
                     justify-items: center;
@@ -2251,7 +2251,7 @@ div.gravadorAudio {
                         display: none;
                     }
 
-                    >button.btnplayPause {
+                    >div.controls {
                         background-color: lightcyan;
                         height: 42px;
                         width: 42px;
@@ -2262,7 +2262,61 @@ div.gravadorAudio {
                         align-items: center;
                         position: relative;
 
-                        >div.iconPlay {
+                        >div.ctrlsSecundario {
+                            // background-color: lightgrey;
+                            background-color: #fff;
+                            padding: 5px 10px 5px 5px;
+                            min-height: 30px;
+                            max-height: 30px;
+
+                            display: grid;
+                            gap: 5px;
+                            grid-auto-flow: column;
+
+                            position: absolute;
+                            left: -105px;
+
+                            >button.btnRestart,
+                            >button.btnVoltSegs,
+                            >button.btnAvaSegs {
+                                // background-color: #fff;
+                                padding: 1px 4px;
+                                height: fit-content;
+                                width: fit-content;
+                                display: grid;
+                                align-items: center;
+                                outline: 0;
+                                white-space: nowrap;
+                                align-self: center;
+
+                                border: 1px solid #0000;
+                                border-radius: 4px;
+                                box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+
+                                &:hover {
+                                    background-color: #f8f8f8;
+                                    border: 1px solid rgba(0, 61, 140, 0.180);
+                                }
+
+                                &:active {
+                                    background-color: #f8f8f8;
+                                    box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                                    border: 1px solid rgba(0, 61, 140, 0.404);
+                                }
+
+                                // &:focus {
+                                //     background-color: #f8f8f8;
+                                //     box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                                //     border: 1px solid rgba(0, 61, 140, 0.280);
+                                // }
+                                >svg {
+                                    height: 13pt;
+                                    fill: #707277;
+                                }
+                            }
+                        }
+
+                        >button.btnPlayPause {
                             background-color: red;
                             height: 42px;
                             width: 42px;
@@ -2277,15 +2331,37 @@ div.gravadorAudio {
 
                         >div.times {
                             background-color: green;
-                            padding: 5px 15px 5px 10px;
+                            background-color: #FFF;
+                            padding: 5px 5px 5px 10px;
+                            min-height: 30px;
+                            max-height: 30px;
                             display: grid;
                             grid-template-columns: 1fr 1fr;
                             gap: 15px;
                             position: relative;
                             z-index: 1;
                             right: -36px;
-                            border-top-right-radius: 15px ;
-                            border-bottom-right-radius: 15px;
+
+                            border: 1px solid #0000;
+                            border-top-right-radius: 4px;
+                            border-bottom-right-radius: 4px;
+                            box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+
+                            >span {
+                                color: #707277;
+                                font-size: 0.80rem;
+                                font-family: "OpenSansRegular", "Segoe UI", sans-serif;
+                            }
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 4px;
+                                height: 100%;
+                                width: var(--progress, 0%);
+                                background-color: #3535354f;
+                            }
                         }
                     }
 

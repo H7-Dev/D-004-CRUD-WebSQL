@@ -239,13 +239,23 @@
                     <br>
                     <div class="player">
                         <audio id="audio" class="row1" src="ASSETS/MIDIA/AUDIOS/Onde o amor reinar.mp3" controls></audio>
-                        <button id="restart-button" class="col1 row1"><svg height="15pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" stroke="none"><path d="M2616 4705 c-21 -7 -50 -24 -65 -37 -14 -14 -142 -133 -283 -267 -212 -199 -259 -249 -267 -279 -13 -47 0 -106 31 -139 54 -58 540 -508 561 -520 30 -17 112 -16 146 2 16 8 40 28 55 45 21 26 26 42 26 88 l0 57 -162 157 -163 158 45 0 c80 0 263 -20 358 -40 327 -68 642 -249 868 -500 394 -437 521 -1039 338 -1605 -38 -119 -145 -327 -221 -435 -38 -52 -115 -142 -173 -200 -374 -374 -906 -544 -1426 -455 -218 37 -490 151 -674 282 -122 87 -287 253 -372 373 -180 255 -273 517 -302 857 -15 171 -24 193 -87 225 -71 37 -157 14 -200 -54 -19 -31 -20 -43 -15 -188 15 -452 205 -889 535 -1232 366 -382 852 -589 1386 -590 923 -4 1707 634 1901 1547 35 162 44 472 20 645 -128 915 -876 1611 -1792 1668 l-106 7 106 99 c117 108 136 135 136 196 0 102 -104 171 -204 135z"/></g></svg></button>
-                        <button id="play-pause-button" class="btnplayPause col2 row1">
-                            <div class="iconPlay">Play x</div>
-                            <div class="times">
+                        <div class="controls">
+                            <div class="ctrlsSecundario">
+                                <button id="restart-button" class="btnRestart">
+                                    <svg height="15" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve"><g transform="matrix(1,0,0,1,0,0)"><path d="M32 63C17.3 63 5.3 51 5.3 36.3c0-1.1.9-2 2-2s2 .9 2 2C9.3 48.8 19.5 59 32 59s22.7-10.2 22.7-22.7S44.5 13.6 32 13.6c-1.1 0-2-.9-2-2s.9-2 2-2c14.7 0 26.7 12 26.7 26.7S46.7 63 32 63z"  data-original="#000000"/><path d="M36 22.6c-.5 0-1-.2-1.4-.6l-8.8-8.8c-.8-.8-.8-2 0-2.8l8.8-8.8c.8-.8 2-.8 2.8 0s.8 2 0 2.8L30 11.8l7.4 7.4c.8.8.8 2 0 2.8-.3.4-.8.6-1.4.6z" data-original="#000000"/></g></svg>
+                                </button>
+                                <button id="btnVoltSegs" class="btnAvaSegs">
+                                    <svg  height="15" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(1,0,0,1,0,0)"><path d="M20 16a4 4 0 1 0-4 4 4 4 0 0 0 4-4zM3.63 21a1 1 0 0 0 .3-.05 1 1 0 0 0 .65-1.26A11.81 11.81 0 0 1 4 16a1 1 0 0 0-2 0 14 14 0 0 0 .68 4.31 1 1 0 0 0 .95.69zM5.85 22.4B8r3B4p7yhRXuBWLqsQ546WR43cqQwrbXMDFnBi6vSJBeif8tPW85a7r7DM961Jvk4hdryZoByEp8GC8HzsqJpRN4FxGM91-2.32-2.31z" data-original="#000000"/><path d="M5 9h.16l6-1a1 1 0 0 0 .75-.57 1 1 0 0 0-.05-.93L11 5.1a12 12 0 1 1 .36 22 1 1 0 1 0-.78 1.84A13.87 13.87 0 0 0 16 30a14 14 0 1 0-6-26.62L8.86 1.49A1 1 0 0 0 8 1a1 1 0 0 0-.85.55l-3 6a1 1 0 0 0 .09 1A1 1 0 0 0 5 9z"  data-original="#000000"/></g></svg>
+                                </button>
+                                <button id="btnAvanSegs" class="btnAvaSegs">
+                                    <svg  height="15" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,32.06070899963379,0)"><path d="M20 16a4 4 0 1 0-4 4 4 4 0 0 0 4-4zM3.63 21a1 1 0 0 0 .3-.05 1 1 0 0 0 .65-1.26A11.81 11.81 0 0 1 4 16a1 1 0 0 0-2 0 14 14 0 0 0 .68 4.31 1 1 0 0 0 .95.69zM5.85 22.4B8r3B4p7yhRXuBWLqsQ546WR43cqQwrbXMDFnBi6vSJBeif8tPW85a7r7DM961Jvk4hdryZoByEp8GC8HzsqJpRN4FxGM91-2.32-2.31z" data-original="#000000" class=""/><path d="M5 9h.16l6-1a1 1 0 0 0 .75-.57 1 1 0 0 0-.05-.93L11 5.1a12 12 0 1 1 .36 22 1 1 0 1 0-.78 1.84A13.87 13.87 0 0 0 16 30a14 14 0 1 0-6-26.62L8.86 1.49A1 1 0 0 0 8 1a1 1 0 0 0-.85.55l-3 6a1 1 0 0 0 .09 1A1 1 0 0 0 5 9z" data-original="#000000" class=""/></g></svg>
+                                </button>
+                            </div>
+                            <button class="btnPlayPause" id="play-pause-button">Play x</button>
+                            <div class="times" id="timeProgress">
                                 <span id="timeDecorrido" class="timeDecorrido">00:00</span><span id="timeTotal" class="timeTotal">00:00</span>
                             </div>
-                        </button>
+                        </div>
                     </div>
                 </div>
                 <div class="footer"></div>
