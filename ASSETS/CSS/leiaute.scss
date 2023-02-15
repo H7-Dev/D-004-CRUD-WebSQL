@@ -2243,10 +2243,52 @@ div.gravadorAudio {
                     gap: 15px;
                     grid-auto-flow: column;
                     justify-content: center;
+                    justify-items: center;
+
+
 
                     >audio {
                         display: none;
                     }
+
+                    >button.btnplayPause {
+                        background-color: lightcyan;
+                        height: 42px;
+                        width: 42px;
+                        display: grid;
+                        border-radius: 50%;
+                        outline: 1px solid rgba(0, 0, 0, 0);
+                        border: 1px solid rgba(0, 0, 0, 0);
+                        align-items: center;
+                        position: relative;
+
+                        >div.iconPlay {
+                            background-color: red;
+                            height: 42px;
+                            width: 42px;
+                            display: grid;
+                            border-radius: 50%;
+                            outline: 1px solid rgba(0, 0, 0, 0);
+                            border: 1px solid rgba(0, 0, 0, 0);
+                            align-items: center;
+                            position: absolute;
+                            z-index: 2;
+                        }
+
+                        >div.times {
+                            background-color: green;
+                            padding: 5px 15px 5px 10px;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 15px;
+                            position: relative;
+                            z-index: 1;
+                            right: -36px;
+                            border-top-right-radius: 15px ;
+                            border-bottom-right-radius: 15px;
+                        }
+                    }
+
                 }
             }
         }

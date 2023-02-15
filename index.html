@@ -238,9 +238,14 @@
                     <span id="sizeAudio"></span>
                     <br>
                     <div class="player">
-                        <audio id="audio" src="ASSETS/MIDIA/AUDIOS/Onde o amor reinar.mp3" controls></audio>
-                        <button id="restart-button">Voltar Início</button>
-                        <button id="play-pause-button">Play</button>
+                        <audio id="audio" class="row1" src="ASSETS/MIDIA/AUDIOS/Onde o amor reinar.mp3" controls></audio>
+                        <button id="restart-button" class="col1 row1"><svg height="15pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" stroke="none"><path d="M2616 4705 c-21 -7 -50 -24 -65 -37 -14 -14 -142 -133 -283 -267 -212 -199 -259 -249 -267 -279 -13 -47 0 -106 31 -139 54 -58 540 -508 561 -520 30 -17 112 -16 146 2 16 8 40 28 55 45 21 26 26 42 26 88 l0 57 -162 157 -163 158 45 0 c80 0 263 -20 358 -40 327 -68 642 -249 868 -500 394 -437 521 -1039 338 -1605 -38 -119 -145 -327 -221 -435 -38 -52 -115 -142 -173 -200 -374 -374 -906 -544 -1426 -455 -218 37 -490 151 -674 282 -122 87 -287 253 -372 373 -180 255 -273 517 -302 857 -15 171 -24 193 -87 225 -71 37 -157 14 -200 -54 -19 -31 -20 -43 -15 -188 15 -452 205 -889 535 -1232 366 -382 852 -589 1386 -590 923 -4 1707 634 1901 1547 35 162 44 472 20 645 -128 915 -876 1611 -1792 1668 l-106 7 106 99 c117 108 136 135 136 196 0 102 -104 171 -204 135z"/></g></svg></button>
+                        <button id="play-pause-button" class="btnplayPause col2 row1">
+                            <div class="iconPlay">Play x</div>
+                            <div class="times">
+                                <span id="timeDecorrido" class="timeDecorrido">00:00</span><span id="timeTotal" class="timeTotal">00:00</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
                 <div class="footer"></div>
