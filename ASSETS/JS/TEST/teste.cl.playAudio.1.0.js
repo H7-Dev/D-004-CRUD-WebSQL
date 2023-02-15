@@ -26,11 +26,14 @@ restartButton.addEventListener('click', function() {
   }
 });
 
+audio.addEventListener('loadedmetadata', function() {
+  const durMinutes = isFinite(audio.duration) ? Math.floor(audio.duration / 60) : 0;
+  const durSeconds = isFinite(audio.duration) ? Math.floor(audio.duration % 60) : 0;
+  timeTotal.innerHTML = `${durMinutes}:${(durSeconds < 10 ? '0' : '')}${durSeconds}`;
+});
+
 audio.addEventListener('timeupdate', function() {
   const minutes = Math.floor(audio.currentTime / 60);
   const seconds = Math.floor(audio.currentTime % 60);
   timeDecorrido.innerHTML = `${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`;
-  const durMinutes = Math.floor(audio.duration / 60);
-  const durSeconds = Math.floor(audio.duration % 60);
-  timeTotal.innerHTML = `${durMinutes}:${(durSeconds < 10 ? '0' : '')}${durSeconds}`;
 });
