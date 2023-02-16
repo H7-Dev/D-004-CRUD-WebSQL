@@ -232,14 +232,15 @@
                     <button class="btnIniStopRec" id="btnIniStopRec">
                         <svg height="18" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"stroke="none"><path d="M2393 5105 c-195 -35 -364 -120 -507 -255 -163 -154 -263 -338 -301 -556 -22 -129 -22 -1659 0 -1788 75 -427 409 -751 842 -815 287 -43 589 54 807 259 163 154 263 338 301 556 22 128 22 1659 0 1788 -53 302 -239 561 -508 706 -192 104 -427 143 -634 105z m382 -329 c205 -70 362 -227 432 -430 l28 -81 0 -865 0 -865 -31 -86 c-62 -174 -178 -305 -339 -385 -201 -99 -409 -99 -610 0 -161 80 -277 211 -339 385 l-31 86 0 865 0 865 24 70 c49 147 148 278 269 359 133 87 240 117 402 113 93 -3 130 -9 195 -31z"/><path d="M799 2796 c-56 -38 -71 -88 -64 -205 24 -367 130 -678 332 -970 85 -123 315 -353 443 -444 175 -123 446 -242 665 -291 55 -12 207 -36 231 -36 2 0 4 -121 4 -270 l0 -269 -368 -3 -369 -3 -37 -29 c-94 -71 -84 -206 19 -256 40 -20 62 -20 905 -20 843 0 865 0 905 20 103 50 113 185 19 256 l-37 29 -369 3 -368 3 0 269 c0 149 2 270 4 270 24 0 176 24 231 36 219 49 490 168 665 291 128 91 358 321 443 444 202 292 308 603 332 971 7 117 -10 171 -67 206 -42 26 -115 29 -158 7 -58 -30 -73 -66 -82 -199 -23 -340 -125 -615 -324 -871 -390 -503 -1074 -709 -1677 -504 -489 167 -862 568 -988 1063 -25 97 -49 268 -49 351 0 109 -58 175 -154 175 -38 0 -61 -6 -87 -24z"/></g></svg>
                     </button>
-                    <span id="time">0</span>
+                    <span id="time" >00:00</span>
                     <br>
-                    <span id="totalTime">x0</span>
-                    <span id="sizeAudio"></span>
+                    <span id="totalTime" class="sptotalTime">00:00</span>
+                    <span id="sizeAudio">X0 MB</span>
                     <br>
                     <div class="player">
                         <audio id="audio" class="row1" src="ASSETS/MIDIA/AUDIOS/Onde o amor reinar.mp3" controls></audio>
                         <div class="controls">
+                            <input type="hidden" id="blobTo64">
                             <div class="ctrlsSecundario">
                                 <button id="restart-button" class="btnRestart">
                                     <svg height="15" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve"><g transform="matrix(1,0,0,1,0,0)"><path d="M32 63C17.3 63 5.3 51 5.3 36.3c0-1.1.9-2 2-2s2 .9 2 2C9.3 48.8 19.5 59 32 59s22.7-10.2 22.7-22.7S44.5 13.6 32 13.6c-1.1 0-2-.9-2-2s.9-2 2-2c14.7 0 26.7 12 26.7 26.7S46.7 63 32 63z"  data-original="#000000"/><path d="M36 22.6c-.5 0-1-.2-1.4-.6l-8.8-8.8c-.8-.8-.8-2 0-2.8l8.8-8.8c.8-.8 2-.8 2.8 0s.8 2 0 2.8L30 11.8l7.4 7.4c.8.8.8 2 0 2.8-.3.4-.8.6-1.4.6z" data-original="#000000"/></g></svg>
@@ -253,7 +254,7 @@
                             </div>
                             <button class="btnPlayPause" id="play-pause-button">Play x</button>
                             <div class="times" id="timeProgress">
-                                <span id="timeDecorrido" class="timeDecorrido">00:00</span><span id="timeTotal" class="timeTotal">00:00</span>
+                                <span id="timeDecorrido" class="timeDecorrido">00:00</span><span id="timeTotal" class="timeTotal sptotalTime">00:00</span>
                             </div>
                         </div>
                     </div>

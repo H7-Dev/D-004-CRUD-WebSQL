@@ -48,7 +48,7 @@ class AudioRecorder {
                     });
                     const url = URL.createObjectURL(blob);
                     this.audio.src = url;
-                    this.audio.play();
+                    // this.audio.play();
                     this.updateTime(0);
 
                     // Calcular tempo total
@@ -61,7 +61,13 @@ class AudioRecorder {
                             const totalTime = decodedData.duration;
                             const totalMinutes = Math.floor(totalTime / 60);
                             const totalSeconds = Math.floor(totalTime % 60);
-                            this.totalTimeSpan.innerText = `${totalMinutes}:${totalSeconds.toString().padStart(2, "0")}`;
+                            console.log(this.totalTimeSpan)
+                            var elements = this.totalTimeSpan
+                            for (var i = 0; i < elements.length; i++) {
+                              elements[i].innerHTML =  `${totalMinutes}:${totalSeconds.toString().padStart(2, "0")}`
+                            }
+
+                            // .innerText
                         });
                     };
 
@@ -96,6 +102,6 @@ const recorder = new AudioRecorder({
     btnIniStopRec: document.getElementById("btnIniStopRec"),
     audio: document.getElementById("audio"),
     timeSpan: document.getElementById("time"),
-    totalTimeSpan: document.getElementById("totalTime"),
+    totalTimeSpan: document.getElementsByClassName("sptotalTime"),
     sizeSpan: document.getElementById("sizeAudio")
 })

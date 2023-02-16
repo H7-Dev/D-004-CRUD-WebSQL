@@ -1914,7 +1914,7 @@ div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.control
   fill: #707277;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause {
-  background-color: red;
+  background-color: steelblue;
   height: 42px;
   width: 42px;
   display: grid;

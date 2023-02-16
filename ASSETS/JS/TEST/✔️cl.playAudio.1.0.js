@@ -13,14 +13,12 @@ class AudioPlayer {
     }
 
     formatTime(time) {
-        // console.log('=> ⚡-formatTime<=')
         const minutes = Math.floor(time / 60);
         const seconds = Math.floor(time % 60).toString().padStart(2, "0");
         return `${minutes}:${seconds}`;
     }
 
     updateProgress() {
-        // console.log('=> ⚡-updateProgress<=')
         const progress = (this.audio.currentTime / this.audio.duration) * 100;
         this.timeProgress.style.setProperty("--progress", progress + "%");
         this.timeThumb.style.left = progress + "%";
@@ -28,19 +26,24 @@ class AudioPlayer {
     }
 
     setTotalTime() {
-        console.log('=> ⚡-setTotalTime<=')
-        this.timeTotal.textContent = this.formatTime(this.audio.duration);
-
+        if (isFinite(this.audio.duration)) {
+            this.timeTotal.textContent = this.formatTime(this.audio.duration);
+        }
     }
 
     setup() {
         this.timeThumb.id = "timeThumb";
         this.timeProgress.appendChild(this.timeThumb);
-        this.audio.addEventListener("loadedmetadata", this.setTotalTime.bind(this));
-        this.audio.addEventListener("timeupdate", this.updateProgress.bind(this));
+        this.audio.addEventListener("loadedmetadata", () => {
+            this.setTotalTime();
+        });
+        this.audio.addEventListener("timeupdate", () => {
+            this.updateProgress();
+        });
+        this.audio.addEventListener("ended", () => {
+            this.btnPlayPause.textContent = "Play";
+        });
         this.btnPlayPause.addEventListener("click", () => {
-            console.log('=> ⚡-btnPlayPause<=')
-
             if (this.audio.paused) {
                 this.audio.play();
                 this.btnPlayPause.textContent = "Pause";
@@ -50,20 +53,18 @@ class AudioPlayer {
             }
         });
         this.btnVoltInicio.addEventListener("click", () => {
-            console.log('=> ⚡-btnVoltInicio<=')
             this.audio.currentTime = 0;
             if (!this.audio.paused) {
                 this.audio.play();
             }
         });
         this.btnAvanSegs.addEventListener("click", () => {
-            console.log('=> ⚡-btnVoltInicio<=')
             this.audio.currentTime += 10; // avança 10 segundos
         });
         this.btnVoltSegs.addEventListener("click", () => {
-            console.log('=> ⚡-btnVoltSegs<=')
             this.audio.currentTime -= 10; // retrocede 10 segundos
         });
     }
 }
+
 const player = new AudioPlayer("audio", "play-pause-button", "restart-button", "btnAvanSegs", "btnVoltSegs", "timeDecorrido", "timeTotal", "timeProgress");
