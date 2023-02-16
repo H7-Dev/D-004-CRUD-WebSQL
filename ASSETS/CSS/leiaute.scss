@@ -2317,10 +2317,11 @@ div.gravadorAudio {
                         }
 
                         >button.btnPlayPause {
-                            background-color: steelblue;
+                            background-color: gainsboro;
                             height: 42px;
                             width: 42px;
                             display: grid;
+                            justify-items: center;
                             border-radius: 50%;
                             outline: 1px solid rgba(0, 0, 0, 0);
                             border: 1px solid rgba(0, 0, 0, 0);
@@ -2328,8 +2329,26 @@ div.gravadorAudio {
                             position: absolute;
                             z-index: 2;
 
+                            >svg.playIcon{
+                                fill: #707277;
+                                display: grid;
+                            }
+                            >svg.pauseIcon{
+                                fill: #707277;
+                                display: none;
+                            }
+
                             &.activePlay {
-                                background-color: dodgerblue;
+
+                                >svg.playIcon{
+                                    fill: #707277;
+                                    display: none;
+                                }
+                                >svg.pauseIcon{
+                                    fill: #707277;
+                                    display: grid;
+                                }
+
                             }
                         }
 

@@ -97,7 +97,6 @@ class AudioRecorder {
         this.timeSpan.innerText = `${minutes}:${paddedSeconds}`;
     }
 }
-
 const recorder = new AudioRecorder({
     btnIniStopRec: document.getElementById("btnIniStopRec"),
     audio: document.getElementById("audio"),

@@ -1914,10 +1914,11 @@ div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.control
   fill: #707277;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause {
-  background-color: steelblue;
+  background-color: gainsboro;
   height: 42px;
   width: 42px;
   display: grid;
+  justify-items: center;
   border-radius: 50%;
   outline: 1px solid rgba(0, 0, 0, 0);
   border: 1px solid rgba(0, 0, 0, 0);
@@ -1925,8 +1926,21 @@ div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.control
   position: absolute;
   z-index: 2;
 }
-div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause.activePlay {
-  background-color: dodgerblue;
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause > svg.playIcon {
+  fill: #707277;
+  display: grid;
+}
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause > svg.pauseIcon {
+  fill: #707277;
+  display: none;
+}
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause.activePlay > svg.playIcon {
+  fill: #707277;
+  display: none;
+}
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause.activePlay > svg.pauseIcon {
+  fill: #707277;
+  display: grid;
 }
 div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > div.times {
   background-color: green;

@@ -46,10 +46,10 @@ class AudioPlayer {
         this.btnPlayPause.addEventListener("click", () => {
             if (this.audio.paused) {
                 this.audio.play();
-                this.btnPlayPause.textContent = "Pause";
+                this.btnPlayPause.classList.add('activePlay')
             } else {
                 this.audio.pause();
-                this.btnPlayPause.textContent = "Play";
+                this.btnPlayPause.classList.remove('activePlay')
             }
         });
         this.btnVoltInicio.addEventListener("click", () => {
