@@ -2327,6 +2327,10 @@ div.gravadorAudio {
                             align-items: center;
                             position: absolute;
                             z-index: 2;
+
+                            &.activePlay {
+                                background-color: dodgerblue;
+                            }
                         }
 
                         >div.times {
@@ -2361,6 +2365,7 @@ div.gravadorAudio {
                                 height: 100%;
                                 width: var(--progress, 0%);
                                 background-color: #3535354f;
+                                background-color: #0056ff4f;
                             }
                         }
                     }

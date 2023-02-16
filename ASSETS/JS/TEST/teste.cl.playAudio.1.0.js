@@ -1,3 +1,32 @@
+/*
+  * Nome do Arquivo: exemplo.js
+  Data de Criação: 01/01/2022
+
+  Descrição:
+
+  -Este código JavaScript é responsável por controlar a reprodução de um áudio em uma página web
+
+  Dependências: Nenhuma.
+
+  Configurações: Nenhuma.
+
+  Aqui estão as descrições dos elementos do código:
+
+  - audio: representa o elemento de áudio na página web.
+  - playPauseButton: representa o botão de "Play/Pause" do áudio.
+  - restartButton: representa o botão de "Reiniciar" do áudio.
+  - timeDecorrido: representa o elemento onde é mostrado o tempo decorrido do áudio.
+  - timeTotal: representa o elemento onde é mostrado o tempo total do áudio.
+  - timeProgress: representa o elemento onde é mostrado o progresso de reprodução do áudio.
+  - btnAvanSegs: representa o botão para avançar um número de segundos no áudio.
+  - btnVoltSegs: representa o botão para retroceder um número de segundos no áudio.
+
+  Seções do Código:
+  1.
+  2.
+
+*/
+
 const audio = document.getElementById('audio');
 const playPauseButton = document.getElementById('play-pause-button');
 const restartButton = document.getElementById('restart-button');
@@ -11,10 +40,10 @@ const btnVoltSegs = document.getElementById("btnVoltSegs");
 playPauseButton.addEventListener('click', function () {
     if (audio.paused) {
         audio.play();
-        // playPauseButton.innerHTML = "Pause";
+        playPauseButton.classList.toggle('activePlay')
     } else {
         audio.pause();
-        // playPauseButton.innerHTML = "Play";
+        playPauseButton.classList.toggle('activePlay')
     }
 });
 
@@ -22,11 +51,13 @@ restartButton.addEventListener('click', function () {
     if (!audio.paused) {
         // Se o áudio estiver tocando, apenas reiniciamos a reprodução a partir do início
         audio.currentTime = 0;
+        playPauseButton.classList.toggle('activePlay')
     } else {
         // Se o áudio estiver pausado, reiniciamos a reprodução a partir do início e pausamos novamente
         audio.currentTime = 0;
         audio.pause();
         // playPauseButton.innerHTML = "Play";
+        playPauseButton.classList.toggle('activePlay')
     }
 });
 

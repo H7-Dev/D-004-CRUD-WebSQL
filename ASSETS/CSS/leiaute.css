@@ -1925,6 +1925,9 @@ div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.control
   position: absolute;
   z-index: 2;
 }
+div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > button.btnPlayPause.activePlay {
+  background-color: dodgerblue;
+}
 div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.controls > div.times {
   background-color: green;
   background-color: #FFF;
@@ -1955,6 +1958,7 @@ div.gravadorAudio > div.main > div.dockRec > div.main > div.player > div.control
   height: 100%;
   width: var(--progress, 0%);
   background-color: rgba(53, 53, 53, 0.3098039216);
+  background-color: rgba(0, 86, 255, 0.3098039216);
 }
 div.gravadorAudio > div.footer {
   padding: 10px;
