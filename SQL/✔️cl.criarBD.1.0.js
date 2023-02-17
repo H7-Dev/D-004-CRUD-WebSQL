@@ -1,3 +1,5 @@
+// Questão: Class javascript para criar um banco de dados em websql
+
 class BDcriarConec {
     constructor(name, version, desc, size) {
         this.db = null;
@@ -21,6 +23,17 @@ class BDcriarConec {
 
 async function createMyDB() {
     const myDB = new BDcriarConec('myBd');
+    try {
+        const db = await myDB.createDB();
+        console.log(`Banco de dados "${myDB.name}" criado com sucesso: `, db);
+    } catch (e) {
+        console.error(`Erro ao criar o banco de dados "${myDB.name}": `, e);
+    }
+}
+
+// Como usar:
+async function createMyDB() {
+    const myDB = new BDcriarConec('meuBd', '1.0', 'Meu banco de dados', 10 * 1024 * 1024 * 1024);
     try {
         const db = await myDB.createDB();
         console.log(`Banco de dados "${myDB.name}" criado com sucesso: `, db);
