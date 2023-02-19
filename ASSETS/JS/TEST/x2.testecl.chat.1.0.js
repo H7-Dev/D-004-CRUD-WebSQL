@@ -2,10 +2,12 @@ class ChatForm {
     constructor({
         _btnIniciar,
         _btnEnviar,
+        _box,
         _questions
     }) {
         this.btnIniciar = document.querySelectorAll(_btnIniciar),
         this.btnEnviar = document.querySelectorAll(_btnEnviar),
+        this.box = _box,
         this.form = {
             questions: _questions || [{
                     text: "Qual é o seu nome?",
@@ -102,7 +104,7 @@ class ChatForm {
         const pergunta = `<span class="perguntas bubble">${firstQuestion.text}<div class="bubble-arrow"></div></span>`;
         // this.form.selc.box.innerHTML
 
-        document.querySelector(this.form.selc.box).innerHTML += pergunta;
+        document.querySelector(this.box).innerHTML += pergunta;
 
 
         if (firstQuestion.type === "simple") {
@@ -235,6 +237,7 @@ class ChatForm {
 let chat = new ChatForm({
     _btnIniciar: ".btnIniciarCh",
     _btnEnviar: ".btnEnviar",
+    _box: "body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.box",
     _questions: [{
             text: "(NEW X1) - Qual é o seu nome?",
             type: "simple",
