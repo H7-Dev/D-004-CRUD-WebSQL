@@ -20,7 +20,7 @@ btnSelcRowsTable.forEach(function (button) {
 let btnIniChat = document.querySelectorAll('.btnAddRegistro')
 btnIniChat.forEach(function (button) {
     button.addEventListener('click', function (event) {
-        console.clear()
+        // console.clear()
         console.log('=> ⚡-click btnIniChat <=');
         console.log(this);
 
@@ -51,6 +51,11 @@ btnVoltar.forEach(function (button) {
         removeClassesInstance.init();
     })
 })
+
+// qj.$('selector').click(function (e) {
+//     e.preventDefault();
+
+// });
 
 
 

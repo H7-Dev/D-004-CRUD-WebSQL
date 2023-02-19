@@ -1,77 +1,79 @@
 class ChatForm {
     constructor({
         _btnIniciar,
-        _btnEnviar
+        _btnEnviar,
+        _questions
     }) {
-        this.btnIniciar = document.querySelectorAll(_btnIniciar)
-        this.btnEnviar = document.querySelectorAll(_btnEnviar)
+        this.btnIniciar = document.querySelectorAll(_btnIniciar),
+        this.btnEnviar = document.querySelectorAll(_btnEnviar),
         this.form = {
-                questions: [{
-                        text: "Qual é o seu nome?",
-                        type: "simple",
-                        isRequired: true,
-                        input: function () {
-                            var x = `
+            questions: _questions || [{
+                    text: "Qual é o seu nome?",
+                    type: "simple",
+                    isRequired: true,
+                    input: function () {
+                        var x = `
                             <label class="dynInputTypes" for="dynInputTypes">
                                 <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
                             </label>
                         `;
-                            return x;
-                        },
-                        inputName: "nome",
+                        return x;
                     },
-                    {
-                        text: "Qual é a sua data de nascimento?",
-                        type: "date",
-                        isRequired: false,
-                        input: function () {
-                            var x = `
+                    inputName: "nome",
+                },
+                {
+                    text: "Qual é a sua data de nascimento?",
+                    type: "date",
+                    isRequired: false,
+                    input: function () {
+                        var x = `
                             <label class="dynInputTypes">
                                 <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
                             </label>
                             `;
-                            return x;
-                        },
-                        inputName: "data",
+                        return x;
                     },
-                    {
-                        text: "Onde você mora?",
-                        type: "select",
-                        isRequired: false,
-                        input: function () {
-                            var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
-                            var x = `
+                    inputName: "data",
+                },
+                {
+                    text: "Onde você mora?",
+                    type: "select",
+                    isRequired: false,
+                    input: function () {
+                        var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
+                        var x = `
                             <select class="minimal" id="resUserSelect">
                                 ${paísesArmazenados
                                   .map((país) => `<option value="${país}">${país}</option>`)
                                   .join("")}
                             </select>
                             `;
-                            return x;
-                        },
-                        inputName: "pais",
+                        return x;
                     },
-                ],
-                selc: {
-                    box: document.querySelector("#box"),
-                    dockmsgX: document.querySelector("#dockmsg"),
-                    btnEnviarX: document.querySelector("#btnEnviar"),
-                    btnIniciarChatX: document.querySelector("#btnIniciarChat"),
-                    dockHidden: document.querySelector(".dockHidden"),
+                    inputName: "pais",
                 },
-                answers: [],
-                indexQuestion: 0,
+            ],
+            selc: {
+                box: 'body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.box',
+                dockmsgX: document.querySelector("#dockmsg"),
+                dockHidden: document.querySelector(".dockHidden"),
             },
-            this.btnIniciar.forEach((button) => {
-                button.addEventListener('click', (event) => {
-                    console.clear();
-                    console.log('=> ⚡-click btnIniChat <=');
-                    // console.log(this);
-                    // console.log(this.btnIniciar);
-                    console.log(this.btnIniciar[0]);
-                    this.iniciarChat()
-                })
+            answers: [],
+            indexQuestion: 0,
+        }
+        this.btnIniciar.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                console.clear();
+                console.log('=> ⚡-click btnIniChat <=');
+                // console.log(this);
+                // console.log(this.btnIniciar);
+                console.log('📍');
+                // box: ,
+                console.log()
+                console.log(this.btnIniciar[0]);
+                this.iniciarChat()
             })
+        })
         this.btnEnviar.forEach((button) => {
             button.addEventListener('click', (event) => {
                 console.clear();
@@ -94,23 +96,26 @@ class ChatForm {
 
 
         const firstQuestion = this.form.questions[this.form.indexQuestion]
-        console.log('✍️ firstQuestion')
-        console.log(firstQuestion)
+
+
 
         const pergunta = `<span class="perguntas bubble">${firstQuestion.text}<div class="bubble-arrow"></div></span>`;
-        this.form.selc.box.innerHTML += pergunta;
+        // this.form.selc.box.innerHTML
+
+        document.querySelector(this.form.selc.box).innerHTML += pergunta;
 
 
         if (firstQuestion.type === "simple") {
-            dockmsg.innerHTML = '';
+            this.form.selc.dockmsgX.innerHTML = '';
+            console.log('❓ this.form.selc.dockmsgX');
+            console.log(this.form.selc.dockmsgX);
             const inTypeText = this.form.questions[this.form.indexQuestion].input();
-            dockmsg.innerHTML += inTypeText;
-
+            this.form.selc.dockmsgX.innerHTML += inTypeText;
         }
         if (firstQuestion.type === "date") {
-            dockmsg.innerHTML = '';
+            this.form.selc.dockmsgX.innerHTML = '';
             const inTypeDate = this.form.questions[this.form.indexQuestion].input();
-            dockmsg.innerHTML += inTypeDate;
+            this.form.selc.dockmsgX.innerHTML += inTypeDate;
         }
     }
     Enviar() {
@@ -184,19 +189,19 @@ class ChatForm {
                 this.form.selc.box.innerHTML += pergunta;
 
                 if (this.form.questions[this.form.indexQuestion].type === "simple") {
-                    dockmsg.innerHTML = '';
+                    this.form.selc.dockmsgX.innerHTML = '';
                     const inTypeText = this.form.questions[this.form.indexQuestion].input()
-                    dockmsg.innerHTML += inTypeText;
+                    this.form.selc.dockmsgX.innerHTML += inTypeText;
                 }
                 if (this.form.questions[this.form.indexQuestion].type === "date") {
-                    dockmsg.innerHTML = '';
+                    this.form.selc.dockmsgX.innerHTML = '';
                     const inTypeDate = this.form.questions[this.form.indexQuestion].input();
-                    dockmsg.innerHTML += inTypeDate;
+                    this.form.selc.dockmsgX.innerHTML += inTypeDate;
                 }
                 if (this.form.questions[this.form.indexQuestion].type === "select") {
-                    dockmsg.innerHTML = '';
+                    this.form.selc.dockmsgX.innerHTML = '';
                     const inTypeSelect = this.form.questions[this.form.indexQuestion].input();
-                    dockmsg.innerHTML += inTypeSelect;
+                    this.form.selc.dockmsgX.innerHTML += inTypeSelect;
                 }
                 this.form.selc.box.scroll({
                     top: this.form.selc.box.scrollHeight,
@@ -229,53 +234,63 @@ class ChatForm {
 
 let chat = new ChatForm({
     _btnIniciar: ".btnIniciarCh",
-    _btnEnviar: ".btnEnviar"
-    // outras propriedades...
-})
-
-const newQuestions = [{
-        text: "(NEW X) - Qual é o seu nome?",
-        type: "simple",
-        isRequired: true,
-        input: function () {
-            var x = `
+    _btnEnviar: ".btnEnviar",
+    _questions: [{
+            text: "(NEW X1) - Qual é o seu nome?",
+            type: "simple",
+            isRequired: true,
+            input: function () {
+                var x = `
                 <label class="dynInputTypes" for="dynInputTypes">
                     <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
                 </label>
                 `;
-            return x;
+                return x;
+            },
+            inputName: "nome",
         },
-        inputName: "nome",
-    },
-    {
-        text: "(NEW X) - Qual é a sua data de nascimento?",
-        type: "date",
-        isRequired: false,
-        input: function () {
-            var x = `
+        {
+            text: "(NEW X1) - agora, o seu sobrenome",
+            type: "simple",
+            isRequired: true,
+            input: function () {
+                var x = `
+                <label class="dynInputTypes" for="dynInputTypes">
+                    <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
+                </label>
+                `;
+                return x;
+            },
+            inputName: "sobrenome",
+        },
+        {
+            text: "(NEW X2) - Qual é a sua data de nascimento?",
+            type: "date",
+            isRequired: false,
+            input: function () {
+                var x = `
                 <label class="dynInputTypes">
                     <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
                 </label>
             `;
-            return x;
+                return x;
+            },
+            inputName: "data",
         },
-        inputName: "data",
-    },
-    {
-        text: "(NEW X) -  Onde você mora?",
-        type: "select",
-        isRequired: false,
-        input: function () {
-            var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
-            var x = `
+        {
+            text: "(NEW X3) -  Onde você mora?",
+            type: "select",
+            isRequired: false,
+            input: function () {
+                var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
+                var x = `
                 <select class="minimal" id="resUserSelect">
                     ${paísesArmazenados.map((país) => `<option value="${país}">${país}</option>`).join("")}
                 </select>
                 `;
-            return x;
+                return x;
+            },
+            inputName: "pais",
         },
-        inputName: "pais",
-    },
-]
-
-chat.form.questions = newQuestions;
+    ]
+})
