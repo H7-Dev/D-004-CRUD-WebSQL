@@ -72,19 +72,19 @@ class ChatForm {
                     this.iniciarChat()
                 })
             })
-            this.btnEnviar.forEach((button) => {
-                button.addEventListener('click', (event) => {
-                    console.clear();
-                    console.log('=> ⚡-click btnEnviar <=');
-                    console.log(this.btnEnviar[0])
-                    // this.iniciarChat()
-                })
+        this.btnEnviar.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                console.clear();
+                console.log('=> ⚡-click btnEnviar <=');
+                console.log(this.btnEnviar[0])
+                this.Enviar()
             })
+        })
     }
     iniciarChat() {
         // console.clear();
         console.log('👉 iniciarChat()')
-        console.log('- --- -');
+        console.log('|||| ||||||| |||||');
 
         console.log('📍 this.form.answers')
         console.log(this.form.answers)
@@ -112,6 +112,52 @@ class ChatForm {
             const inTypeDate = this.form.questions[this.form.indexQuestion].input();
             dockmsg.innerHTML += inTypeDate;
         }
+    }
+    Enviar() {
+        // console.clear();
+        console.log('👉 Enviar()')
+        console.log('|||| ||||||| |||||')
+
+        let answer;
+
+        if (this.form.questions[this.form.indexQuestion].type === "simple") {
+            console.log(true);
+            answer = resUser.value;
+
+            // * inputlog
+            const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUser.value}">`
+            this.form.selc.dockHidden.innerHTML += inputlog
+        }
+        if (answer === "" && this.form.questions[this.form.indexQuestion].isRequired) {
+            console.log(true)
+            console.log(answer)
+            console.log(this.form.questions[this.form.indexQuestion].isRequired)
+            alert("Essa resposta é obrigatória!");
+            return;
+        }
+        this.form.answers.push(answer)
+        console.log("Resposta " + (this.form.indexQuestion + 1) + ": " + answer)
+
+        var displayResp = `<p class="displayResp">Resposta: ${(this.form.indexQuestion + 1) + ": " + answer}</p>`;
+        this.form.selc.box.innerHTML += displayResp;
+        this.form.indexQuestion++;
+
+
+        var typingIndicator =
+            `<div class="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            `;
+        this.form.selc.box.innerHTML += typingIndicator;
+        this.form.selc.box.scroll({
+            top: this.form.selc.box.scrollHeight,
+            behavior: "smooth"
+        })
+
+
+
     }
 
 }

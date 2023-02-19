@@ -133,6 +133,9 @@ function enviar(params) {
         return;
     }
     answers.push(answer);
+    console.log('i ???')
+    console.log(i)
+    console.log(i+1)
     console.log("Resposta " + (i + 1) + ": " + answer)
 
     displayResp =
