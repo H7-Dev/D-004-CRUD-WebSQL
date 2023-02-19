@@ -1,5 +1,4 @@
 console.clear()
-console.log('teste.chat.5.js')
 
 const form = {
     questions: [{
@@ -57,12 +56,31 @@ const form = {
         btnIniciarChatX: document.querySelector("#btnIniciarChat"),
         dockHidden: document.querySelector(".dockHidden"),
     },
-};
+
+
+}
+
+
 const answers = [];
 let i = 0;
+console.log('✍️ 1°: answers ')
+console.log(answers)
+
+console.log('✍️ 2°: i ')
+console.log(i)
 
 function iniciarChat() {
+    console.log('👉 iniciarChat()')
+    console.log('- --- -');
+
     const firstQuestion = form.questions[i]
+    console.log('firstQuestion')
+    console.log(firstQuestion)
+
+
+    console.log('✍️ dockmsg');
+    console.log(dockmsg)
+
     const pergunta = `<span class="perguntas bubble">${firstQuestion.text}<div class="bubble-arrow"></div></span>`;
     form.selc.box.innerHTML += pergunta;
 
@@ -80,7 +98,7 @@ function iniciarChat() {
 }
 
 function enviar(params) {
-
+    console.log('enviar')
     let answer;
     if (form.questions[i].type === "simple") {
         console.log(true);
@@ -135,8 +153,13 @@ function enviar(params) {
         behavior: "smooth"
     });
 
+    console.log('✍️ i')
+    console.log(i)
+
+    console.log('✍️ form.questions.length')
+    console.log(form.questions.length)
+
     if (i < form.questions.length) {
-        console.log(i < form.questions.length)
 
         setTimeout(() => {
 
