@@ -4,12 +4,14 @@ class ChatForm {
         _btnEnviar,
         _box,
         _dockmsg,
+        _dockHidden,
         _questions
     }) {
         this.btnIniciar = document.querySelectorAll(_btnIniciar),
         this.btnEnviar = document.querySelectorAll(_btnEnviar),
         this.box = _box,
         this.dockmsg = _dockmsg,
+        this.dockHidden = _dockHidden,
         this.form = {
             questions: _questions || [{
                     text: "Qual é o seu nome?",
@@ -59,7 +61,7 @@ class ChatForm {
             ],
             selc: {
                 // dockmsgX: document.querySelector("#dockmsg"),
-                dockHidden: document.querySelector(".dockHidden"),
+                // dockHidden: document.querySelector(".dockHidden"),
             },
             answers: [],
             indexQuestion: 0,
@@ -99,7 +101,6 @@ class ChatForm {
         const firstQuestion = this.form.questions[this.form.indexQuestion]
 
 
-
         const pergunta = `<span class="perguntas bubble">${firstQuestion.text}<div class="bubble-arrow"></div></span>`;
         // document.querySelector(this.box).innerHTML
 
@@ -133,7 +134,7 @@ class ChatForm {
 
             // * inputlog
             const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUser.value}">`
-            this.form.selc.dockHidden.innerHTML += inputlog
+            document.querySelector(this.dockHidden).innerHTML += inputlog
         }
         if (this.form.questions[this.form.indexQuestion].type === "date") {
             console.log(false);
@@ -141,7 +142,7 @@ class ChatForm {
 
             // * inputlog
             const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUserDate.value}">`
-            this.form.selc.dockHidden.innerHTML += inputlog;
+            document.querySelector(this.dockHidden).innerHTML += inputlog
         }
         if (this.form.questions[this.form.indexQuestion].type === "select") {
             console.log(false);
@@ -149,7 +150,7 @@ class ChatForm {
 
             // * inputlog
             const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUserSelect.value}">`
-            this.form.selc.dockHidden.innerHTML += inputlog;
+            document.querySelector(this.dockHidden).innerHTML += inputlog
         }
 
         if (answer === "" && this.form.questions[this.form.indexQuestion].isRequired) {
@@ -239,6 +240,7 @@ let chat = new ChatForm({
     _btnEnviar: ".btnEnviar",
     _box: "body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.box",
     _dockmsg: "body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.dockmsg",
+    _dockHidden: "body > div.form.frmPessoa.ativado > div > div.main > div.dockHidden",
     _questions: [{
             text: "(NEW X1) - Qual é o seu nome?",
             type: "simple",
