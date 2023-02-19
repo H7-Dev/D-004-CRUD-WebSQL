@@ -156,6 +156,21 @@ class ChatForm {
             behavior: "smooth"
         })
 
+        if (this.form.indexQuestion < this.form.questions.length) {
+            setTimeout(() => {
+                var children = document.querySelectorAll(".typingIndicator");
+                children.forEach(function (child) {
+                    child.parentNode.removeChild(child)
+                })
+
+                var pergunta = `<span class="perguntas bubble">${this.form.questions[this.form.indexQuestion].text}</span>`;
+                this.form.selc.box.innerHTML += pergunta;
+
+
+            }, 500)
+        } else {
+
+        }
 
 
     }
