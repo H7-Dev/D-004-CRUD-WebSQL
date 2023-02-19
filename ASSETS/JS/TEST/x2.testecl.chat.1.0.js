@@ -70,11 +70,6 @@ class ChatForm {
             button.addEventListener('click', (event) => {
                 console.clear();
                 console.log('=> ⚡-click btnIniChat <=');
-                // console.log(this);
-                // console.log(this.btnIniciar);
-                console.log('📍');
-                // box: ,
-                console.log()
                 console.log(this.btnIniciar[0]);
                 this.iniciarChat()
             })
@@ -126,6 +121,8 @@ class ChatForm {
         console.log('👉 Enviar()')
         console.log('|||| ||||||| |||||')
 
+        console.log('📍 resUser')
+        console.log(resUser)
         let answer;
 
         if (this.form.questions[this.form.indexQuestion].type === "simple") {
