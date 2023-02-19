@@ -1,8 +1,10 @@
 class ChatForm {
     constructor({
-        _btnIniciar
+        _btnIniciar,
+        _btnEnviar
     }) {
-        this.btnIniciar = document.querySelectorAll(_btnIniciar);
+        this.btnIniciar = document.querySelectorAll(_btnIniciar)
+        this.btnEnviar = document.querySelectorAll(_btnEnviar)
         this.form = {
                 questions: [{
                         text: "Qual é o seu nome?",
@@ -10,10 +12,10 @@ class ChatForm {
                         isRequired: true,
                         input: function () {
                             var x = `
-                <label class="dynInputTypes" for="dynInputTypes">
-                    <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
-                </label>
-                `;
+                            <label class="dynInputTypes" for="dynInputTypes">
+                                <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
+                            </label>
+                        `;
                             return x;
                         },
                         inputName: "nome",
@@ -24,10 +26,10 @@ class ChatForm {
                         isRequired: false,
                         input: function () {
                             var x = `
-                <label class="dynInputTypes">
-                    <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
-                </label>
-                `;
+                            <label class="dynInputTypes">
+                                <input class="dynInputTypes" id="resUserDate" type="date" value="2000-01-01">
+                            </label>
+                            `;
                             return x;
                         },
                         inputName: "data",
@@ -39,12 +41,12 @@ class ChatForm {
                         input: function () {
                             var paísesArmazenados = JSON.parse(localStorage.getItem("países"));
                             var x = `
-                  <select class="minimal" id="resUserSelect">
-                    ${paísesArmazenados
-                      .map((país) => `<option value="${país}">${país}</option>`)
-                      .join("")}
-                  </select>
-                `;
+                            <select class="minimal" id="resUserSelect">
+                                ${paísesArmazenados
+                                  .map((país) => `<option value="${país}">${país}</option>`)
+                                  .join("")}
+                            </select>
+                            `;
                             return x;
                         },
                         inputName: "pais",
@@ -67,12 +69,20 @@ class ChatForm {
                     // console.log(this);
                     // console.log(this.btnIniciar);
                     console.log(this.btnIniciar[0]);
-                    this.iniciarChat();
+                    this.iniciarChat()
+                })
+            })
+            this.btnEnviar.forEach((button) => {
+                button.addEventListener('click', (event) => {
+                    console.clear();
+                    console.log('=> ⚡-click btnEnviar <=');
+                    console.log(this.btnEnviar[0])
+                    // this.iniciarChat()
                 })
             })
     }
     iniciarChat() {
-        console.clear();
+        // console.clear();
         console.log('👉 iniciarChat()')
         console.log('- --- -');
 
@@ -103,16 +113,14 @@ class ChatForm {
             dockmsg.innerHTML += inTypeDate;
         }
     }
+
 }
 
-// let chat = new ChatForm({
-//     _btnIniciar: ".btnIniciarCh",
-
-// })
 let chat = new ChatForm({
     _btnIniciar: ".btnIniciarCh",
+    _btnEnviar: ".btnEnviar"
     // outras propriedades...
-});
+})
 
 const newQuestions = [{
         text: "(NEW X) - Qual é o seu nome?",
