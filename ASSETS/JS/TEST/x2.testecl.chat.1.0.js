@@ -128,6 +128,23 @@ class ChatForm {
             const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUser.value}">`
             this.form.selc.dockHidden.innerHTML += inputlog
         }
+        if (this.form.questions[this.form.indexQuestion].type === "date") {
+            console.log(false);
+            answer = resUserDate.value;
+
+            // * inputlog
+            const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUserDate.value}">`
+            this.form.selc.dockHidden.innerHTML += inputlog;
+        }
+        if (this.form.questions[this.form.indexQuestion].type === "select") {
+            console.log(false);
+            answer = resUserSelect.value;
+
+            // * inputlog
+            const inputlog = `<input type="hidden" id="in_${this.form.questions[this.form.indexQuestion].inputName}" value="${resUserSelect.value}">`
+            this.form.selc.dockHidden.innerHTML += inputlog;
+        }
+
         if (answer === "" && this.form.questions[this.form.indexQuestion].isRequired) {
             console.log(true)
             console.log(answer)
@@ -166,10 +183,43 @@ class ChatForm {
                 var pergunta = `<span class="perguntas bubble">${this.form.questions[this.form.indexQuestion].text}</span>`;
                 this.form.selc.box.innerHTML += pergunta;
 
+                if (this.form.questions[this.form.indexQuestion].type === "simple") {
+                    dockmsg.innerHTML = '';
+                    const inTypeText = this.form.questions[this.form.indexQuestion].input()
+                    dockmsg.innerHTML += inTypeText;
+                }
+                if (this.form.questions[this.form.indexQuestion].type === "date") {
+                    dockmsg.innerHTML = '';
+                    const inTypeDate = this.form.questions[this.form.indexQuestion].input();
+                    dockmsg.innerHTML += inTypeDate;
+                }
+                if (this.form.questions[this.form.indexQuestion].type === "select") {
+                    dockmsg.innerHTML = '';
+                    const inTypeSelect = this.form.questions[this.form.indexQuestion].input();
+                    dockmsg.innerHTML += inTypeSelect;
+                }
+                this.form.selc.box.scroll({
+                    top: this.form.selc.box.scrollHeight,
+                    behavior: "smooth"
+                })
 
             }, 500)
         } else {
+            console.log(this.form.indexQuestion < this.form.questions.length)
+            const typingIndicators = document.querySelectorAll(".typingIndicator");
+            for (let i = 0; i < typingIndicators.length; i++) {
+                this.form.selc.box.removeChild(typingIndicators[i]);
+            }
 
+            let msgFinal = document.createElement("div");
+            msgFinal.classList.add("msgFinal");
+            msgFinal.textContent = "Fim das perguntas";
+            this.form.selc.box.appendChild(msgFinal);
+
+            this.form.selc.box.scroll({
+                top: this.form.selc.box.scrollHeight,
+                behavior: "smooth"
+            })
         }
 
 
