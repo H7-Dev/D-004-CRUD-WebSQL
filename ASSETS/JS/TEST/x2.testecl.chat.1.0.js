@@ -3,11 +3,13 @@ class ChatForm {
         _btnIniciar,
         _btnEnviar,
         _box,
+        _dockmsg,
         _questions
     }) {
         this.btnIniciar = document.querySelectorAll(_btnIniciar),
         this.btnEnviar = document.querySelectorAll(_btnEnviar),
         this.box = _box,
+        this.dockmsg = _dockmsg,
         this.form = {
             questions: _questions || [{
                     text: "Qual é o seu nome?",
@@ -56,8 +58,7 @@ class ChatForm {
                 },
             ],
             selc: {
-                box: 'body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.box',
-                dockmsgX: document.querySelector("#dockmsg"),
+                // dockmsgX: document.querySelector("#dockmsg"),
                 dockHidden: document.querySelector(".dockHidden"),
             },
             answers: [],
@@ -88,13 +89,11 @@ class ChatForm {
     iniciarChat() {
         // console.clear();
         console.log('👉 iniciarChat()')
-        console.log('|||| ||||||| |||||');
-
-        console.log('📍 this.form.answers')
-        console.log(this.form.answers)
 
         console.log('📍 this.form.indexQuestion')
-        console.log(this.form.indexQuestion)
+        console.log(document.querySelector(this.box))
+        console.log($(this.dockmsg))
+        console.log(document.querySelector(this.dockmsg))
 
 
         const firstQuestion = this.form.questions[this.form.indexQuestion]
@@ -102,22 +101,23 @@ class ChatForm {
 
 
         const pergunta = `<span class="perguntas bubble">${firstQuestion.text}<div class="bubble-arrow"></div></span>`;
-        // this.form.selc.box.innerHTML
+        // document.querySelector(this.box).innerHTML
 
         document.querySelector(this.box).innerHTML += pergunta;
 
 
         if (firstQuestion.type === "simple") {
-            this.form.selc.dockmsgX.innerHTML = '';
-            console.log('❓ this.form.selc.dockmsgX');
-            console.log(this.form.selc.dockmsgX);
+            document.querySelector(this.dockmsg).innerHTML = '';
+            console.log('❓ document.querySelector(this.docmsgX)');
+            console.log(document.querySelector(this.dockmsg))
+
             const inTypeText = this.form.questions[this.form.indexQuestion].input();
-            this.form.selc.dockmsgX.innerHTML += inTypeText;
+            document.querySelector(this.dockmsg).innerHTML += inTypeText;
         }
         if (firstQuestion.type === "date") {
-            this.form.selc.dockmsgX.innerHTML = '';
+            document.querySelector(this.dockmsg).innerHTML = '';
             const inTypeDate = this.form.questions[this.form.indexQuestion].input();
-            this.form.selc.dockmsgX.innerHTML += inTypeDate;
+            document.querySelector(this.dockmsg).innerHTML += inTypeDate;
         }
     }
     Enviar() {
@@ -163,7 +163,7 @@ class ChatForm {
         console.log("Resposta " + (this.form.indexQuestion + 1) + ": " + answer)
 
         var displayResp = `<p class="displayResp">Resposta: ${(this.form.indexQuestion + 1) + ": " + answer}</p>`;
-        this.form.selc.box.innerHTML += displayResp;
+        document.querySelector(this.box).innerHTML += displayResp;
         this.form.indexQuestion++;
 
 
@@ -174,9 +174,9 @@ class ChatForm {
                 <span></span>
             </div>
             `;
-        this.form.selc.box.innerHTML += typingIndicator;
-        this.form.selc.box.scroll({
-            top: this.form.selc.box.scrollHeight,
+        document.querySelector(this.box).innerHTML += typingIndicator;
+        document.querySelector(this.box).scroll({
+            top: document.querySelector(this.box).scrollHeight,
             behavior: "smooth"
         })
 
@@ -188,25 +188,25 @@ class ChatForm {
                 })
 
                 var pergunta = `<span class="perguntas bubble">${this.form.questions[this.form.indexQuestion].text}</span>`;
-                this.form.selc.box.innerHTML += pergunta;
+                document.querySelector(this.box).innerHTML += pergunta;
 
                 if (this.form.questions[this.form.indexQuestion].type === "simple") {
-                    this.form.selc.dockmsgX.innerHTML = '';
+                    document.querySelector(this.dockmsg).innerHTML = '';
                     const inTypeText = this.form.questions[this.form.indexQuestion].input()
-                    this.form.selc.dockmsgX.innerHTML += inTypeText;
+                    document.querySelector(this.dockmsg).innerHTML += inTypeText;
                 }
                 if (this.form.questions[this.form.indexQuestion].type === "date") {
-                    this.form.selc.dockmsgX.innerHTML = '';
+                    document.querySelector(this.dockmsg).innerHTML = '';
                     const inTypeDate = this.form.questions[this.form.indexQuestion].input();
-                    this.form.selc.dockmsgX.innerHTML += inTypeDate;
+                    document.querySelector(this.dockmsg).innerHTML += inTypeDate;
                 }
                 if (this.form.questions[this.form.indexQuestion].type === "select") {
-                    this.form.selc.dockmsgX.innerHTML = '';
+                    document.querySelector(this.dockmsg).innerHTML = '';
                     const inTypeSelect = this.form.questions[this.form.indexQuestion].input();
-                    this.form.selc.dockmsgX.innerHTML += inTypeSelect;
+                    document.querySelector(this.dockmsg).innerHTML += inTypeSelect;
                 }
-                this.form.selc.box.scroll({
-                    top: this.form.selc.box.scrollHeight,
+                document.querySelector(this.box).scroll({
+                    top: document.querySelector(this.box).scrollHeight,
                     behavior: "smooth"
                 })
 
@@ -215,16 +215,16 @@ class ChatForm {
             console.log(this.form.indexQuestion < this.form.questions.length)
             const typingIndicators = document.querySelectorAll(".typingIndicator");
             for (let i = 0; i < typingIndicators.length; i++) {
-                this.form.selc.box.removeChild(typingIndicators[i]);
+                document.querySelector(this.box).removeChild(typingIndicators[i]);
             }
 
             let msgFinal = document.createElement("div");
             msgFinal.classList.add("msgFinal");
             msgFinal.textContent = "Fim das perguntas";
-            this.form.selc.box.appendChild(msgFinal);
+            document.querySelector(this.box).appendChild(msgFinal);
 
-            this.form.selc.box.scroll({
-                top: this.form.selc.box.scrollHeight,
+            document.querySelector(this.box).scroll({
+                top: document.querySelector(this.box).scrollHeight,
                 behavior: "smooth"
             })
         }
@@ -238,6 +238,7 @@ let chat = new ChatForm({
     _btnIniciar: ".btnIniciarCh",
     _btnEnviar: ".btnEnviar",
     _box: "body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.box",
+    _dockmsg: "body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.dockmsg",
     _questions: [{
             text: "(NEW X1) - Qual é o seu nome?",
             type: "simple",
