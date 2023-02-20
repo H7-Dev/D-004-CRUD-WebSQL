@@ -1539,6 +1539,10 @@ div.form {
                     }
                 }
 
+
+
+
+
             }
 
         }
@@ -2245,22 +2249,24 @@ div.gravadorAudio {
                             position: absolute;
                             z-index: 2;
 
-                            >svg.playIcon{
+                            >svg.playIcon {
                                 fill: #707277;
                                 display: grid;
                             }
-                            >svg.pauseIcon{
+
+                            >svg.pauseIcon {
                                 fill: #707277;
                                 display: none;
                             }
 
                             &.activePlay {
 
-                                >svg.playIcon{
+                                >svg.playIcon {
                                     fill: #707277;
                                     display: none;
                                 }
-                                >svg.pauseIcon{
+
+                                >svg.pauseIcon {
                                     fill: #707277;
                                     display: grid;
                                 }
@@ -2374,6 +2380,72 @@ div.gravadorAudio {
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
+            }
+        }
+    }
+}
+
+
+.custom-select {
+    position: relative;
+    width: 200px;
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+        text-align: left;
+
+        &::after {
+            // Adicionamos um pseudo-elemento para criar a seta
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 5px;
+            border-top: 5px solid #000;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            vertical-align: middle;
+            transition: transform 0.3s ease; // Adicionamos uma transição para a animação
+        }
+
+        &.open::after {
+            // Mudamos a posição da seta quando a lista de opções estiver aberta
+            transform: rotate(180deg);
+        }
+    }
+
+    ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        background-color: #fff;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+        li {
+            padding: 10px;
+
+            &:hover {
+                background-color: #f2f2f2;
             }
         }
     }
