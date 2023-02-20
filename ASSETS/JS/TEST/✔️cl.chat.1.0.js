@@ -216,7 +216,6 @@ class ChatForm {
         }
     }
 }
-
 let chat = new ChatForm({
     _btnIniciar: ".btnIniciarCh",
     _btnEnviar: ".btnEnviar",
@@ -224,7 +223,7 @@ let chat = new ChatForm({
     _dockmsg: "body > div.form.frmPessoa.ativado > div > div.main > div.chat > div.dockmsg",
     _dockHidden: "body > div.form.frmPessoa.ativado > div > div.main > div.dockHidden",
     _questions: [{
-            text: "(NEW X1) - Qual é o seu nome?",
+            text: "Qual é o seu nome?",
             type: "simple",
             isRequired: true,
             input: function () {
@@ -238,21 +237,7 @@ let chat = new ChatForm({
             inputName: "nome",
         },
         {
-            text: "(NEW X1) - agora, o seu sobrenome",
-            type: "simple",
-            isRequired: true,
-            input: function () {
-                var x = `
-                <label class="dynInputTypes" for="dynInputTypes">
-                    <input class="dynInputTypes" id="resUser" type="text" placeholder="✍️ dyn in (tipo texto) " >
-                </label>
-                `;
-                return x;
-            },
-            inputName: "sobrenome",
-        },
-        {
-            text: "(NEW X2) - Qual é a sua data de nascimento?",
+            text: "Qual é a sua data de nascimento?",
             type: "date",
             isRequired: false,
             input: function () {
@@ -266,7 +251,7 @@ let chat = new ChatForm({
             inputName: "data",
         },
         {
-            text: "(NEW X3) -  Onde você mora?",
+            text: "Onde você mora?",
             type: "select",
             isRequired: false,
             input: function () {

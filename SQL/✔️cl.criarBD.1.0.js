@@ -41,5 +41,4 @@ async function createMyDB() {
         console.error(`Erro ao criar o banco de dados "${myDB.name}": `, e);
     }
 }
-
 createMyDB()

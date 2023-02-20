@@ -1364,6 +1364,7 @@ div.form {
                         margin: 50% auto;
                         width: 100%;
                         position: absolute;
+                        display: none;
                     }
                 }
 
@@ -1467,89 +1468,77 @@ div.form {
             }
 
             >div.chat {
-                display: grid;
-                grid-template-rows: 1fr auto;
-                grid-template-columns: 1fr auto;
+                background-color: #0000;
+                padding: 10px 50px;
                 height: 50vh;
-                padding: 5px 5px 0px 5px;
+                display: grid;
                 gap: 15px;
+                align-items: center;
+                align-content: center;
+                // justify-items: center;
 
-                >div.box {
-                    background-color: #0000;
-                    display: grid;
-                    // flex-direction: column;
-                    // justify-content: flex-end;
 
-                    overflow: auto;
-                    // align-self: end;
-                    align-items: end;
-
-                    /* ===== Scrollbar CSS ===== */
-
-                    scrollbar-color: #8f54a0 #ffffff;
-
-                    &::-webkit-scrollbar {
-                        width: 10px;
-                    }
-
-                    &::-webkit-scrollbar-track {
-                        background: rgba(255, 255, 255, 0.05);
-                    }
-
-                    &::-webkit-scrollbar-thumb {
-                        background-color: #93939354;
-                        border-radius: 8px;
-                        border: 1px solid #003d8c46;
-                    }
-                }
-
-                div.dockmsg {
-                    background-color: #0000;
-                    // background-color: silver;
+                >label {
+                    background: rgb(0 0 0 / 2%);
+                    padding: 4px 6px;
                     height: fit-content;
-                }
-
-                >button#btnEnviar {
-                    background-color: #fff;
-                    padding: 4px 8px;
-                    height: fit-content;
-                    // min-width: 150px;
+                    // width: 70%;
                     display: grid;
-                    align-self: center;
-                    gap: 0 5px;
-                    // grid-template-columns: auto 1fr;
-                    align-items: center;
-                    outline: 0;
-                    border-radius: 4px;
-                    border: 1px solid #0000;
-                    box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
+                    gap: 4px;
+                    // grid-template-columns: auto 1fr auto;
+                    border-bottom: 1px solid #0000;
+                    border-radius: 8px;
+                    border: 1px solid rgb(0 0 0 / 5%);
+                    box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.0);
 
-                    &:hover {
-                        background-color: #f8f8f8;
-                        border: 1px solid rgba(0, 61, 140, 0.180);
-                    }
+                    // &:hover {
+                    //     background-color: rgba(0, 0, 0, 0.03);
+                    //     border: 1px solid rgb(0 0 0 / 3%);
+                    // }
 
-                    &:active {
-                        background-color: #f5f5f5;
-                        box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
-                    }
+                    // &:active {
+                    //     background-color: rgba(0, 0, 0, 0.03);
+                    //     border: 1px solid rgba(0 61 140 / 4%);
 
-                    &:focus {
-                        background-color: #f8f8f8;
-                        box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
-                        border: 1px solid rgba(0, 61, 140, 0.280);
-                    }
+                    // }
 
+                    // &:focus-within {
+                    //     background-color: rgba(0, 0, 0, 0.03);
+                    //     border: 1px solid rgb(0 61 140 / 5%);
+                    // }
                     >span {
+                        font-size: 0.95rem;
+                        font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
+                        font-family: "OpenSansBold", "Segoe UI", sans-serif;
+                        color: #003c8c;
+                    }
+
+                    >input {
+                        font-size: 0.8rem;
+                        font-family: 'OpenSansSemiBold', 'Segoe UI', sans-serif;
+
+                        color: #003c8c;
+                        background-color: #0000000d;
+
+
+                        padding: 0.5rem 0.4rem;
                         width: 100%;
-                        color: #003d8c;
-                        font-size: 1.1rem;
-                        font-family: "DosisMedium", "OpenSansSemiBold", "Segoe UI", sans-serif;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
+                        border: none;
+                        outline: none;
+                        border-radius: 4px;
+
+                        &::placeholder {
+                            /* Chrome, Firefox, Opera, Safari 10.1+ */
+                            font-size: 0.8rem;
+                            font-family: 'Open Sans Regular', 'Segoe UI', sans-serif;
+                            color: #b9babe;
+                            color: #003c8c;
+                            opacity: 1;
+                            /* Firefox */
+                        }
                     }
                 }
+
             }
 
         }
@@ -1735,80 +1724,6 @@ div.form {
     }
 }
 
-label.dynInputTypes {
-    background-color: #F0F0F0;
-    background-color: #0000000d;
-    padding: 4px 6px;
-    height: fit-content;
-    width: 100%;
-    display: grid;
-    gap: 4px;
-    // grid-template-columns: auto 1fr auto;
-    border-bottom: 1px solid #0000;
-    border-radius: 8px;
-    border: 1px solid rgb(0 0 0 / 2%);
-    box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.0);
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.03);
-        border: 1px solid rgb(0 0 0 / 3%);
-    }
-
-    &:active {
-        background-color: rgba(0, 0, 0, 0.03);
-        border: 1px solid rgba(0 61 140 / 4%);
-
-    }
-
-    &:focus-within {
-        background-color: rgba(0, 0, 0, 0.03);
-        border: 1px solid rgb(0 61 140 / 5%);
-    }
-
-    >input {
-        font-size: 0.8rem;
-        font-family: 'OpenSansSemiBold', 'Segoe UI', sans-serif;
-
-        color: #003c8c;
-        // background-color: gainsboro; /* desktop*/
-        // background-color: #f5f6fa; /* mobile */
-        background-color: transparent;
-
-        padding: 0.2rem 0.1rem;
-        width: 100%;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-
-        &::placeholder {
-            /* Chrome, Firefox, Opera, Safari 10.1+ */
-            font-size: 0.8rem;
-            font-family: 'Open Sans Regular', 'Segoe UI', sans-serif;
-            color: #b9babe;
-            color: #003c8c;
-            opacity: 1;
-            /* Firefox */
-        }
-    }
-}
-
->label.dynInputTypes {
-
-
-    >button {
-        color: tomato;
-        background-color: transparent;
-        outline: none;
-        border: none;
-
-        >svg {
-            fill: #003c8c;
-            height: 12pt;
-        }
-    }
-
-
-}
 
 select.minimal {
 
