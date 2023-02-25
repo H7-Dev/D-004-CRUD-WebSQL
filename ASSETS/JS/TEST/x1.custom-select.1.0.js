@@ -10,6 +10,6 @@ btnOption.addEventListener("click", () => {
     selcOptions.style.top = `${btnRect.bottom + 5}px`;
     selcOptions.style.left = `${btnRect.left}px`;
 
-    selcOptions.classList.add("show"); // Adiciona a classe "show" para exibir a lista
+    selcOptions.classList.add("show");
   }
 });
