@@ -1961,7 +1961,8 @@ div.container {
   overflow: hidden;
 }
 
-button.dropDown {
+button.btnOption {
+  position: relative;
   display: block;
   width: 100%;
   padding: 10px;
@@ -1971,16 +1972,23 @@ button.dropDown {
   cursor: pointer;
   text-align: left;
 }
+button.btnOption:focus {
+  outline: none;
+}
 
 ul.selcOptions {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: calc(100% + 5px);
+  left: 0;
   list-style: none;
   background-color: #fff;
   border: 1px solid #ddd;
   border-top: none;
+  opacity: 0;
   transition: opacity 0.2s ease-in-out, max-height 0.2s ease-in-out;
+}
+ul.selcOptions.show {
+  opacity: 1;
 }
 ul.selcOptions li {
   padding: 10px;
