@@ -1,47 +1,17 @@
-const selectButton = document.getElementById('select-button');
-const selectOptions = document.getElementById('select-options');
+const btnOption = document.querySelector("button.btnOption");
+const selcOptions = document.querySelector("ul.selcOptions");
 
-selectButton.addEventListener('click', () => {
-  selectOptions.classList.toggle('show');
-});
-
-selectOptions.addEventListener('click', (event) => {
-  const selectedOption = event.target;
-  selectButton.textContent = selectedOption.textContent;
-  selectOptions.classList.remove('show');
-});
-
-
-const customSelect = document.querySelector('.custom-select');
-const optionsList = customSelect.querySelector('ul');
-
-customSelect.addEventListener('click', function () {
-  customSelect.classList.toggle('show');
-  if (customSelect.classList.contains('show')) {
-    showOptionsList();
+btnOption.addEventListener("click", () => {
+  if (selcOptions.style.display === "block") {
+    selcOptions.style.display = "none";
   } else {
-    hideOptionsList();
-  }
-});
+    // Obtém a posição do botão em relação à janela de visualização
+    const btnRect = btnOption.getBoundingClientRect();
 
-function hideOptionsList() {
-  optionsList.style.opacity = '0';
-  optionsList.style.transition = 'opacity 0.2s ease-in-out';
-  setTimeout(function() {
-    optionsList.style.maxHeight = '0';
-    optionsList.style.visibility = 'hidden';
-  }, 200);
-}
+    // Define as posições da lista em relação ao botão
+    selcOptions.style.top = `${btnRect.bottom + 5}px`;
+    selcOptions.style.left = `${btnRect.left}px`;
 
-function showOptionsList() {
-  optionsList.style.maxHeight = '200px';
-  optionsList.style.opacity = '1';
-  optionsList.style.visibility = 'visible';
-  optionsList.style.transition = 'opacity 0.2s ease-in-out 0.2s';
-}
-
-customSelect.addEventListener('transitionend', function (event) {
-  if (event.propertyName === 'max-height' && !customSelect.classList.contains('show')) {
-    hideOptionsList();
+    selcOptions.style.display = "block";
   }
 });

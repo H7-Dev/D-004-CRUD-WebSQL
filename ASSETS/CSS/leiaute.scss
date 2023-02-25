@@ -2391,73 +2391,29 @@ div.container {
     overflow: hidden;
 }
 
-.custom-select {
-    position: relative;
-    width: 200px;
 
-    button {
-        display: block;
-        width: 100%;
+button.dropDown {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: left;
+}
+ul.selcOptions {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    transition: opacity 0.2s ease-in-out, max-height 0.2s ease-in-out;
+
+    li {
         padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-        cursor: pointer;
-        text-align: left;
-
-        &::after {
-            // Adicionamos um pseudo-elemento para criar a seta
-            content: "";
-            display: inline-block;
-            width: 0;
-            height: 0;
-            margin-left: 5px;
-            border-top: 5px solid #000;
-            border-right: 5px solid transparent;
-            border-left: 5px solid transparent;
-            vertical-align: middle;
-            transition: transform 0.3s ease; // Adicionamos uma transição para a animação
-        }
-
-        &.open::after {
-            // Mudamos a posição da seta quando a lista de opções estiver aberta
-            transform: rotate(180deg);
-        }
+        // opacity: 0;
     }
-
-    >ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-top: none;
-        max-height: 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.2s ease-in-out, max-height 0.2s ease-in-out;
-
-        &.show {
-            max-height: 200px;
-            opacity: 1;
-            visibility: visible;
-
-            li {
-                opacity: 1;
-                transition: opacity 0.2s ease-in-out 0.2s;
-            }
-        }
-
-        li {
-            padding: 10px;
-            opacity: 0;
-        }
-    }
-
-
-
 }

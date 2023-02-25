@@ -1961,11 +1961,7 @@ div.container {
   overflow: hidden;
 }
 
-.custom-select {
-  position: relative;
-  width: 200px;
-}
-.custom-select button {
+button.dropDown {
   display: block;
   width: 100%;
   padding: 10px;
@@ -1975,47 +1971,17 @@ div.container {
   cursor: pointer;
   text-align: left;
 }
-.custom-select button::after {
-  content: "";
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 5px;
-  border-top: 5px solid #000;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  vertical-align: middle;
-  transition: transform 0.3s ease;
-}
-.custom-select button.open::after {
-  transform: rotate(180deg);
-}
-.custom-select > ul {
+
+ul.selcOptions {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
+  top: 5px;
+  left: 5px;
   list-style: none;
   background-color: #fff;
   border: 1px solid #ddd;
   border-top: none;
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
   transition: opacity 0.2s ease-in-out, max-height 0.2s ease-in-out;
 }
-.custom-select > ul.show {
-  max-height: 200px;
-  opacity: 1;
-  visibility: visible;
-}
-.custom-select > ul.show li {
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out 0.2s;
-}
-.custom-select > ul li {
+ul.selcOptions li {
   padding: 10px;
-  opacity: 0;
 }/*# sourceMappingURL=leiaute.css.map */
