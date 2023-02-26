@@ -35,11 +35,6 @@ btnOptsList.forEach((btnOpts, index) => {
             const btnText = btnOpts;
 
             inputOpts.value = liOpts.getAttribute("value");
-            console.log(inputOpts)
-            console.log(selectedOption)
-            console.log('selectedOption ↓')
-            console.log(inputOpts)
-            console.log(inputOpts.value);
             btnText.innerText = selectedOption;
 
             ulOptions.classList.remove("show");

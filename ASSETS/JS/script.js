@@ -158,14 +158,31 @@ useImg.addEventListener('click', (e) => {
 
 
 
-
-
-
-
-
 // * Não faz parte do projeto (excluir ao final)
 var países = ["Brasil", "Argentina", "Chile", "Colômbia", "Equador", "Guiana", "Paraguai", "Peru", "Uruguai", "Venezuela",
     "Canadá", "Estados Unidos", "México", "Costa Rica", "Panamá", "Jamaica", "Haiti", "República Dominicana", "Cuba", "Puerto Rico"
 ];
 // Armazenar a lista de países no localStorage
 localStorage.setItem("países", JSON.stringify(países))
+
+
+// const paises = localStorage.getItem('países');
+// console.log(paises);
+
+// const paises = localStorage.getItem('países');
+// const paisesObj = JSON.parse(paises);
+// console.log(paisesObj);
+
+
+const ul = document.querySelector('ul#ulOptionsPaises');
+const paises = localStorage.getItem('países');
+const paisesArray = JSON.parse(paises);
+ul.innerHTML = ''
+
+paisesArray.forEach((pais) => {
+  const li = `<li class="liOpts" value="${pais}" >${pais}</li>`;
+  ul.innerHTML += li;
+})
+
+
+const myDropdown = new customSelc('.btnOpts', '.ulOptions', '.liOpts', '.dropDown', '.in_opts');

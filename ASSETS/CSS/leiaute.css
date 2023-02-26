@@ -1238,7 +1238,7 @@ div.form div.wrapper > div.main > div.dockLeft .audio-recorder .recording-state 
 }
 div.form div.wrapper > div.main > div.chat {
   background-color: rgba(0, 0, 0, 0);
-  padding: 10px 50px;
+  padding: 10px 30px;
   height: 50vh;
   display: grid;
   gap: 15px;
@@ -1955,12 +1955,16 @@ div.gravadorAudio > div.footer > button.btnCancelar > span {
   overflow: hidden;
 }
 
-label.dropDown {
+label.customSelc {
   padding: 4px;
   overflow: hidden;
   min-width: 160px;
 }
-label.dropDown > button.btnOpts {
+label.customSelc > button.btnOpts {
+  font-size: 0.8rem;
+  font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
+  color: #003c8c;
+  background-color: rgba(0, 0, 0, 0.0509803922);
   position: relative;
   display: block;
   width: 100%;
@@ -1968,11 +1972,10 @@ label.dropDown > button.btnOpts {
   padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
   cursor: pointer;
   text-align: left;
 }
-label.dropDown > button.btnOpts::after {
+label.customSelc > button.btnOpts::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1985,10 +1988,10 @@ label.dropDown > button.btnOpts::after {
   border-color: #000 transparent transparent transparent;
   transition: transform 0.2s ease-in-out;
 }
-label.dropDown > button.btnOpts.active::after {
+label.customSelc > button.btnOpts.active::after {
   transform: translateY(-50%) rotate(180deg);
 }
-label.dropDown > button.btnOpts:focus {
+label.customSelc > button.btnOpts:focus {
   outline: none;
 }
 
@@ -1998,12 +2001,15 @@ ul.ulOptions {
   left: 0;
   list-style: none;
   background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.137254902);
   border: 1px solid #ddd;
   border-top: none;
   opacity: 0;
   transform: scaleY(0.2);
   transform-origin: top;
   margin-bottom: 10px;
+  max-height: 260px;
+  overflow: auto;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
 }
 ul.ulOptions::before {
@@ -2015,6 +2021,17 @@ ul.ulOptions::before {
   border-width: 0 10px 10px 10px;
   border-color: transparent transparent #ddd transparent;
 }
+ul.ulOptions::-webkit-scrollbar {
+  width: 10px;
+}
+ul.ulOptions::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+ul.ulOptions::-webkit-scrollbar-thumb {
+  background-color: rgba(147, 147, 147, 0.3294117647);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 61, 140, 0.2745098039);
+}
 ul.ulOptions.show {
   opacity: 1;
   transform: scaleY(1);
@@ -2023,6 +2040,7 @@ ul.ulOptions li {
   padding: 10px;
   transform: scaleY(1);
   transform-origin: top;
+  cursor: default;
   transition: transform 0.2s ease-in-out;
 }
 ul.ulOptions li:first-child {

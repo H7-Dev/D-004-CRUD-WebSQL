@@ -1469,7 +1469,7 @@ div.form {
 
             >div.chat {
                 background-color: #0000;
-                padding: 10px 50px;
+                padding: 10px 30px;
                 height: 50vh;
                 display: grid;
                 gap: 15px;
@@ -2385,13 +2385,19 @@ div.gravadorAudio {
     }
 }
 
-label.dropDown {
+label.customSelc {
     // background-color: lightblue;
     padding: 4px;
     overflow: hidden;
     min-width: 160px;
 
     >button.btnOpts {
+        font-size: 0.8rem;
+        font-family: 'OpenSansSemiBold', 'Segoe UI', sans-serif;
+
+        color: #003c8c;
+        background-color: #0000000d;
+
         position: relative;
         display: block;
         width: 100%;
@@ -2399,7 +2405,6 @@ label.dropDown {
         padding: 10px 15px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        background-color: #fff;
         cursor: pointer;
         text-align: left;
 
@@ -2432,12 +2437,16 @@ ul.ulOptions {
     left: 0;
     list-style: none;
     background-color: #fff;
+    background-color: #00000023;
+
     border: 1px solid #ddd;
     border-top: none;
     opacity: 0;
     transform: scaleY(0.2);
     transform-origin: top;
     margin-bottom: 10px; // adiciona uma margem inferior para separar do conteúdo abaixo
+    max-height: 260px;
+    overflow: auto;
 
     &::before {
       content: "";
@@ -2447,6 +2456,20 @@ ul.ulOptions {
       border-style: solid;
       border-width: 0 10px 10px 10px; // cria um triângulo com borda
       border-color: transparent transparent #ddd transparent; // cor da borda
+    }
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #93939354;
+        border-radius: 8px;
+        border: 1px solid #003d8c46;
     }
 
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
@@ -2460,6 +2483,7 @@ ul.ulOptions {
       padding: 10px;
       transform: scaleY(1);
       transform-origin: top;
+      cursor: default;
 
       transition: transform 0.2s ease-in-out;
 
@@ -2472,4 +2496,3 @@ ul.ulOptions {
       }
     }
   }
-
