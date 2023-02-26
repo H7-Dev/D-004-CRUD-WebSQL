@@ -1,3 +1,5 @@
+// agora implementar um sombreamento para ul.
+
 const btnOption = document.querySelector("button.btnOption");
 const selcOptions = document.querySelector("ul.selcOptions");
 
@@ -34,3 +36,4 @@ selcOptions.addEventListener("click", (event) => {
         selcOptions.classList.remove("show");
     }
 });
+
