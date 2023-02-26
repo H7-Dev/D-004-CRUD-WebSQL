@@ -2385,47 +2385,49 @@ div.gravadorAudio {
     }
 }
 
-div.dropDown {
-    background-color: lightblue;
+label.dropDown {
+    // background-color: lightblue;
     padding: 4px;
     overflow: hidden;
     min-width: 160px;
+
+    >button.btnOpts {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-width: 120px;
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+        text-align: left;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 4px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 4px 0 4px;
+            border-color: #000 transparent transparent transparent;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        &.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
-button.btnOpts {
-    position: relative;
-    display: block;
-    width: 100%;
-    min-width: 120px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    cursor: pointer;
-    text-align: left;
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 4px;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 5px 4px 0 4px;
-        border-color: #000 transparent transparent transparent;
-        transition: transform 0.2s ease-in-out;
-    }
-
-    &.active::after {
-        transform: translateY(-50%) rotate(180deg);
-    }
-
-    &:focus {
-        outline: none;
-    }
-}
 
 ul.ulOptions {
     position: absolute;
