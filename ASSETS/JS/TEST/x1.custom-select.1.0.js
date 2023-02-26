@@ -31,11 +31,15 @@ btnOptsList.forEach((btnOpts, index) => {
     liOptsList.forEach((liOpts) => {
         liOpts.addEventListener("click", () => {
             const selectedOption = liOpts.innerText;
-            const inputOpts = ulOptions.previousElementSibling;
+            const inputOpts = btnOpts.closest('.dropDown').querySelector('.in_opts');
             const btnText = btnOpts;
 
             inputOpts.value = liOpts.getAttribute("value");
+            console.log(inputOpts)
             console.log(selectedOption)
+            console.log('selectedOption ↓')
+            console.log(inputOpts)
+            console.log(inputOpts.value);
             btnText.innerText = selectedOption;
 
             ulOptions.classList.remove("show");
