@@ -2407,6 +2407,7 @@ button.btnOption {
         outline: none;
     }
 }
+
 ul.selcOptions {
     position: absolute;
     top: calc(100% + 5px);
@@ -2416,29 +2417,29 @@ ul.selcOptions {
     border: 1px solid #ddd;
     border-top: none;
     opacity: 0;
-    transform: scaleY(0.8); // Define a escala vertical inicial dos elementos como 0.8
+    transform: scaleY(0.2); // Define a escala vertical inicial dos elementos como 0.8
     transform-origin: top; // Define o ponto de origem da transformação no topo
 
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
 
     &.show {
-      opacity: 1;
-      transform: scaleY(1); // Define a escala vertical dos elementos como 1 quando a classe "show" é adicionada
+        opacity: 1;
+        transform: scaleY(1); // Define a escala vertical dos elementos como 1 quando a classe "show" é adicionada
     }
 
     li {
-      padding: 10px;
-      transform: scaleY(1.2); // Define a escala vertical inicial dos elementos como 1.2
-      transform-origin: top; // Define o ponto de origem da transformação no topo
+        padding: 10px;
+        transform: scaleY(1); // Define a escala vertical inicial dos elementos como 1.2
+        transform-origin: top; // Define o ponto de origem da transformação no topo
 
-      transition: transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
 
-      &:first-child {
-        transform-origin: center top; // Define o ponto de origem da transformação no centro para o primeiro elemento
-      }
+        &:first-child {
+            transform-origin: center top; // Define o ponto de origem da transformação no centro para o primeiro elemento
+        }
 
-      &:last-child {
-        transform-origin: bottom top; // Define o ponto de origem da transformação no fundo para o último elemento
-      }
+        &:last-child {
+            transform-origin: bottom top; // Define o ponto de origem da transformação no fundo para o último elemento
+        }
     }
-  }
+}
