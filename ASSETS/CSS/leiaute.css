@@ -2003,7 +2003,17 @@ ul.ulOptions {
   opacity: 0;
   transform: scaleY(0.2);
   transform-origin: top;
+  margin-bottom: 10px;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
+}
+ul.ulOptions::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #ddd transparent;
 }
 ul.ulOptions.show {
   opacity: 1;

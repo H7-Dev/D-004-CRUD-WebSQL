@@ -2437,27 +2437,39 @@ ul.ulOptions {
     opacity: 0;
     transform: scaleY(0.2);
     transform-origin: top;
+    margin-bottom: 10px; // adiciona uma margem inferior para separar do conteúdo abaixo
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px; // posiciona acima do ul
+      left: 10px; // posiciona no canto esquerdo
+      border-style: solid;
+      border-width: 0 10px 10px 10px; // cria um triângulo com borda
+      border-color: transparent transparent #ddd transparent; // cor da borda
+    }
 
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
 
     &.show {
-        opacity: 1;
-        transform: scaleY(1);
+      opacity: 1;
+      transform: scaleY(1);
     }
 
     li {
-        padding: 10px;
-        transform: scaleY(1);
-        transform-origin: top;
+      padding: 10px;
+      transform: scaleY(1);
+      transform-origin: top;
 
-        transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
 
-        &:first-child {
-            transform-origin: center top;
-        }
+      &:first-child {
+        transform-origin: center top;
+      }
 
-        &:last-child {
-            transform-origin: bottom top;
-        }
+      &:last-child {
+        transform-origin: bottom top;
+      }
     }
-}
+  }
+
