@@ -1962,35 +1962,38 @@ div.dropDown {
   min-width: 160px;
 }
 
-button.btnOption {
+button.btnOpts {
   position: relative;
   display: block;
   width: 100%;
-  padding: 10px;
+  padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
   cursor: pointer;
   text-align: left;
 }
-button.btnOption::after {
+button.btnOpts::after {
   content: "";
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 4px;
+  transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-top: 5px solid #666;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: #000 transparent transparent transparent;
   transition: transform 0.2s ease-in-out;
 }
-button.btnOption.show::after {
+button.btnOpts.active::after {
   transform: translateY(-50%) rotate(180deg);
 }
+button.btnOpts:focus {
+  outline: none;
+}
 
-ul.selcOptions {
+ul.ulOptions {
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
@@ -2002,35 +2005,20 @@ ul.selcOptions {
   transform: scaleY(0.2);
   transform-origin: top;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
-  /* Novas propriedades CSS para o sombreamento e a seta */
-  padding-left: 15px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
 }
-ul.selcOptions.show {
+ul.ulOptions.show {
   opacity: 1;
   transform: scaleY(1);
 }
-ul.selcOptions li {
+ul.ulOptions li {
   padding: 10px;
   transform: scaleY(1);
   transform-origin: top;
   transition: transform 0.2s ease-in-out;
 }
-ul.selcOptions li:first-child {
+ul.ulOptions li:first-child {
   transform-origin: center top;
 }
-ul.selcOptions li:last-child {
+ul.ulOptions li:last-child {
   transform-origin: bottom top;
-}
-ul.selcOptions::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 10px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent #FFF transparent;
 }/*# sourceMappingURL=leiaute.css.map */

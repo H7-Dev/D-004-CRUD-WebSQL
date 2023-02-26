@@ -1,39 +1,32 @@
-// agora implementar um sombreamento para ul.
+const btnOpts = document.querySelector("button.btnOpts");
+const ulOptions = document.querySelector("ul.ulOptions");
 
-const btnOption = document.querySelector("button.btnOption");
-const selcOptions = document.querySelector("ul.selcOptions");
-
-btnOption.addEventListener("click", () => {
+btnOpts.addEventListener("click", () => {
     // obtém a largura do botão
-    const btnWidth = btnOption.offsetWidth;
+    const btnWidth = btnOpts.offsetWidth;
 
-    if (selcOptions.classList.contains("show")) {
-        selcOptions.classList.remove("show");
+    if (ulOptions.classList.contains("show")) {
+        ulOptions.classList.remove("show");
+        btnOpts.classList.remove("active");
     } else {
-        const btnRect = btnOption.getBoundingClientRect();
+        const btnRect = btnOpts.getBoundingClientRect();
 
-        selcOptions.style.top = `${btnRect.bottom + 5}px`;
-        selcOptions.style.left = `${btnRect.left -5}px`;
+        ulOptions.style.top = `${btnRect.bottom + 5}px`;
+        ulOptions.style.left = `${btnRect.left}px`;
 
         // define a largura da lista de seleção igual à largura do botão
-        selcOptions.style.width = `${btnWidth}px`;
+        ulOptions.style.width = `${btnWidth}px`;
 
-        selcOptions.classList.add("show");
+        ulOptions.classList.add("show");
+        btnOpts.classList.add("active");
     }
 });
 
-// adiciona ouvinte de eventos para detectar o clique em um elemento "li"
-selcOptions.addEventListener("click", (event) => {
-    // verifica se o elemento clicado é um "li"
-    if (event.target.tagName === "LI") {
-        // obtém o valor da opção selecionada
-        const selectedValue = event.target.getAttribute("value");
+document.addEventListener("click", (event) => {
+    const isClickInside = btnOpts.contains(event.target) || ulOptions.contains(event.target);
 
-        // atualiza o texto do botão com o valor selecionado
-        btnOption.textContent = selectedValue;
-
-        // oculta a lista de opções
-        selcOptions.classList.remove("show");
+    if (!isClickInside) {
+        ulOptions.classList.remove("show");
+        btnOpts.classList.remove("active");
     }
 });
-
