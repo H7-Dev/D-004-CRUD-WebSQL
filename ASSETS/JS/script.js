@@ -180,9 +180,15 @@ const paisesArray = JSON.parse(paises);
 ul.innerHTML = ''
 
 paisesArray.forEach((pais) => {
-  const li = `<li class="liOpts" value="${pais}" >${pais}</li>`;
-  ul.innerHTML += li;
+    const li = `<li class="liOpts" value="${pais}" >${pais}</li>`;
+    ul.innerHTML += li;
 })
 
 
-const myDropdown = new customSelc('.btnOpts', '.ulOptions', '.liOpts', '.dropDown', '.in_opts');
+const myDropdown = new customSelc({
+    customSelc       : '.customSelc',
+    btnOptsSelector  : '.btnOpts',
+    ulOptionsSelector:'.ulOptions',
+    liOptsSelector   : '.liOpts',
+    btnClear         : '.clearSelc'
+})

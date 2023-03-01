@@ -1959,6 +1959,12 @@ label.customSelc {
   padding: 4px;
   overflow: hidden;
   min-width: 160px;
+  position: relative;
+}
+label.customSelc.activeCustonSelc > button.clearSelc {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity 0.4s ease-in-out !important;
 }
 label.customSelc > button.btnOpts {
   font-size: 0.8rem;
@@ -1979,7 +1985,7 @@ label.customSelc > button.btnOpts::after {
   content: "";
   position: absolute;
   top: 50%;
-  right: 4px;
+  right: 25px;
   transform: translateY(-50%);
   width: 0;
   height: 0;
@@ -1993,6 +1999,28 @@ label.customSelc > button.btnOpts.active::after {
 }
 label.customSelc > button.btnOpts:focus {
   outline: none;
+}
+label.customSelc > button.clearSelc {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 2px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  top: 18%;
+  right: 9px;
+  visibility: hidden;
+  outline: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+label.customSelc > button.clearSelc:hover {
+  color: red;
 }
 
 ul.ulOptions {

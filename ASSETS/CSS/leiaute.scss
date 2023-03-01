@@ -2390,6 +2390,16 @@ label.customSelc {
     padding: 4px;
     overflow: hidden;
     min-width: 160px;
+    position: relative;
+
+    &.activeCustonSelc {
+        >button.clearSelc {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transition: opacity 0.4s ease-in-out !important,
+
+        }
+    }
 
     >button.btnOpts {
         font-size: 0.8rem;
@@ -2412,7 +2422,7 @@ label.customSelc {
             content: "";
             position: absolute;
             top: 50%;
-            right: 4px;
+            right: 25px;
             transform: translateY(-50%);
             width: 0;
             height: 0;
@@ -2430,7 +2440,36 @@ label.customSelc {
             outline: none;
         }
     }
+    >button.clearSelc {
+        background-color: #0000;
+        padding: 2px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+
+        position: absolute;
+        z-index: 1;
+        top: 18%;
+        right: 09px;
+        visibility: hidden;
+
+        outline: 1px solid #0000;
+        border: 1px solid #0000;
+        border-radius: 50%;
+
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out,
+        transform 0.4s ease-in-out;
+
+        &:hover {
+            color: red;
+
+        }
+    }
 }
+
 ul.ulOptions {
     position: absolute;
     top: calc(100% + 5px);
@@ -2449,13 +2488,13 @@ ul.ulOptions {
     overflow: auto;
 
     &::before {
-      content: "";
-      position: absolute;
-      top: -10px; // posiciona acima do ul
-      left: 10px; // posiciona no canto esquerdo
-      border-style: solid;
-      border-width: 0 10px 10px 10px; // cria um triângulo com borda
-      border-color: transparent transparent #ddd transparent; // cor da borda
+        content: "";
+        position: absolute;
+        top: -10px; // posiciona acima do ul
+        left: 10px; // posiciona no canto esquerdo
+        border-style: solid;
+        border-width: 0 10px 10px 10px; // cria um triângulo com borda
+        border-color: transparent transparent #ddd transparent; // cor da borda
     }
 
     &::-webkit-scrollbar {
@@ -2472,27 +2511,29 @@ ul.ulOptions {
         border: 1px solid #003d8c46;
     }
 
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out,
+    max-height 0.2s ease-in-out;
 
     &.show {
-      opacity: 1;
-      transform: scaleY(1);
+        opacity: 1;
+        transform: scaleY(1);
     }
 
     li {
-      padding: 10px;
-      transform: scaleY(1);
-      transform-origin: top;
-      cursor: default;
+        padding: 10px;
+        transform: scaleY(1);
+        transform-origin: top;
+        cursor: default;
 
-      transition: transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
 
-      &:first-child {
-        transform-origin: center top;
-      }
+        &:first-child {
+            transform-origin: center top;
+        }
 
-      &:last-child {
-        transform-origin: bottom top;
-      }
+        &:last-child {
+            transform-origin: bottom top;
+        }
     }
-  }
+}
