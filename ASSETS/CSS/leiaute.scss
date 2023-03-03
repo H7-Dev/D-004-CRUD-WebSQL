@@ -2396,7 +2396,7 @@ label.customSelc {
         >button.clearSelc {
             visibility: visible !important;
             opacity: 1 !important;
-            transition: opacity 0.4s ease-in-out !important,
+            transition: opacity 0.4s ease-in-out !important;
 
         }
     }
@@ -2484,7 +2484,7 @@ ul.ulOptions {
     transform: scaleY(0.2);
     transform-origin: top;
     margin-bottom: 10px; // adiciona uma margem inferior para separar do conteúdo abaixo
-    max-height: 260px;
+    max-height: 0px;
     overflow: auto;
 
     &::before {
@@ -2518,6 +2518,7 @@ ul.ulOptions {
     &.show {
         opacity: 1;
         transform: scaleY(1);
+        max-height: 260px;
     }
 
     li {

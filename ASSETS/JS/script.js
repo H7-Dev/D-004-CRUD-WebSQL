@@ -155,9 +155,6 @@ useImg.addEventListener('click', (e) => {
     }
 })
 
-
-
-
 // * Não faz parte do projeto (excluir ao final)
 var países = ["Brasil", "Argentina", "Chile", "Colômbia", "Equador", "Guiana", "Paraguai", "Peru", "Uruguai", "Venezuela",
     "Canadá", "Estados Unidos", "México", "Costa Rica", "Panamá", "Jamaica", "Haiti", "República Dominicana", "Cuba", "Puerto Rico"

@@ -2036,7 +2036,7 @@ ul.ulOptions {
   transform: scaleY(0.2);
   transform-origin: top;
   margin-bottom: 10px;
-  max-height: 260px;
+  max-height: 0px;
   overflow: auto;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, max-height 0.2s ease-in-out;
 }
@@ -2063,6 +2063,7 @@ ul.ulOptions::-webkit-scrollbar-thumb {
 ul.ulOptions.show {
   opacity: 1;
   transform: scaleY(1);
+  max-height: 260px;
 }
 ul.ulOptions li {
   padding: 10px;
