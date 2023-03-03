@@ -1,5 +1,10 @@
 class criarBD {
-    constructor(nome, versao, descricao, tamanho) {
+    constructor({
+        nome,
+        versao,
+        descricao,
+        tamanho
+    }) {
         this.nome = nome;
         this.versao = versao;
         this.descricao = descricao;
@@ -17,7 +22,12 @@ class criarBD {
     }
 }
 async function criarBDAsync() {
-    const banco = new criarBD('meu_banco', '1.0', 'Meu banco de dados', 2 * 1024 * 1024);
+    const banco = new criarBD({
+        nome: 'myBD',
+        versão: '1.0',
+        descrcao: 'Meu banco de dados (CRUD - WEB SQL)',
+        tamanho: '5 * 1024 * 1024 * 1024'
+    });
     try {
         const db = await banco.criarBancoDeDados();
         console.log('Banco de dados criado com sucesso:', db);
@@ -25,5 +35,4 @@ async function criarBDAsync() {
         console.error('Erro ao criar banco de dados:', error);
     }
 }
-
-criarBDAsync();
+criarBDAsync()
