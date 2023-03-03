@@ -4,6 +4,14 @@ class criarTabelas {
     }
 
     async criarTabela(nomeTabela, colunas) {
+        if (!nomeTabela || nomeTabela.trim() === '') {
+            return Promise.reject('xx Nome da tabela inválido.');
+        }
+
+        if (!colunas || colunas.length === 0) {
+            return Promise.reject('xx Definições de coluna inválidas.');
+        }
+
         const colunasQuery = colunas.join(", ");
         const sql = `CREATE TABLE IF NOT EXISTS ${nomeTabela} (${colunasQuery})`;
         return new Promise((resolve, reject) => {
@@ -18,8 +26,15 @@ class criarTabelas {
     }
 
     async criarTabelas(tabelas) {
+        if (!tabelas || tabelas.length === 0) {
+            return Promise.reject('xx Não foram fornecidas definições de tabela.');
+        }
+
         try {
             const resultados = await Promise.all(tabelas.map(tabela => {
+                if (!tabela || !tabela.nome || tabela.nome.trim() === '' || !tabela.colunas || tabela.colunas.length === 0) {
+                    throw new Error('xxDefinições de tabela inválidas.');
+                }
                 return this.criarTabela(tabela.nome, tabela.colunas);
             }));
             return resultados;
@@ -33,7 +48,7 @@ class criarTabelas {
 const db = window.openDatabase("mydb", "1.0", "My Database", 1024 * 1024);
 
 const tabela1 = {
-    nome: "clientes",
+    nome: "tbClientes",
     colunas: [
         "id INTEGER PRIMARY KEY AUTOINCREMENT",
         "nome TEXT NOT NULL",
