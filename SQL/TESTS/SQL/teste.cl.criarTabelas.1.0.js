@@ -3,35 +3,35 @@ class criarTabelas {
         this.db = db;
     }
 
-    criarTabela(nomeTabela, colunas, sucesso, erro) {
+    async criarTabela(nomeTabela, colunas) {
         const colunasQuery = colunas.join(", ");
         const sql = `CREATE TABLE IF NOT EXISTS ${nomeTabela} (${colunasQuery})`;
-        this.db.transaction(tx => {
-            tx.executeSql(sql, [], sucesso, erro);
+        return new Promise((resolve, reject) => {
+            this.db.transaction(tx => {
+                tx.executeSql(sql, [], () => {
+                    resolve(`Tabela ${nomeTabela} criada com sucesso!`);
+                }, error => {
+                    reject(`Erro ao criar tabela ${nomeTabela}: ${error.message}`);
+                });
+            });
         });
     }
 
-    criarTabelas(tabelas, sucesso, erro) {
+    async criarTabelas(tabelas) {
         try {
-            this.db.transaction(tx => {
-                tabelas.forEach(tabela => {
-                    this.criarTabela(
-                        tabela.nome,
-                        tabela.colunas,
-                        tabela.sucesso,
-                        tabela.erro
-                    );
-                });
-            }, erro, sucesso);
+            const resultados = await Promise.all(tabelas.map(tabela => {
+                return this.criarTabela(tabela.nome, tabela.colunas);
+            }));
+            return resultados;
         } catch (e) {
             console.error(e);
-            if (erro) erro(e);
+            throw e;
         }
     }
 }
 
-
 const db = window.openDatabase("mydb", "1.0", "My Database", 1024 * 1024);
+
 const tabela1 = {
     nome: "clientes",
     colunas: [
@@ -39,13 +39,8 @@ const tabela1 = {
         "nome TEXT NOT NULL",
         "email TEXT NOT NULL",
     ],
-    sucesso: () => {
-        console.log("Tabela clientes criada com sucesso!");
-    },
-    erro: err => {
-        console.error("Erro ao criar tabela clientes: " + err.message);
-    },
 };
+
 const tabela2 = {
     nome: "produtos",
     colunas: [
@@ -53,20 +48,13 @@ const tabela2 = {
         "nome TEXT NOT NULL",
         "preco REAL NOT NULL",
     ],
-    sucesso: () => {
-        console.log("Tabela produtos criada com sucesso!");
-    },
-    erro: err => {
-        console.error("Erro ao criar tabela produtos: " + err.message);
-    },
 };
+
 const ct = new criarTabelas(db);
-ct.criarTabelas(
-    [tabela1, tabela2],
-    () => {
-        console.log("Tabelas criadas com sucesso!");
-    },
-    err => {
-        console.error("Erro ao criar tabelas: " + err.message);
-    }
-);
+ct.criarTabelas([tabela1, tabela2])
+    .then(resultados => {
+        console.log("Tabelas criadas com sucesso!", resultados);
+    })
+    .catch(error => {
+        console.error("Erro ao criar tabelas:", error);
+    });
