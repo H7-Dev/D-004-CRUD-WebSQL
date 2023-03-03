@@ -1,38 +1,32 @@
-class criarBD {
-    constructor({
-        nome,
-        versao,
-        descricao,
-        tamanho
-    }) {
-        this.nome = nome;
-        this.versao = versao;
-        this.descricao = descricao;
-        this.tamanho = tamanho;
-        this.db = null;
+class BDcriarConec {
+    constructor(name, version, desc, size) {
+      this.db = null;
+      this.name = name;
+      this.version = version;
+      this.desc = desc;
+      this.size = size;
     }
 
-    async criarBancoDeDados() {
-        return new Promise((resolve, reject) => {
-            this.db = window.openDatabase(this.nome, this.versao, this.descricao, this.tamanho,
-                () => resolve(this.db),
-                (error) => reject(error)
-            );
-        });
+    async createDB() {
+      try {
+        this.db = await openDatabase(this.name, this.version, this.desc, this.size);
+        console.log('Banco de dados criado com sucesso.');
+        return this.db;
+      } catch (e) {
+        console.error('Erro ao criar o banco de dados: ', e);
+        throw e;
+      }
     }
-}
-async function criarBDAsync() {
-    const banco = new criarBD({
-        nome: 'myBD',
-        versão: '1.0',
-        descrcao: 'Meu banco de dados (CRUD - WEB SQL)',
-        tamanho: '5 * 1024 * 1024 * 1024'
-    });
+  }
+
+  async function main() {
+    const myDB = new BDcriarConec('myBd', '1.0', 'My database', 5 * 1024 * 1024 * 1024);
     try {
-        const db = await banco.criarBancoDeDados();
-        console.log('Banco de dados criado com sucesso:', db);
-    } catch (error) {
-        console.error('Erro ao criar banco de dados:', error);
+      const db = await myDB.createDB();
+      console.log('Banco de dados criado com sucesso: ', db);
+    } catch (e) {
+      console.error('Erro ao criar o banco de dados: ', e);
     }
-}
-criarBDAsync()
+  }
+
+  main();
