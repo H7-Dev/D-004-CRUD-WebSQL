@@ -81,13 +81,45 @@ class GerenciadorTabelas {
     }
 }
 
-const db = window.openDatabase("mydb", "1.0", "My Database", 1024 * 1024);
+// const db = window.openDatabase("mydb", "1.0", "My Database", 1024 * 1024);
+
+// const ct = new GerenciadorTabelas(db);
+// ct.excluirTabelas(["tbClientes", "produtos"])
+//     .then((resultados) => {
+//         console.log("Tabelas excluídas com sucesso!", resultados);
+//     })
+//     .catch(error => {
+//         console.error("Erro ao excluir tabelas:", error);
+//     });
+
+
+const db = window.openDatabase("myBd", "1.0", "My Database", 5 * 1024 * 1024 * 1024);
 
 const ct = new GerenciadorTabelas(db);
-ct.excluirTabelas(["clientes", "produtos"])
-    .then((resultados) => {
-        console.log("Tabelas excluídas com sucesso!", resultados);
-    })
-    .catch(error => {
-        console.error("Erro ao excluir tabelas:", error);
-    });
+ct.criarTabelas([
+    {
+        nome: "tbPessoas",
+        colunas: [
+            "idPessoas TEXT NOT NULL",
+            "c_nome TEXT NOT NULL",
+            "c_email TEXT NOT NULL",
+            "c_date TEXT NOT NULL",
+            "c_pais TEXT NOT NULL",
+            "c_sexo TEXT NOT NULL",
+        ],
+    },
+    {
+        nome: "tbCursos",
+        colunas: [
+            "idCursos TEXT NOT NULL",
+            "c_curso TEXT NOT NULL",
+            "c_preco TEXT NOT NULL",
+        ],
+    }
+])
+.then((resultados) => {
+    console.log("Tabelas criadas com sucesso!", resultados);
+})
+.catch(error => {
+    console.error("Erro ao criar tabelas:", error);
+});
