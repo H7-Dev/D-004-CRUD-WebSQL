@@ -25,7 +25,7 @@ class customSelc {
             console.error(`Nenhum elemento com o seletor '${btnClear}' foi encontrado.`);
         }
         this.btnOptsList.forEach((btnOpts, index) => {
-            console.log('✔️ btnOptsList ↓')
+            // console.log('✔️ btnOptsList ↓')
             const ulOptions = this.ulOptionsList[index]
             const btnClear = this.btnClear[index]
 
