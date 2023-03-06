@@ -60,19 +60,39 @@ Para criar várias tabelas de uma vez, é possível chamar o método `criarTabel
 javascript
 
 ```javascript
-const tabelas = [
+
+const ct = new GerenciadorTabelas(db);
+ct.criarTabelas([
     {
-        nome: "clientes",
-        colunas: ["id INTEGER", "nome TEXT", "email TEXT"]
+        nome: "tbPessoas",
+        colunas: [
+            "idPessoas TEXT(545)  NOT NULL",
+            "c_nome TEXT(545) NOT NULL",
+            "c_email TEXT(545) NOT NULL",
+            "c_date TEXT(100) NOT NULL",
+            "c_pais TEXT(1545) NOT NULL",
+            "c_sexo TEXT(2) NOT NULL",
+            "c_dt TEXT(545)",
+            "c_dtMod TEXT(545)",
+        ],
     },
     {
-        nome: "produtos",
-        colunas: ["id INTEGER", "nome TEXT", "preco REAL"]
+        nome: "tbCursos",
+        colunas: [
+            "idCursos TEXT(545) NOT NULL",
+            "c_curso TEXT(545) NOT NULL",
+            "c_preco TEXT(545) NOT NULL",
+            "c_dt TEXT(545)",
+            "c_dtMod TEXT(545)",
+        ],
     }
-];
-
-const resultados = await gerenciador.criarTabelas(tabelas);
-console.log(resultados);
+])
+.then((resultados) => {
+    console.log("Tabelas criadas com sucesso!", resultados);
+})
+.catch(error => {
+    console.error("Erro ao criar tabelas:", error);
+});
 ```
 
 No exemplo acima, o método `criarTabelas` retorna um array de strings com o resultado de cada criação de tabela, na mesma ordem em que as tabelas foram passadas como parâmetro.
@@ -107,13 +127,24 @@ Para excluir várias tabelas de uma vez, chame o método `excluirTabelas(nomesTa
 javascript
 
 ```javascript
-gerenciador.excluirTabelas(["tabela1", "tabela2", "tabela3"])
-  .then(resultados => {
-    console.log(resultados);
-  })
-  .catch(erro => {
-    console.error(erro);
-  });
+// const ct = new GerenciadorTabelas(db)
+// ct.excluirTabelas(["tbPessoas", "tbCursos"]).then((resultados) => {
+//     console.log("Tabelas excluídas com sucesso!", resultados);
+// }).catch(error => {
+//     console.error("Erro ao excluir tabelas:", error);
+// })
+
+```
+javascript exemplo #2
+
+```javascript
+const ct = new GerenciadorTabelas(db)
+ct.excluirTabelas(["tbPessoas", "tbCursos"]).then((resultados) => {
+    console.log("Tabelas excluídas com sucesso!", resultados);
+}).catch(error => {
+    console.error("Erro ao excluir tabelas:", error);
+})
+
 ```
 
 Lembre-se de que o método `excluirTabela()` só pode excluir uma tabela por vez, enquanto o método `excluirTabelas()` pode excluir várias tabelas de uma só vez.

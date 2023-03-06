@@ -1,27 +1,23 @@
 class TabelaPessoas {
-    constructor(db, tabelaNome, colunas) {
+    constructor(db) {
         this.db = db;
         this.tbody = document.querySelector('.tbody');
-        this.tabelaNome = tabelaNome;
-        this.colunas = colunas;
     }
 
     exibirDados() {
-        const colunasSelecionadas = this.colunas.join(', ');
-        const query = `SELECT rowid, ${colunasSelecionadas} FROM ${this.tabelaNome}`;
-
         this.db.transaction((tx) => {
-            tx.executeSql(query, [], (tx, resultado) => {
+            tx.executeSql('SELECT rowid, * FROM tbPessoas', [], (tx, resultado) => {
                 let html = '';
                 for (let i = 0; i < resultado.rows.length; i++) {
                     const row = resultado.rows.item(i);
-                    let tdHtml = '';
-                    for (const coluna of this.colunas) {
-                        tdHtml += `<td>${row[coluna]}</td>`;
-                    }
                     html += `<tr>
               <td>${row.rowid}</td>
-              ${tdHtml}
+              <td>${row.idPessoas}</td>
+              <td>${row.c_nome}</td>
+              <td>${row.c_email}</td>
+              <td>${row.c_date}</td>
+              <td>${row.c_pais}</td>
+              <td>${row.c_sexo}</td>
             </tr>`;
                 }
                 this.tbody.innerHTML = html;
@@ -30,5 +26,6 @@ class TabelaPessoas {
     }
 }
 
-const tabela = new TabelaPessoas(db, 'tbPessoas', ['idPessoas', 'c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo']);
+
+const tabela = new TabelaPessoas(db);
 tabela.exibirDados();

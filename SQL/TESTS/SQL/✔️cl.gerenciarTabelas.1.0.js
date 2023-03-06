@@ -81,39 +81,39 @@ class GerenciadorTabelas {
     }
 }
 
-// const db = window.openDatabase("mydb", "1.0", "My Database", 1024 * 1024);
 
-// const ct = new GerenciadorTabelas(db);
-// ct.excluirTabelas(["tbClientes", "produtos"])
-//     .then((resultados) => {
-//         console.log("Tabelas excluídas com sucesso!", resultados);
-//     })
-//     .catch(error => {
-//         console.error("Erro ao excluir tabelas:", error);
-//     });
+// const ct = new GerenciadorTabelas(db)
+// ct.excluirTabelas(["tbPessoas", "tbCursos"]).then((resultados) => {
+//     console.log("Tabelas excluídas com sucesso!", resultados);
+// }).catch(error => {
+//     console.error("Erro ao excluir tabelas:", error);
+// })
 
 
-const db = window.openDatabase("myBd", "1.0", "My Database", 5 * 1024 * 1024 * 1024);
 
 const ct = new GerenciadorTabelas(db);
 ct.criarTabelas([
     {
         nome: "tbPessoas",
         colunas: [
-            "idPessoas TEXT NOT NULL",
-            "c_nome TEXT NOT NULL",
-            "c_email TEXT NOT NULL",
-            "c_date TEXT NOT NULL",
-            "c_pais TEXT NOT NULL",
-            "c_sexo TEXT NOT NULL",
+            "idPessoas TEXT(545)  NOT NULL",
+            "c_nome TEXT(545) NOT NULL",
+            "c_email TEXT(545) NOT NULL",
+            "c_date TEXT(100) NOT NULL",
+            "c_pais TEXT(1545) NOT NULL",
+            "c_sexo TEXT(2) NOT NULL",
+            "c_dt TEXT(545)",
+            "c_dtMod TEXT(545)",
         ],
     },
     {
         nome: "tbCursos",
         colunas: [
-            "idCursos TEXT NOT NULL",
-            "c_curso TEXT NOT NULL",
-            "c_preco TEXT NOT NULL",
+            "idCursos TEXT(545) NOT NULL",
+            "c_curso TEXT(545) NOT NULL",
+            "c_preco TEXT(545) NOT NULL",
+            "c_dt TEXT(545)",
+            "c_dtMod TEXT(545)",
         ],
     }
 ])

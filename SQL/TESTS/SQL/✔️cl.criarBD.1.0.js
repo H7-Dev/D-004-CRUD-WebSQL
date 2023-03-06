@@ -28,5 +28,4 @@ async function main() {
         console.error('Erro ao criar o banco de dados: ', e);
     }
 }
-
 main()
