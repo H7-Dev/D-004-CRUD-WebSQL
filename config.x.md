@@ -29,6 +29,7 @@
 > Número     | Descrição/Questão | Resolução
 > ---------  | ------ | ------- |
 > #B-001     | [Appending a template string](https://stackoverflow.com/questions/54618582/appending-a-template-string) | [Use Element.insertAdjacentHTML(position, text)](https://stackoverflow.com/a/54618669/17352874)
+> #B-002     | implementar um promessa (insertToWsql) | [-g-001-promesa e async_await]()
 
 >
 <!-- > Número     | Descrição/Questão

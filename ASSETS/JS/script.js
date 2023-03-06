@@ -202,6 +202,9 @@ btnAciton.forEach(function (button) {
         console.log('=> ⚡-click btnAciton <=');
         console.log(this)
 
+        // REVIEW - #B-002
+        // !IMPORTANT  implementar um promessa para certificar que os valores de todos os inputs foram obtidos para só depois chamar o insertToWsql.
+        //  LINK - (RESOLVIDO) C:\xampp\htdocs\4- IA\00 Diversos\D-004 - CRUD - Web SQL\ASSETS\GITHUB\DOCS\-g-001-promesa e async_await.md
         function getInputsValues() {
             return new Promise((resolve, reject) => {
                 const inputs = {
