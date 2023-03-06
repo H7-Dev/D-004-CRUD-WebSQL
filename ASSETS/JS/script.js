@@ -255,7 +255,5 @@ btnAciton.forEach(function (button) {
         }).catch((error) => {
             console.error(error);
         });
-
-
     })
 })
