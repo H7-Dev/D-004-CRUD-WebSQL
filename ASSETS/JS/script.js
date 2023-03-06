@@ -183,9 +183,74 @@ paisesArray.forEach((pais) => {
 
 
 const myDropdown = new customSelc({
-    customSelc       : '.customSelc',
-    btnOptsSelector  : '.btnOpts',
-    ulOptionsSelector:'.ulOptions',
-    liOptsSelector   : '.liOpts',
-    btnClear         : '.clearSelc'
+    customSelc: '.customSelc',
+    btnOptsSelector: '.btnOpts',
+    ulOptionsSelector: '.ulOptions',
+    liOptsSelector: '.liOpts',
+    btnClear: '.clearSelc'
+})
+
+
+/* OPERAÇÕES CRUD */
+
+// *INSERT TO
+
+let btnAciton = document.querySelectorAll('button.btnSalvar.btnAciton')
+btnAciton.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+        console.clear()
+        console.log('=> ⚡-click btnAciton <=');
+        console.log(this)
+
+        function getInputsValues() {
+            return new Promise((resolve, reject) => {
+                const inputs = {
+                    idPessoas: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.in_email > input.in_email').value.replace(/\s/g, '').replace(/[^a-zA-Z0-9]/g, ''),
+                    in_nome: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.in_nome > input.in_nome'),
+                    in_email: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.in_email > input.in_email'),
+                    in_dtNasc: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.in_dtNasc > input.in_dtNasc'),
+                    in_optsPais: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.customSelc.col1-3 > input.in_optsPais'),
+                    in_optsSexo: document.querySelector('body > div.form.frmPessoa > div > div.main > div.chat > label.customSelc.col3 > input.in_optsSexo')
+                };
+
+                // Verifica se todos os valores foram obtidos
+                if (inputs.idPessoas && inputs.in_nome && inputs.in_email && inputs.in_dtNasc && inputs.in_optsPais && inputs.in_optsSexo) {
+                    console.log(inputs.idPessoas)
+                    resolve(inputs);
+                } else {
+                    reject(new Error('Não foi possível obter todos os valores de entrada.'));
+                }
+            });
+        }
+
+        // Chama a função getInputsValues para obter os valores de entrada e, em seguida, chama a função insertToWsql.insert quando os valores forem obtidos
+        getInputsValues().then((inputs) => {
+            const tabela = 'tbPessoas';
+            const registro = {
+                idPessoas: inputs.idPessoas,
+                c_nome: inputs.in_nome.value,
+                c_email: inputs.in_email.value,
+                c_date: inputs.in_dtNasc.value,
+                c_pais: inputs.in_optsPais.value,
+                c_sexo: inputs.in_optsSexo.value
+            };
+            const campos = ['idPessoas', 'c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo'];
+            const retorno = 'c_nome';
+            const campoUnico = 'c_email';
+
+            insertToWsql.insert(db, tabela, registro, campos, function (success, message, insertId, returnField) {
+                if (success) {
+                    console.log(message);
+                    // console.log('ID do registro inserido:', insertId);
+                    // console.log('Campo de retorno:', returnField);
+                } else {
+                    console.error(message);
+                }
+            }, retorno, campoUnico);
+        }).catch((error) => {
+            console.error(error);
+        });
+
+
+    })
 })

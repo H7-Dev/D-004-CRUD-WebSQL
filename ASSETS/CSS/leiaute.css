@@ -1292,7 +1292,7 @@ div.form div.wrapper > div.footer {
   border-bottom-right-radius: 8px;
 }
 div.form div.wrapper > div.footer > button.btnVoltar,
-div.form div.wrapper > div.footer > button.btnSalvar {
+div.form div.wrapper > div.footer > button.btnAciton {
   background-color: #fff;
   padding: 2px 8px;
   height: fit-content;
@@ -1306,23 +1306,23 @@ div.form div.wrapper > div.footer > button.btnSalvar {
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
 }
 div.form div.wrapper > div.footer > button.btnVoltar:hover,
-div.form div.wrapper > div.footer > button.btnSalvar:hover {
+div.form div.wrapper > div.footer > button.btnAciton:hover {
   background-color: #f8f8f8;
   border: 1px solid rgba(0, 61, 140, 0.18);
 }
 div.form div.wrapper > div.footer > button.btnVoltar:active,
-div.form div.wrapper > div.footer > button.btnSalvar:active {
+div.form div.wrapper > div.footer > button.btnAciton:active {
   background-color: #f5f5f5;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
 }
 div.form div.wrapper > div.footer > button.btnVoltar:focus,
-div.form div.wrapper > div.footer > button.btnSalvar:focus {
+div.form div.wrapper > div.footer > button.btnAciton:focus {
   background-color: #f8f8f8;
   box-shadow: 0px 1px 3px 0px rgba(0, 60, 140, 0.15);
   border: 1px solid rgba(0, 61, 140, 0.28);
 }
 div.form div.wrapper > div.footer > button.btnVoltar > span,
-div.form div.wrapper > div.footer > button.btnSalvar > span {
+div.form div.wrapper > div.footer > button.btnAciton > span {
   width: 100%;
   color: #003d8c;
   font-size: 0.9rem;

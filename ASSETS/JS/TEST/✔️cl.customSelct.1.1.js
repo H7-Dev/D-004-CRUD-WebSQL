@@ -118,8 +118,8 @@ class customSelc {
         }
     }
     onDocumentClicked(event, btnOpts, ulOptions) {
-        console.clear()
-        console.log("⚡ onDocumentClicked")
+        // console.clear()
+        // console.log("⚡ onDocumentClicked")
         const isClickInside = btnOpts.contains(event.target) || ulOptions.contains(event.target);
 
         if (!isClickInside) {
