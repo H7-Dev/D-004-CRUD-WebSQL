@@ -6,7 +6,10 @@ class TabelaPessoas {
 
     exibirDados() {
         this.db.transaction((tx) => {
-            tx.executeSql('SELECT rowid, * FROM tbPessoas', [], (tx, resultado) => {
+            // var query = "SELECT rowid, * FROM tbPessoas ORDER BY rowid "+_ordem+";"
+            var query = "SELECT rowid, * FROM tbPessoas ORDER BY rowid ASC;"
+
+            tx.executeSql(query, [], (tx, resultado) => {
                 let html = '';
                 for (let i = 0; i < resultado.rows.length; i++) {
                     const row = resultado.rows.item(i);
