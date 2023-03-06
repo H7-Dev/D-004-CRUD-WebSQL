@@ -1,3 +1,24 @@
+//#region obterTabelas
+// const db = openDatabase('nome_do_banco_de_dados', '1.0', 'Descrição do banco de dados', 2 * 1024 * 1024);
+function obterTabelas() {
+    db.transaction(function(tx) {
+      tx.executeSql("SELECT name FROM sqlite_master WHERE type='table'", [], function(tx, resultado) {
+        for (let i = 0; i < resultado.rows.length; i++) {
+          const row = resultado.rows.item(i);
+          console.log(row.name);
+        }
+      });
+    });
+  }
+
+  obterTabelas();
+
+
+
+
+//#endregion
+
+
 // * ✔️ Mostrar/ocultar from  altClass
 let btnSelcRowsTable = document.querySelectorAll('.btnSelc')
 btnSelcRowsTable.forEach(function (button) {
