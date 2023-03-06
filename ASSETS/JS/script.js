@@ -244,10 +244,12 @@ btnAciton.forEach(function (button) {
             insertToWsql.insert(db, tabela, registro, campos, function (success, message, insertId, returnField) {
                 if (success) {
                     console.log(message);
+                    alert(message)
                     // console.log('ID do registro inserido:', insertId);
                     // console.log('Campo de retorno:', returnField);
                 } else {
                     console.error(message);
+                    alert(message)
                 }
             }, retorno, campoUnico);
         }).catch((error) => {
