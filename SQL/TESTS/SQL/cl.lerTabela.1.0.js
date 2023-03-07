@@ -18,6 +18,7 @@ class TabelaPessoas {
                     const idade = this.calcularIdade(row.c_date)
                     // const dt = this.converterDataUStoBr(row.c_dt)
                     const dt = this.converterDataUStoBr(row.c_dt, { humanizar: true })
+                    const dtx = this.converterDataUStoBr(row.c_dt, { data: true, hora: false })
                     const dtMod = this.converterDataUStoBr(row.c_dtMod, { data: true, hora: true})
                     html += `<tr>
                     <td class="action" action="editar" style="text-align: center;"><input class="checkDel" type="checkbox" checked></td>
@@ -28,7 +29,7 @@ class TabelaPessoas {
                       <td>${idade + ' anos'}</td>
                       <td>${row.c_pais}</td>
                       <td>${row.c_sexo}</td>
-                      <td title="${dt}">${dt}</td>
+                      <td title="${dt}">${dtx}</td>
                       <td>${dtMod}</td>
                     </tr>`;
                 }
