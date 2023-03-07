@@ -1,3 +1,5 @@
+
+
 //#region obterTabelas
 // const db = openDatabase('nome_do_banco_de_dados', '1.0', 'Descrição do banco de dados', 2 * 1024 * 1024);
 // function obterTabelas() {
@@ -234,7 +236,9 @@ btnAciton.forEach(function (button) {
                     in_email: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.in_email > input.in_email'),
                     in_dtNasc: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.in_dtNasc > input.in_dtNasc'),
                     in_optsPais: document.querySelector('body > div.form.frmPessoa.ativado > div > div.main > div.chat > label.customSelc.col1-3 > input.in_optsPais'),
-                    in_optsSexo: document.querySelector('body > div.form.frmPessoa > div > div.main > div.chat > label.customSelc.col3 > input.in_optsSexo')
+                    in_optsSexo: document.querySelector('body > div.form.frmPessoa > div > div.main > div.chat > label.customSelc.col3 > input.in_optsSexo'),
+                    in_dt: setDtHrCorrent('ambos'),
+                    in_dtMod: setDtHrCorrent('ambos'),
                 };
 
                 // Verifica se todos os valores foram obtidos
@@ -256,9 +260,11 @@ btnAciton.forEach(function (button) {
                 c_email: inputs.in_email.value,
                 c_date: inputs.in_dtNasc.value,
                 c_pais: inputs.in_optsPais.value,
-                c_sexo: inputs.in_optsSexo.value
+                c_sexo: inputs.in_optsSexo.value,
+                c_dt: inputs.in_dt,
+                c_dtMod: inputs.in_dtMod,
             };
-            const campos = ['idPessoas', 'c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo'];
+            const campos = ['idPessoas', 'c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo', 'c_dt', 'c_dtMod'];
             const retorno = 'c_nome';
             const campoUnico = 'c_email';
 
@@ -278,34 +284,3 @@ btnAciton.forEach(function (button) {
         });
     })
 })
-
-function setDtHrCorrent(opcao) {
-    const agora = new Date();
-    let output = '';
-
-    if (opcao === 'data' || opcao === 'ambos') {
-      const mes = (agora.getMonth() + 1).toString().padStart(2, '0');
-      const dia = agora.getDate().toString().padStart(2, '0');
-      const ano = agora.getFullYear();
-      output += `${ano}-${mes}-${dia}`;
-    }
-
-    if (opcao === 'hora' || opcao === 'ambos') {
-      const hora = agora.getHours().toString().padStart(2, '0');
-      const minuto = agora.getMinutes().toString().padStart(2, '0');
-      const segundo = agora.getSeconds().toString().padStart(2, '0');
-      const separador = output ? ' ' : '';
-      output += `${separador}${hora}:${minuto}:${segundo}`;
-    }
-
-    return output;
-  }
-
-  const dataAtual = setDtHrCorrent('data');
-console.log(`Hoje é dia ${dataAtual}.`);
-
-const horaAtual = setDtHrCorrent('hora');
-console.log(`Agora são ${horaAtual}.`);
-
-const dataHoraAtual = setDtHrCorrent('ambos');
-console.log(`A data e hora atual são ${dataHoraAtual}.`);
