@@ -14,25 +14,63 @@ class TabelaPessoas {
                 for (let i = 0; i < resultado.rows.length; i++) {
                     const row = resultado.rows.item(i);
                     // console.log(row);
+
+                    const idade = this.calcularIdade(row.c_date)
+                    // const dt = this.converterDataUStoBr(row.c_dt)
+                    const dt = this.converterDataUStoBr(row.c_dt, { data: true, hora: false })
                     html += `<tr>
                     <td class="action" action="editar" style="text-align: center;"><input class="checkDel" type="checkbox" checked></td>
-              <td>${row.rowid}</td>
-              <td>${row.idPessoas}</td>
-              <td>${row.c_nome}</td>
-              <td>${row.c_email}</td>
-              <td>${row.c_date}</td>
-              <td>${row.c_pais}</td>
-              <td>${row.c_sexo}</td>
-              <td>${row.c_dt}</td>
-              <td>${row.c_dtMod}</td>
-            </tr>`;
+                      <td>${row.rowid}</td>
+                      <td>${row.idPessoas}</td>
+                      <td>${row.c_nome}</td>
+                      <td>${row.c_email}</td>
+                      <td>${idade + ' anos'}</td>
+                      <td>${row.c_pais}</td>
+                      <td>${row.c_sexo}</td>
+                      <td>${dt}</td>
+                      <td>${row.c_dtMod}</td>
+                    </tr>`;
                 }
                 this.tbody.innerHTML = html;
             });
         });
     }
+    calcularIdade(dataNascimento) {
+        const hoje = new Date();
+        const dataNasc = new Date(dataNascimento);
+        let idade = hoje.getFullYear() - dataNasc.getFullYear();
+        const mes = hoje.getMonth() - dataNasc.getMonth();
+
+        if (mes < 0 || (mes === 0 && hoje.getDate() < dataNasc.getDate())) {
+            idade--;
+        }
+        return idade;
+    }
+    converterDataUStoBr(data, opcoes) {
+        opcoes = opcoes || {
+            data: true,
+            hora: true
+        };
+        var partes = data.split(/[- :]/);
+        var novaData = '';
+
+        if (opcoes.data) {
+            novaData += partes[2] + '/' + partes[1] + '/' + partes[0];
+        }
+
+        if (opcoes.data && opcoes.hora) {
+            novaData += ' ';
+        }
+
+        if (opcoes.hora) {
+            novaData += partes[3] + ':' + partes[4] + ':' + partes[5];
+        }
+
+        return novaData;
+    }
+
+
+
 }
-
-
 const tabela = new TabelaPessoas(db);
 tabela.exibirDados();
