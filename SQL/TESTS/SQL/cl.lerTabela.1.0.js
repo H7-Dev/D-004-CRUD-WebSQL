@@ -13,7 +13,9 @@ class TabelaPessoas {
                 let html = '';
                 for (let i = 0; i < resultado.rows.length; i++) {
                     const row = resultado.rows.item(i);
+                    // console.log(row);
                     html += `<tr>
+                    <td class="action" action="editar" style="text-align: center;"><input class="checkDel" type="checkbox" checked></td>
               <td>${row.rowid}</td>
               <td>${row.idPessoas}</td>
               <td>${row.c_nome}</td>
@@ -21,6 +23,8 @@ class TabelaPessoas {
               <td>${row.c_date}</td>
               <td>${row.c_pais}</td>
               <td>${row.c_sexo}</td>
+              <td>${row.c_dt}</td>
+              <td>${row.c_dtMod}</td>
             </tr>`;
                 }
                 this.tbody.innerHTML = html;

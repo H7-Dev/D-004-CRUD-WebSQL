@@ -278,3 +278,34 @@ btnAciton.forEach(function (button) {
         });
     })
 })
+
+function setDtHrCorrent(opcao) {
+    const agora = new Date();
+    let output = '';
+
+    if (opcao === 'data' || opcao === 'ambos') {
+      const mes = (agora.getMonth() + 1).toString().padStart(2, '0');
+      const dia = agora.getDate().toString().padStart(2, '0');
+      const ano = agora.getFullYear();
+      output += `${ano}-${mes}-${dia}`;
+    }
+
+    if (opcao === 'hora' || opcao === 'ambos') {
+      const hora = agora.getHours().toString().padStart(2, '0');
+      const minuto = agora.getMinutes().toString().padStart(2, '0');
+      const segundo = agora.getSeconds().toString().padStart(2, '0');
+      const separador = output ? ' ' : '';
+      output += `${separador}${hora}:${minuto}:${segundo}`;
+    }
+
+    return output;
+  }
+
+  const dataAtual = setDtHrCorrent('data');
+console.log(`Hoje é dia ${dataAtual}.`);
+
+const horaAtual = setDtHrCorrent('hora');
+console.log(`Agora são ${horaAtual}.`);
+
+const dataHoraAtual = setDtHrCorrent('ambos');
+console.log(`A data e hora atual são ${dataHoraAtual}.`);
