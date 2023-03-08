@@ -1,9 +1,7 @@
 class editInWsql {
-    static edit(db, table, data, fields, successCallback, uniqueField) {
-        editInWsql.editRecord(db, table, data, fields, successCallback);
-    }
-    static editRecord(db, table, data, fields, successCallback) {
-        var idColumn = 'idPessoas';
+
+    static editRecord(db, table, data, fields, successCallback, idColumn) {
+        idColumn = idColumn || 'id'; // idColumn é opcional e tem um valor padrão 'id'
         var idValue = data[idColumn];
         var setColumns = fields.map(function (field) {
             return field + ' = ?';
@@ -55,8 +53,8 @@ class editInWsql {
 
 const tabelax = 'tbPessoas';
 const registro = {
-    idPessoas: 'idxxx',
-    c_nome: 'Bruna x2',
+    idPessoas: 'id',
+    c_nome: 'Bruna x7',
     c_email: 'bruna.jay@email.com',
     c_date: '2000-01-01',
     c_pais: 'Brasil',
@@ -66,12 +64,13 @@ const registro = {
 };
 const campos = ['c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo', 'c_dt', 'c_dtMod'];
 const campoUnico = 'c_email';
+const idColumn = 'idPessoas';
 
-editInWsql.edit(db, tabelax, registro, campos, function (success, message, idValue) {
+editInWsql.editRecord(db, tabelax, registro, campos, function (success, message, idValue) {
     if (success) {
         console.log(message);
         alert(message)
-        // console.log('ID do registro editado:', idValue);
+        // console.log('ID do
     } else {
         console.error(message);
         alert(message);
