@@ -1,6 +1,6 @@
 class editInWsql {
     static edit(db, table, data, fields, successCallback, uniqueField) {
-            editInWsql.editRecord(db, table, data, fields, successCallback);
+        editInWsql.editRecord(db, table, data, fields, successCallback);
     }
     static editRecord(db, table, data, fields, successCallback) {
         var idColumn = 'idPessoas';
@@ -12,22 +12,44 @@ class editInWsql {
             return data[field];
         });
         values.push(idValue);
-        var sql = 'UPDATE ' + table + ' SET ' + setColumns + ' WHERE ' + idColumn + ' = ?';
+        // Verificar se o registro existe na tabela
+        var checkSql = 'SELECT COUNT(*) AS count FROM ' + table + ' WHERE ' + idColumn + ' = ?';
         db.transaction(function (tx) {
-            tx.executeSql(sql, values, function (tx, result) {
-                var success = true;
-                var message = 'Registro editado com sucesso com ID ' + idValue;
-                if (typeof successCallback === 'function') {
-                    successCallback(success, message, idValue);
+            tx.executeSql(checkSql, [idValue], function (tx, result) {
+                if (result.rows.item(0).count > 0) {
+                    // Registro existe, executar o UPDATE
+                    var sql = 'UPDATE ' + table + ' SET ' + setColumns + ' WHERE ' + idColumn + ' = ?';
+                    tx.executeSql(sql, values, function (tx, result) {
+                        var success = true;
+                        var message = 'Registro editado com sucesso com ID ' + idValue;
+                        if (typeof successCallback === 'function') {
+                            successCallback(success, message, idValue);
+                        }
+                    }, function (tx, error) {
+                        var success = false;
+                        var message = 'Erro ao editar registro: ' + error.message;
+                        if (typeof successCallback === 'function') {
+                            successCallback(success, message);
+                        }
+                    });
+                } else {
+                    // Registro não existe, executar a função de callback com erro
+                    var success = false;
+                    var message = 'Registro com ID ' + idValue + ' não encontrado na tabela ' + table;
+                    if (typeof successCallback === 'function') {
+                        successCallback(success, message);
+                    }
                 }
             }, function (tx, error) {
+                // Erro ao executar a consulta SQL de verificação
                 var success = false;
-                var message = 'Erro ao editar registro: ' + error.message;
+                var message = 'Erro ao verificar existência do registro: ' + error.message;
                 if (typeof successCallback === 'function') {
                     successCallback(success, message);
                 }
             });
         });
+
     }
 }
 
