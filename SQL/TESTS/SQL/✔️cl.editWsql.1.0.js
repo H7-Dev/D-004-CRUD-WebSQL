@@ -51,28 +51,28 @@ class editInWsql {
     }
 }
 
-const tabelax = 'tbPessoas';
-const registro = {
-    idPessoas: 'id',
-    c_nome: 'Bruna x7',
-    c_email: 'bruna.jay@email.com',
-    c_date: '2000-01-01',
-    c_pais: 'Brasil',
-    c_sexo: 'F',
-    c_dt: '07/03/2023',
-    c_dtMod: '07/03/2023 09:49:16',
-};
-const campos = ['c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo', 'c_dt', 'c_dtMod'];
-const campoUnico = 'c_email';
-const idColumn = 'idPessoas';
+// const tabelax = 'tbPessoas';
+// const registro = {
+//     idPessoas: 'id',
+//     c_nome: 'Bruna x7',
+//     c_email: 'bruna.jay@email.com',
+//     c_date: '2000-01-01',
+//     c_pais: 'Brasil',
+//     c_sexo: 'F',
+//     c_dt: '07/03/2023',
+//     c_dtMod: '07/03/2023 09:49:16',
+// };
+// const campos = ['c_nome', 'c_email', 'c_date', 'c_pais', 'c_sexo', 'c_dt', 'c_dtMod'];
+// const campoUnico = 'c_email';
+// const idColumn = 'idPessoas';
 
-editInWsql.editRecord(db, tabelax, registro, campos, function (success, message, idValue) {
-    if (success) {
-        console.log(message);
-        alert(message)
-        // console.log('ID do
-    } else {
-        console.error(message);
-        alert(message);
-    }
-}, campoUnico);
+// editInWsql.editRecord(db, tabelax, registro, campos, function (success, message, idValue) {
+//     if (success) {
+//         console.log(message);
+//         alert(message)
+//         // console.log('ID do
+//     } else {
+//         console.error(message);
+//         alert(message);
+//     }
+// }, campoUnico);

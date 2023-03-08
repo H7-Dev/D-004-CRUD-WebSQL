@@ -284,3 +284,19 @@ btnAciton.forEach(function (button) {
         });
     })
 })
+
+
+// REVIEW - #B-003 evento click para linha (tr) criada de forma dinâmica
+// !IMPORTANT  implementar evento click para cada linha criada após o carregamento do DOM
+//  LINK - (RESOLVIDO) ASSETS\GITHUB\DOCS\#B-003 REVIEW.md
+const tabelaCLICK = document.querySelector('table tbody');
+
+tabelaCLICK.addEventListener('click', (event) => {
+  const linha = event.target.closest('tr');
+
+  if (linha) {
+    console.log(linha)
+    console.log(linha.cells[0].textContent);
+    console.log("Sucesso");
+  }
+})
