@@ -1,7 +1,8 @@
-class TabelaPessoas {
+class lerTabela {
     constructor(db) {
         this.db = db;
-        this.tbody = document.querySelector('.tbody');
+        this.tbody = document.querySelector('body > div.crud > div.main > div > main > div > table > tbody');
+        this.spTotal = document.querySelector('body > div.crud > div.main > div > footer > span.spTotal');
     }
 
     exibirDados() {
@@ -13,7 +14,6 @@ class TabelaPessoas {
                 let html = '';
                 for (let i = 0; i < resultado.rows.length; i++) {
                     const row = resultado.rows.item(i);
-                    // console.log(row);
 
                     const idade = this.calcularIdade(row.c_date)
                     // const dt = this.converterDataUStoBr(row.c_dt)
@@ -33,6 +33,8 @@ class TabelaPessoas {
                       <td>${dtMod}</td>
                     </tr>`;
                 }
+                let totalRegistros = resultado.rows.length +' registros encontrados'
+                this.spTotal.innerHTML =totalRegistros
                 this.tbody.innerHTML = html;
             });
         });
@@ -75,13 +77,8 @@ class TabelaPessoas {
                 novaData += partes[3] + ':' + partes[4] + ':' + partes[5];
             }
         }
-
         return novaData;
     }
-
-
-
-
 }
-const tabela = new TabelaPessoas(db);
+const tabela = new lerTabela(db);
 tabela.exibirDados();
