@@ -19,6 +19,99 @@ html {
   scroll-behavior: smooth;
 }
 
+aside {
+  background-color: #F8F8F8;
+  min-width: 250px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 0.2fr 1fr 0.2fr;
+}
+aside > div.header {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+aside > div.header > div.logo {
+  background-size: cover;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+}
+aside > div.header > span.titulo {
+  color: crimson;
+  font-size: 1rem;
+  font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  letter-spacing: normal;
+  font-weight: normal;
+}
+aside > div.body {
+  padding: 10px;
+  display: grid;
+  gap: 15px;
+  align-items: start;
+  grid-template-rows: auto auto auto 0.8fr auto auto auto 1fr;
+  justify-items: center;
+}
+aside > div.body > span {
+  color: darkblue;
+  font-size: 0.8rem;
+  font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
+  letter-spacing: normal;
+  font-weight: normal;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-align: left;
+  width: 100%;
+  padding: 0 0px 0 15px;
+}
+aside > div.body > button {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px 10px;
+  min-width: 60%;
+  max-width: 60%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: min-content 1fr;
+  outline: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  align-items: center;
+}
+aside > div.body > button.active-001 > svg {
+  fill: crimson;
+}
+aside > div.body > button.active-001 > span.titulo {
+  color: crimson;
+  font-size: 1rem;
+  font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  letter-spacing: normal;
+  font-weight: normal;
+  text-align: left;
+}
+aside > div.body > button:hover > svg {
+  fill: crimson;
+}
+aside > div.body > button:hover > span.titulo {
+  color: crimson;
+  font-size: 1rem;
+  font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  letter-spacing: normal;
+  font-weight: normal;
+  text-align: left;
+}
+aside > div.body > button > svg {
+  fill: #003C8C;
+}
+aside > div.body > button > span.titulo {
+  color: #003C8C;
+  font-size: 1rem;
+  font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+  letter-spacing: normal;
+  font-weight: normal;
+  text-align: left;
+}
+
 body {
   background-color: red;
   padding: 4px;
