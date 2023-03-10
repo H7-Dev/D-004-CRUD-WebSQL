@@ -2,16 +2,6 @@
   aside {
     min-width: 50px;
     max-width: 50px;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 0.2fr 1fr 0.2fr;
-  }
-  aside > div.header {
-    display: grid;
-    gap: 10px;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
   }
   aside > div.header:hover span.titulo {
     display: grid;
@@ -24,7 +14,6 @@
     white-space: pre;
   }
   aside > div.header > div.logo {
-    background-size: cover;
     background-position: center;
     height: 20px;
     width: 20px;
@@ -41,14 +30,6 @@
     justify-items: center;
   }
   aside > div.body > span {
-    color: darkblue;
-    font-size: 0.8rem;
-    font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
-    letter-spacing: normal;
-    font-weight: normal;
-    border: 1px solid rgba(0, 0, 0, 0);
-    text-align: left;
-    width: 100%;
     padding: 0 0px 0 15px;
     display: none;
   }
@@ -59,11 +40,7 @@
     display: grid;
     gap: 0px;
     grid-template-columns: 1fr;
-    outline: 1px solid rgba(0, 0, 0, 0);
-    border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 4px;
-    align-items: center;
-    text-decoration: none;
     position: relative;
   }
   aside > div.body > a:hover > svg {
@@ -73,10 +50,6 @@
     color: #003C8C;
     font-size: 0.85rem;
     font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
-    letter-spacing: normal;
-    font-weight: normal;
-    text-align: left;
-    /* display: none; */
     position: absolute;
     background: #fff;
     left: 50px;
