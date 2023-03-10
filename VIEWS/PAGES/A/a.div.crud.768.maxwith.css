@@ -31,7 +31,8 @@
   div.crud > nav {
     display: grid;
     gap: 14px;
-    grid-template-columns: auto auto auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-auto-flow: column;
     align-content: center;
     align-items: center;
@@ -40,6 +41,7 @@
   div.crud > nav > span.spTodos,
   div.crud > nav span.spMasculino,
   div.crud > nav span.spFemenino {
+    grid-row-start: 1;
     color: crimson;
     font-size: 1rem;
     font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
@@ -48,6 +50,7 @@
     border-bottom: 2px solid #003C8C;
   }
   div.crud > nav > label.in_serch {
+    grid-row-start: 2;
     background-color: #F0F0F0;
     background-color: rgba(0, 0, 0, 0.0117647059);
     padding: 4px 6px;
@@ -106,6 +109,7 @@
   div.crud > nav > label.in_marcador,
   div.crud > nav .in_assoc,
   div.crud > nav .in_temas {
+    grid-row-start: 2;
     background-color: rgba(0, 0, 0, 0);
     padding: 4px 6px;
     height: fit-content;
@@ -374,6 +378,7 @@
   div.crud > nav > label.in_marcador > button.btnFavorito,
   div.crud > nav .in_assoc > button.btnFavorito,
   div.crud > nav .in_temas > button.btnFavorito {
+    grid-row-start: 2;
     background-color: inherit;
     padding: 4px;
     width: fit-content;
@@ -406,6 +411,7 @@
     fill: #003C8C;
   }
   div.crud > nav > button.btnPesquisar {
+    grid-row-start: 2;
     background-color: #fff;
     padding: 5px 10px;
     height: fit-content;
@@ -442,6 +448,7 @@
   }
   div.crud > nav > button.btnLimparFiltro,
   div.crud > nav > button.btnMaisFiltros {
+    grid-row-start: 2;
     background-color: #fff;
     padding: 4px 7px;
     height: fit-content;
@@ -492,12 +499,12 @@
   }
   div.crud > div.main > .tbBaralhos {
     height: 80%;
-    display: none;
+    width: 125%;
+    display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
-    align-self: center;
-    justify-self: center;
     overflow: hidden;
+    scale: 0.85;
   }
   div.crud > div.main > .tbBaralhos > header {
     background-color: lightgray;
@@ -513,7 +520,7 @@
   div.crud > div.main > .tbBaralhos > header > .btnAdd {
     height: min-content;
     width: max-content;
-    padding: 15px;
+    padding: 5px;
     display: grid;
     border: none;
     outline: 0;
@@ -530,11 +537,11 @@
   }
   div.crud > div.main > .tbBaralhos > header > .btnAdd > svg {
     fill: #003c8c;
-    height: 21px;
+    height: 14px;
   }
   div.crud > div.main > .tbBaralhos > header > .sp_tituloTable {
     color: tomato;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     justify-self: center;
   }
   div.crud > div.main > .tbBaralhos > main {
@@ -556,8 +563,8 @@
     background: rgb(235, 235, 235);
   }
   div.crud > div.main > .tbBaralhos > main > .containerTable::-webkit-scrollbar-thumb {
-    background-color: #fff;
-    border: 1px solid rgb(235, 235, 235);
+    background-color: #f0f0f0;
+    border: 1px solid rgb(200, 200, 200);
   }
   div.crud > div.main > .tbBaralhos > main > .containerTable > table {
     /* Not required only for visualizing */
@@ -594,7 +601,7 @@
   div.crud > div.main > .tbBaralhos > main > .containerTable > table > thead > tr > th {
     color: #707277;
     color: #003c8c;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-family: "OpenSansRegular", "Segoe UI", sans-serif;
     text-align: left;
     background-color: #fff;
@@ -639,7 +646,7 @@
   }
   div.crud > div.main > .tbBaralhos > main > .containerTable > table > tbody {
     color: #707277;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-family: "OpenSansRegular", "Segoe UI", sans-serif;
   }
   div.crud > div.main > .tbBaralhos > main > .containerTable > table > tbody > tr {
@@ -656,7 +663,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 120px;
   }
   div.crud > div.main > .tbBaralhos > main > .containerTable > table > tbody > tr > td.tdFavorito {
     padding: 15px 10px;
@@ -733,6 +740,7 @@
     white-space: nowrap;
   }
   div.crud > div.main > .tbBaralhos > footer {
+    display: none !important;
     background-color: #FFF;
     padding: 4px;
     display: grid;
