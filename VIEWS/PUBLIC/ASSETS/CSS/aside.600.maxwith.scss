@@ -1,0 +1,158 @@
+@media (max-width: 768px) {
+    aside {
+        // background-color: lightcoral;
+        min-width: 50px;
+        max-width: 50px;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: .2fr 1fr .2fr;
+
+        >div.header {
+            display: grid;
+            gap: 10px;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+
+            >&:hover {
+                span.titulo {
+
+                    display: grid;
+                    background: #fff;
+                    position: absolute;
+                    left: 50px;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    box-shadow: 0px 1px 1px 1px rgba(0, 60, 140, 0.15);
+                    white-space: pre;
+                }
+            }
+
+            >div.logo {
+                background-size: cover;
+                background-position: center;
+                height: 20px;
+                width: 20px;
+            }
+
+            >span.titulo {
+                display: none;
+            }
+        }
+
+        >div.body {
+            padding: 4px;
+            display: grid;
+            gap: 15px;
+            align-items: start;
+            grid-template-rows: auto auto auto 0.8fr auto auto auto 1fr;
+            justify-items: center;
+
+            >span {
+                color: darkblue;
+                font-size: 0.8rem;
+                font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
+                letter-spacing: normal;
+                font-weight: normal;
+                border: 1px solid #0000;
+                text-align: left;
+                width: 100%;
+                padding: 0 0px 0 15px;
+
+                display: none; // temp
+            }
+
+
+            >a {
+                padding: 5px;
+                min-width: 80%;
+                max-width: 80%;
+                display: grid;
+                gap: 0px;
+                grid-template-columns: 1fr;
+                outline: 1px solid rgba(0, 0, 0, 0);
+                border: 1px solid rgba(0, 0, 0, 0);
+                border-radius: 4px;
+                align-items: center;
+                text-decoration: none;
+
+                position: relative;
+
+                >&:hover {
+                    // background-color: crimson;
+
+                    >svg {
+                        fill: crimson;
+                    }
+
+                    >span.titulo {
+                        color: #003C8C;
+                        font-size: 0.85rem;
+                        font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                        letter-spacing: normal;
+                        font-weight: normal;
+                        text-align: left;
+                        /* display: none; */
+                        position: absolute;
+                        background: #fff;
+                        left: 50px;
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                        box-shadow: 0px 1px 1px 1px rgba(0, 60, 140, 0.15);
+                        white-space: pre;
+                        display: grid;
+                    }
+                }
+
+
+                >&.active-001 {
+
+                    &:hover {
+                        >span.titulo {
+                            color: crimson;
+                            font-size: 0.85rem;
+                            font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                            letter-spacing: normal;
+                            font-weight: normal;
+                            text-align: left;
+                            /* display: none; */
+                            position: absolute;
+                            background: #fff;
+                            left: 50px;
+                            padding: 4px 8px;
+                            border-radius: 4px;
+                            box-shadow: 0px 1px 1px 1px rgba(0, 60, 140, 0.15);
+                            white-space: pre;
+                            display: grid;
+                        }
+                    }
+
+                    // background-color: red;
+                    >svg {
+                        fill: crimson;
+                    }
+
+
+                }
+
+
+                >svg {
+                    fill: #003C8C;
+                }
+
+                >span.titulo {
+                    color: #003C8C;
+                    font-size: 1rem;
+                    font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+                    letter-spacing: normal;
+                    font-weight: normal;
+                    // border-bottom: 2px solid #003C8C;
+                    text-align: left;
+                    display: none; // tempo
+
+                }
+            }
+        }
+    }
+}

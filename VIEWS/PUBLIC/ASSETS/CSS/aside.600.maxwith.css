@@ -1,0 +1,121 @@
+@media (max-width: 768px) {
+  aside {
+    min-width: 50px;
+    max-width: 50px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 0.2fr 1fr 0.2fr;
+  }
+  aside > div.header {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+  }
+  aside > div.header:hover span.titulo {
+    display: grid;
+    background: #fff;
+    position: absolute;
+    left: 50px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px 1px rgba(0, 60, 140, 0.15);
+    white-space: pre;
+  }
+  aside > div.header > div.logo {
+    background-size: cover;
+    background-position: center;
+    height: 20px;
+    width: 20px;
+  }
+  aside > div.header > span.titulo {
+    display: none;
+  }
+  aside > div.body {
+    padding: 4px;
+    display: grid;
+    gap: 15px;
+    align-items: start;
+    grid-template-rows: auto auto auto 0.8fr auto auto auto 1fr;
+    justify-items: center;
+  }
+  aside > div.body > span {
+    color: darkblue;
+    font-size: 0.8rem;
+    font-family: "OpenSansSemiBold", "Segoe UI", sans-serif;
+    letter-spacing: normal;
+    font-weight: normal;
+    border: 1px solid rgba(0, 0, 0, 0);
+    text-align: left;
+    width: 100%;
+    padding: 0 0px 0 15px;
+    display: none;
+  }
+  aside > div.body > a {
+    padding: 5px;
+    min-width: 80%;
+    max-width: 80%;
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 1fr;
+    outline: 1px solid rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+  }
+  aside > div.body > a:hover > svg {
+    fill: crimson;
+  }
+  aside > div.body > a:hover > span.titulo {
+    color: #003C8C;
+    font-size: 0.85rem;
+    font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+    letter-spacing: normal;
+    font-weight: normal;
+    text-align: left;
+    /* display: none; */
+    position: absolute;
+    background: #fff;
+    left: 50px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px 1px rgba(0, 60, 140, 0.15);
+    white-space: pre;
+    display: grid;
+  }
+  aside > div.body > a.active-001:hover > span.titulo {
+    color: crimson;
+    font-size: 0.85rem;
+    font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+    letter-spacing: normal;
+    font-weight: normal;
+    text-align: left;
+    /* display: none; */
+    position: absolute;
+    background: #fff;
+    left: 50px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px 1px rgba(0, 60, 140, 0.15);
+    white-space: pre;
+    display: grid;
+  }
+  aside > div.body > a.active-001 > svg {
+    fill: crimson;
+  }
+  aside > div.body > a > svg {
+    fill: #003C8C;
+  }
+  aside > div.body > a > span.titulo {
+    color: #003C8C;
+    font-size: 1rem;
+    font-family: "JosefinSansRegular", "OpenSansSemiBold", "Segoe UI", sans-serif;
+    letter-spacing: normal;
+    font-weight: normal;
+    text-align: left;
+    display: none;
+  }
+}/*# sourceMappingURL=aside.600.maxwith.css.map */
